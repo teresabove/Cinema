@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <div class="card">
+            <div class="card-body">
+                <h4>Area Film</h4>
+            </div>
+        </div>
+        <ul class="list-unstyled" >
+            <li class="media" *ngFor="let film of films">
+                <img class="mr-3" src="..." alt="Film Image">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
+                    <p> TRAMA: {{film.trama}}</p>
+                    <button type="button" class="btn btn-primary" (click)="getDetails(film.titolo)">Dettagli</button>
+                </div>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary" (click)="goHome()">Home</button>
+    </body>
+</html>

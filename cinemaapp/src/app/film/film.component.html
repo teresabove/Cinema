@@ -1,0 +1,22 @@
+<html>
+    <head></head>
+    <body>
+        <br>
+        <br>
+        <div class="card">
+            <div class="card-body" >
+                <div class="alert alert-danger" role="alert">
+                    VISUALIZZA FILM
+                </div>
+                <p> TITOLO: {{film.titolo}}</p>
+                <p> REGISTA: {{film.regista}}</p>
+                <p> ANNO DI PRODUZIONE: {{film.anno}}</p>
+                <p> CAST: {{film.a_cast}}</p>
+                <p> GENERI: {{film.a_generi}}</p>
+                <p> CASA DI PRODUZIONE: {{film.casaproduzione}}</p>
+                <p> TRAMA: {{film.trama}}</p>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="gotoHome()">Home</button>
+    </body>
+</html>

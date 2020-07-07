@@ -1,0 +1,6 @@
+.card-body{
+    min-height: 200 px;
+    min-width: 200 px;
+    background-color: whitesmoke;
+    text-align: left;
+}

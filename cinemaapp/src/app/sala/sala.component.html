@@ -1,0 +1,27 @@
+<html>
+    <div class="card">
+        <div class="card-body">
+            MAPPA DELLA SALA {{nomeschema}}
+            <div class="card">
+                <div class="card-body">
+                    <div id="container">
+                        <ul class="list-unstyled" >
+                            <li class="media" *ngFor="let posto of posti">
+                                <div *ngIf="posto.occupato == false; else postoOccupato">
+                                    <p> <img src="assets/poltroncina.png" alt="poltroncina" id="postol"  (click)="Seleziona(posto)"></p>
+
+                                </div>
+                                <ng-template #postoOccupato>
+                                    <p><img src="assets/poltroncina.png" alt="poltroncina" id="postoo" ></p> 
+                                </ng-template>
+                            </li>   
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<button type="button" class="btn btn-primary" (click)="gotoBiglietto()">Conferma</button>
+
+</html>

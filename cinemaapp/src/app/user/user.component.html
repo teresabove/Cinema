@@ -1,0 +1,31 @@
+<html>
+    <br><br>
+     <p>{{title}}</p>
+    <br>
+<div>
+    <div class="card">
+  <div class="card-body">
+
+  <form [formGroup]="authForm" (ngSubmit)= "signIn()">
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+      <input type="email" placeholder="Email" formControlName="email">
+    </p>
+    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+      <div *ngIf="formControls.email.errors.required">Email is required</div>
+    </div>
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+      <input type="password" placeholder="Password" formControlName="password">
+    </p>
+    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+      <div *ngIf="formControls.password.errors.required">Password is required</div>
+    </div>
+    <p>
+      <input type="button" value="Sign in" (click)="signIn()"> &nbsp;
+      <input type="button" value="Sign up" (click)="signUp()" > &nbsp;
+      <input type="button" value="Home" (click)="toHome()" > &nbsp;
+    </p>
+  </form>
+      </div>
+</div>
+</div>
+</html>

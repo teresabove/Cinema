@@ -1,0 +1,32 @@
+#griglia {
+padding: 0;
+margin: 0;
+}
+
+#griglia > li {
+
+display: inline-block;
+width: 17.99px;
+height: 17.99px;
+margin: 10px;
+
+}
+
+#container {
+background: #e3e3e3;
+max-width:850px;
+margin:0 auto;
+padding: 20px;
+text-align: center;
+}
+
+#postol{
+    background: lightblue;
+}
+
+#postoo{
+    background: red;
+}
+
+
+

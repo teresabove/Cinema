@@ -1,0 +1,42 @@
+<html>
+    <div class="card">
+        <div class="card-body">
+            <h3>Acquisto biglietti</h3>
+            <p>Scegli il tipo di biglietto:</p>
+
+
+            <p>-Full: Riservato allo spettatore con età compresa tra i 15 e 60 anni; COSTO 6.00 €</p>
+            <p>-Young: Riservato allo spettatore con età compresa tra i 0 e 15 anni; COSTO 5.00 €</p>
+            <p>-Senior: Riservato allo spettatore con età maggiore di 60 anni; COSTO 5.00 €</p>
+
+            <li class="media" *ngFor="let posto of posti">               
+                <p> Numero fila: {{posto.fila}} </p>
+                <p> Numero posto: {{posto.numero}}</p>
+                <select class="custom-select custom-select-sm" (change)="Scegli($event)">
+                    <option selected>Tipologia</option>
+                    <option value="full">Full</option>
+                    <option value="young">Young</option>
+                    <option value="senior">Senior</option>
+                </select>           
+            </li>
+        </div>
+    </div>
+
+   
+<button class="btn btn-lg btn-outline-primary" (click)="Apri(mymodal)">Conferma</button>
+   
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Acquista</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     Cosa hai acquistato: {{importo}}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
+</html>
