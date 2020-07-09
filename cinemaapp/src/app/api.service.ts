@@ -8,6 +8,7 @@ import {guest} from './Models/guest.model';
 import {mappa} from './Models/mappa.model';
 import {profilo} from './Models/profilo.model';
 import {posto} from './Models/posto.model';
+import {proiezione} from './Models/proiezione.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import {posto} from './Models/posto.model';
 export class ApiService {
      public films: Array<film>= new Array();
      public filmsbygen: Array<film> = new Array();
-     
+     public proiezioni: Array<proiezione> = new Array();
    constructor(private httpClient: HttpClient, private router: Router) { }
    
     postGuest(guest: any): Observable<guest>{
@@ -86,6 +87,21 @@ export class ApiService {
      .pipe(
      map(res=> new mappa(res)));  
     }
+    
+     getProiezionebytitolo(titolo: string): Observable<proiezione[]>{
+     const headers = {'content-type': 'application/json'};
+     //let titolo =localStorage.getItem('titolo');
+     return this.httpClient.get<proiezione[]>('http://localhost/progetto/cinema/public/index.php/api/proiezione/'+titolo,{'headers': headers})
+     .pipe(
+     map(res=> this.proiezioni=res));   
+    }
+    
+    getProiezioni(): Observable<proiezione[]>{
+        const headers = {'content-type': 'application/json'};
+        return this.httpClient.get<proiezione[]>('http://localhost/progetto/cinema/public/index.php/api/proiezione/all',{'headers': headers})
+        .pipe(
+        map(res=> this.proiezioni= res));
+        }
 
 }
     

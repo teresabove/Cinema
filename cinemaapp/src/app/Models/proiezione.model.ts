@@ -7,13 +7,24 @@
 export class proiezione{
     public film: string ="";
     public sala: string ="";
-    public giorno: Date;
-    public orario: Date;
+    public giorno: string = "";
+    public orario: string="";
     public mappaproiezione: mappa= new mappa();
     public tipo: any;
     
      constructor(obj?: any) {
         this.setObj(obj);
+    }
+    
+           setObj(obj?: any) {
+        if (obj) {
+            this.film = obj.film || this.film;
+            this.sala = obj.sala || this.sala;
+            this.giorno = obj.giorno || this.giorno;
+            this.orario = obj.orario || this.orario;
+            this.mappaproiezione= obj.mappaproiezione || this.mappaproiezione;
+            this.tipo= obj.tipo || this.tipo;
+         }
     }
     
      

@@ -17,8 +17,9 @@ import { BigliettoComponent } from './biglietto/biglietto.component';
 import { AcquistoComponent } from './acquisto/acquisto.component';
 import { ProiezioniComponent } from './proiezioni/proiezioni.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-        
-  @NgModule({
+import { ProiezioneComponent } from './proiezione/proiezione.component';
+     
+           @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
@@ -29,7 +30,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SalaComponent,
     BigliettoComponent,
     AcquistoComponent,
-    ProiezioniComponent
+    ProiezioniComponent,
+    ProiezioneComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     JwtModule,
     StorageServiceModule,
-    NgbModule
+    NgbModule   
   ],
   providers: [],
   

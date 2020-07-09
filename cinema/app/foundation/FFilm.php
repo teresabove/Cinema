@@ -32,7 +32,7 @@ class FFilm extends fdb {
     public function store($film) {
         if (Fdb::store($film)) {
             $query = 'UPDATE film SET a_generi=\'' . $this->convert_to_string($film->get_generi()) . '\', a_cast=\'' . $this->convert_to_string($film->get_cast()) . '\' WHERE titolo=\'' . $film->get_titolo() . '\';';
-            debug($this->query($query));
+            //debug($this->query($query));
             return $this->query($query);
         }
     }

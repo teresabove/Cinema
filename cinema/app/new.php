@@ -13,6 +13,7 @@ require_once ROOT_DIR.'\app\entity\EMappa.php';
 require_once ROOT_DIR.'\app\foundation\FMappa.php';
 require_once ROOT_DIR.'\app\entity\EProiezione.php';
 require_once ROOT_DIR.'\app\foundation\FSala.php';
+require_once ROOT_DIR.'\app\entity\EProiezione.php';
 
 $servername = "localhost";
 $username = "root";
@@ -28,9 +29,12 @@ if ($conn->connect_error) {
 $numero_posti=2;
 $numero_file=3;
 $mappa= new EMappa();
-$mappa->costruttore($numero_posti, $numero_file,'schema_sala_blu');
-print_r($mappa);
+//$mappa->costruttore($numero_posti, $numero_file,'schema_sala_blu');
+//print_r($mappa);
 
+$p= new EProiezione();
+$p->set_film('cicci');
+print_r($p);
 
 
 

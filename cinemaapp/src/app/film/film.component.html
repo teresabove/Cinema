@@ -17,6 +17,7 @@
                 <p> TRAMA: {{film.trama}}</p>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="gotoHome()">Home</button>
+        <button type="button" class="btn btn-primary" (click)="gotoHome()">Home</button> &nbsp; &nbsp;
+        <button type="button" class="btn btn-primary" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
     </body>
 </html>

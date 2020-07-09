@@ -27,6 +27,10 @@ export class FilmsComponent implements OnInit {
       console.log(titolo);
       this.router.navigate(['/film']/*{state: {data: {titolo: this.film.titolo}}}*/);
   }
+  getProiezioni(titolo: string){
+      console.log(titolo);
+      this.router.navigate(['/spettacoli']/*{state: {data: {titolo: this.film.titolo}}}*/);
+  }
   
   goHome(){
       this.router.navigate(['/home']);

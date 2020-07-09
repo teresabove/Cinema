@@ -1,18 +1,18 @@
 <html>
-    <a routerLinkActive="active" routerLink="/areaspettacoli"></a>
     <div class="card">
         <div class="card-body">
-            Spettacoli
-            In questa sezione trovi tutti i spettacoli del cinema, film per film.
-            <br> <br>
+            <div class="card">
+                <div class="card-body">
+                    I spettacoli del film </div>
+            </div>
             <div *ngIf="proiezioni.length > 0">
                 <ul class="list-unstyled" >   
                     <li class="media" *ngFor="let proiezione of proiezioni">
                         <img class="mr-3" src="..." alt="Film Image">
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1">TITOLO: {{proiezione.film}}</h5>
+
                             <p> giorno: {{proiezione.giorno}}</p>
-                            <p> data: {{proiezione.orario}}</p>
+                            <p> ora: {{proiezione.orario}}</p>
                             <p> sala: {{proiezione.sala}}</p>
                             <button type="button" class="btn btn-primary" (click)="Verifica()">Verifica posto</button>
                         </div>

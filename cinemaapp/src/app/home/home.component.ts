@@ -16,9 +16,7 @@ export class HomeComponent implements OnInit {
               public router: Router) { }
     
   ngOnInit(): void {
-      $(document).ready(function(){
-          alert(" la versione di jquery attuale è "+$().jquery);
-      });
+      
   }
   
   

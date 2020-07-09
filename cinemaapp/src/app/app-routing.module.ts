@@ -9,6 +9,8 @@ import { ResearchComponent } from './research/research.component';
 import { SalaComponent } from './sala/sala.component';
 import { BigliettoComponent } from './biglietto/biglietto.component';
 import { AcquistoComponent } from './acquisto/acquisto.component';
+import { ProiezioniComponent } from './proiezioni/proiezioni.component';
+import { ProiezioneComponent } from './proiezione/proiezione.component';
 const routes: Routes = [
      { path: 'home', component: HomeComponent }, 
      { path: 'user', component: UserComponent },
@@ -19,7 +21,9 @@ const routes: Routes = [
      { path: 'search', component: ResearchComponent},
      { path: 'sala', component: SalaComponent},
      { path: 'biglietto', component: BigliettoComponent},
-     { path: 'acquisto', component: AcquistoComponent}
+     { path: 'acquisto', component: AcquistoComponent},
+     { path: 'areaspettacoli', component: ProiezioniComponent},
+     { path: 'spettacoli/:titolo', component: ProiezioneComponent}
 ];
 
 @NgModule({
