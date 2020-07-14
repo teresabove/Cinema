@@ -9,6 +9,7 @@ import {mappa} from './Models/mappa.model';
 import {profilo} from './Models/profilo.model';
 import {posto} from './Models/posto.model';
 import {proiezione} from './Models/proiezione.model';
+import {sala} from './Models/sala.model';
 
 @Injectable({
   providedIn: 'root'
@@ -81,16 +82,15 @@ export class ApiService {
     return this.httpClient.get<film[]>('http://localhost/progetto/cinema/public/index.php/api/film/cast/+'+attore, {'headers': headers});
     }
     
-    getSalaattribute(nomeschema: string): Observable<mappa>{
+    getSalaattribute(nomesala: string): Observable<sala>{
      const headers = {'content-type': 'application/json'};
-     return this.httpClient.get<mappa>('http://localhost/progetto/cinema/public/index.php/api/mappa/'+nomeschema,{'headers': headers})
+     return this.httpClient.get<mappa>('http://localhost/progetto/cinema/public/index.php/api/sala/'+nomesala,{'headers': headers})
      .pipe(
-     map(res=> new mappa(res)));  
+     map(res=> new sala(res)));  
     }
     
      getProiezionebytitolo(titolo: string): Observable<proiezione[]>{
      const headers = {'content-type': 'application/json'};
-     //let titolo =localStorage.getItem('titolo');
      return this.httpClient.get<proiezione[]>('http://localhost/progetto/cinema/public/index.php/api/proiezione/'+titolo,{'headers': headers})
      .pipe(
      map(res=> this.proiezioni=res));   

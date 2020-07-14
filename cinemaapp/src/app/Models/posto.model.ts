@@ -15,8 +15,8 @@
      
             setObj(obj?: any) {
             if (obj) {
-            this.fila= (typeof obj.numero_file === "number") ? obj.fila : this.fila;
-            this.numero = (typeof obj.numero_file === "number") ? obj.numero : this.numero;
+            this.fila= obj.fila || this.fila;
+            this.numero = obj.numero || this.numero;
             this.occupato = obj.occupato || this.occupato;
          }
     }

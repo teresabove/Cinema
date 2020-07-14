@@ -5,12 +5,14 @@ class ESala {
       public $nomesala;
       public $numeroposti;
       public $nomeschema;
+      public $numerofile;
       
       public function __construct (){}
-      public function costruttore (string $name, int $nr, string $nm){
-             $this->set_nome($name);
+      public function costruttore (string $ns, int $nr, string $nm, int $nf){
+             $this->set_nome($ns);
              $this->set_nr_posti($nr);
              $this->set_nomeschema($nm);
+             $this->set_numerofile($nf);
       }
              
       public function save(){
@@ -32,6 +34,8 @@ class ESala {
       public function set_nr_posti(int $valore){$this->numeroposti=$valore;}
       public function get_nomeschema(){return $this->nomeschema;}
       public function set_nomeschema(string $valore){$this->nomeschema=$valore;}
+      public function get_numerofile(){return $this->numerofile;}
+      public function set_numerofile(int $nf){$this->numerofile=$nf;}
 }
 
 ?>

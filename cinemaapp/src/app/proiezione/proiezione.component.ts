@@ -29,7 +29,8 @@ export class ProiezioneComponent implements OnInit {
   });
   }
   
-         Verifica(){
+         Verifica(proiezione: proiezione){
+             localStorage.setItem('proiezione', JSON.stringify(proiezione));
             this.router.navigate(['/sala']);
        }
   

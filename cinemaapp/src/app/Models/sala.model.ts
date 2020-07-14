@@ -6,7 +6,9 @@
  
  export class sala{
      public nomesala: string="";
-     public numeroposti: number=0;
+     public numeroposti: number;
+     public numerofile: number;
+     public nomeschema: string ="";
      
       constructor(obj?: any) {
         this.setObj(obj);
@@ -15,7 +17,11 @@
     setObj(obj?: any) {
         if (obj) {
             this.nomesala= obj.nomesala || this.nomesala;
-            this.numeroposti = (typeof obj.numeroposti === "number") ? obj.numeroposti : this.numeroposti;
+            this.nomeschema= obj.nomeschema || this.nomeschema;
+            this.numerofile= obj.numerofile || this.numerofile;
+            this.numeroposti= obj.numeroposti || this.numeroposti;
+            //this.numeroposti = (typeof obj.numeroposti === "number") ? obj.numeroposti : this.numeroposti;
+            //this.numerofile = (typeof obj.numerofile === "number") ? obj.numerofile : this.numerofile;
             
          }
  }
