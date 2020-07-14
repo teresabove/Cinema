@@ -5,22 +5,21 @@
             <div class="card">
                 <div class="card-body">
                     <div id="container">
-                        <ul class="list-unstyled" *ngFor="let posto of mappa.matrice; index as i" >
-                            <li [attr.data-index]="i">
-                                <div *ngIf="posto.occupato == false; else postoOccupato">
-                                    <p> <img src="assets/poltroncina.png" alt="poltroncina" id="postol"  (click)="Seleziona(posto)"></p>
+                        <table>
+                            <tr class="list-unstyled" *ngFor="let posto of mappa.matrice; index as i ">                               
+                                <div *ngIf="i < r; else other_content">
+                                    <td> {{i}} {{posto}}</td>
                                 </div>
-                            <ng-template #postoOccupato>
-                                <p><img src="assets/poltroncina.png" alt="poltroncina" id="postoo" ></p> 
-                            </ng-template>                   
-                            </li>
-                        </ul>
-                    </div>
+                        <ng-template #other_content> <tr> {{i}} {{posto}}</tr></ng-template>   
+
+                        </tr>
+                    </table>  
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <button type="button" class="btn btn-primary" (click)="gotoBiglietto()">Conferma</button>
+<button type="button" class="btn btn-primary" (click)="gotoBiglietto()">Conferma</button>
 
 </html>

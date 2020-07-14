@@ -1,4 +1,4 @@
- import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { sala } from '../Models/sala.model'; 
 import { mappa } from '../Models/mappa.model'; 
@@ -18,6 +18,9 @@ export class SalaComponent implements OnInit {
   public posti : Array<posto> = new Array();
   public count: Array<posto> = new Array();
   public proiezione: proiezione = new proiezione();
+  public r: number = 0;
+  public c: number = 0;
+  public p: number = 0;
 
   constructor(public sApi: ApiService, public router: Router) { }
 
@@ -29,21 +32,23 @@ export class SalaComponent implements OnInit {
     this.sApi.getSalaattribute(this.proiezione.sala).subscribe(res => {
           this.sala=res;
           console.log(this.sala);
-          var rows = this.sala.numerofile; 
-          var columns = this.sala.numeroposti/ rows;         
-          console.log(rows,columns);
-           for (let i=0; i< rows; i++){
-              this.mappa.matrice[i]=[];
-              for (let j=0; j< columns; j++){
-             this.mappa.matrice[i][j]= new posto(j);
-             } 
-           }
-           console.log(this.mappa.matrice);
-         });
-            
-          }
-          
+            this.r = this.sala.numerofile;
+            this.p = this.sala.numeroposti;
+            this.c = this.p/ this.r;
+            for (let i=0; i<this.r; i++){
+              for (let j=0; j<this.c; j++){
+                var p= new posto();
+                p.fila=i;
+                p.numero=j;
+                this.mappa.matrice.push(p);  
+              }
+            }
+            console.log(this.mappa.matrice);
+       });
+    }
+                    
          
+                  
   
   Seleziona(posto){
       console.log(posto);
@@ -56,6 +61,6 @@ export class SalaComponent implements OnInit {
       this.router.navigate(['/biglietto']);
   }
   
-  }
   
+}
 

@@ -7,7 +7,7 @@
  import { posto } from './posto.model';
  export class mappa{
      public nomeschema: string = "";
-     public matrice: Array<posto>[] = new Array();
+     public matrice: Array<posto>[]= new Array();
      constructor(obj?: any) {
         this.setObj(obj);
      }

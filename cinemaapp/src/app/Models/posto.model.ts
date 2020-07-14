@@ -7,7 +7,7 @@
  export class posto{
      public fila: number;
      public numero: number;
-     public occupato: boolean;
+     public occupato: boolean = false;
      
        constructor(obj?: any) {
         this.setObj(obj);
