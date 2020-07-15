@@ -5,20 +5,21 @@
             <div class="card">
                 <div class="card-body">
                     <div id="container">
-                        <table>
-                            <tr class="list-unstyled" *ngFor="let posto of mappa.matrice; index as i ">                               
-                                <div *ngIf="i < r; else other_content">
-                                    <td> {{i}} {{posto}}</td>
-                                </div>
-                        <ng-template #other_content> <tr> {{i}} {{posto}}</tr></ng-template>   
-
-                        </tr>
-                    </table>  
-                </div>
-            </div>
+                        <table class="my-table">
+                            <tr class="month-row" *ngFor="let p of mappa.matrice; index as i">       
+                        <table class="my-table">
+                            <tr class="month-row"  >
+                                <td *ngFor="let p of mappa.matrice[i]; index as j" class=""(click)="Seleziona(p)" >
+                            <img src="assets/poltroncina.png" class="card-img-top" alt="..." ></tr>
+                    </table>            
+                    </tr>
+                </table>
+            </div>         
         </div>
     </div>
 </div>
+</div>
+
 
 <button type="button" class="btn btn-primary" (click)="gotoBiglietto()">Conferma</button>
 
