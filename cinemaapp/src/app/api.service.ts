@@ -10,6 +10,7 @@ import {profilo} from './Models/profilo.model';
 import {posto} from './Models/posto.model';
 import {proiezione} from './Models/proiezione.model';
 import {sala} from './Models/sala.model';
+import {credenziale} from './Models/credenziale.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class ApiService {
      public films: Array<film>= new Array();
      public filmsbygen: Array<film> = new Array();
      public proiezioni: Array<proiezione> = new Array();
+     public carte: Array<credenziale> = new Array();
+     
    constructor(private httpClient: HttpClient, private router: Router) { }
    
     postGuest(guest: any): Observable<guest>{
@@ -101,6 +104,13 @@ export class ApiService {
         return this.httpClient.get<proiezione[]>('http://localhost/progetto/cinema/public/index.php/api/proiezione/all',{'headers': headers})
         .pipe(
         map(res=> this.proiezioni= res));
+        }
+        
+        getCredenziale(): Observable<credenziale[]>{
+        const headers = {'content-type': 'application/json'};
+        return this.httpClient.get<credenziale[]>('http://localhost/progetto/cinema/public/index.php/api/profilo/credenziale',{'headers': headers})
+        .pipe(
+        map(res=> this.carte=res));
         }
 
 }

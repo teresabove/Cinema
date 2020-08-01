@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ApiService} from '../api.service';
 import {profilo} from '../Models/profilo.model';
+import {credenziale} from '../Models/credenziale.model';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-profilo',
@@ -10,12 +11,18 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProfiloComponent implements OnInit {
   public prof: profilo = new profilo();
+  public carte: Array<credenziale> = new Array();
   constructor(public router: Router, private sApi: ApiService, config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit(){
       this.sApi.getProfilo().subscribe(res =>{
           this.prof= res;
       });
+      this.sApi.getCredenziale().subscribe(res =>{
+         this.carte=res;         
+      });
+      
+   
   }
   
    toHome(){
@@ -31,5 +38,9 @@ export class ProfiloComponent implements OnInit {
         this.modalService.open(content);
     }
     
+    getCarte(content1){
+        this.modalService.open(content1);
+        
+    }
  
 }

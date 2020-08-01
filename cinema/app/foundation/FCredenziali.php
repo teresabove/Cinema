@@ -12,6 +12,13 @@ class FCredenziali extends Fdb
         $this->_return_class='ECredenziale';
         $this->_connection=USingleton::getInstance("Fdb")->get_connection();
     }
+    
+     public function load($key) {
+        $res = fdb::load($key);
+        return $res;
+    }
+    
+    
 
 
 

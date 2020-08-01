@@ -14,7 +14,14 @@ require_once ROOT_DIR.'\app\foundation\FFilm.php';
 require_once ROOT_DIR.'\app\foundation\FRegistrazione.php';
 require_once ROOT_DIR.'\app\entity\EUtente.php';
 require_once ROOT_DIR.'\app\entity\EProfilo.php';
+require_once ROOT_DIR.'\app\foundation\FCredenziali.php';
 
+$app->get('/api/profilo/credenziale',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
+    $f= new FCredenziali();
+    $el=$f->loadall();
+    $response=json_encode($el);
+    return $response;
+});
 
 $app->get('/api/profilo/{email}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
     $email=$args['email'];
@@ -78,6 +85,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
     return $response;
      
 });
+
 
 
 

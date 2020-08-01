@@ -51,6 +51,9 @@ signIn(){
         console.log(res);
     if (res && res.res== 'ok'){
         this.ApiS.setUser(res);
+    } else
+    if (res.res== 'ko'){
+       
     }
     });
     }

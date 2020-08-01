@@ -11,6 +11,7 @@ import { BigliettoComponent } from './biglietto/biglietto.component';
 import { AcquistoComponent } from './acquisto/acquisto.component';
 import { ProiezioniComponent } from './proiezioni/proiezioni.component';
 import { ProiezioneComponent } from './proiezione/proiezione.component';
+import { PagamentoComponent } from './pagamento/pagamento.component';
 const routes: Routes = [
      { path: 'home', component: HomeComponent }, 
      { path: 'user', component: UserComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
      { path: 'biglietto', component: BigliettoComponent},
      { path: 'acquisto', component: AcquistoComponent},
      { path: 'areaspettacoli', component: ProiezioniComponent},
-     { path: 'spettacoli/:titolo', component: ProiezioneComponent}
+     { path: 'spettacoli/:titolo', component: ProiezioneComponent},
+     { path: 'pagamento', component: PagamentoComponent},
 ];
 
 @NgModule({

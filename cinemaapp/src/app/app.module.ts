@@ -18,6 +18,7 @@ import { AcquistoComponent } from './acquisto/acquisto.component';
 import { ProiezioniComponent } from './proiezioni/proiezioni.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProiezioneComponent } from './proiezione/proiezione.component';
+import { PagamentoComponent } from './pagamento/pagamento.component';
      
            @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProiezioneComponent } from './proiezione/proiezione.component';
     BigliettoComponent,
     AcquistoComponent,
     ProiezioniComponent,
-    ProiezioneComponent
+    ProiezioneComponent,
+    PagamentoComponent
   ],
   imports: [
     BrowserModule,

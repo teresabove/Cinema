@@ -15,30 +15,49 @@
             <p class="card-text">Lista sconti: {{prof.a_listasconti}}  </p>
             <a href="#" class="btn btn-primary">Modifica profilo</a>    <br><br>
             <a href="#" class="btn btn-primary" (click)="logOut()">Log Out</a> <br> <br>
-            <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>
+            <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>  <br>  <br>
+            <button class="btn btn-lg btn-outline-primary" (click)="getCarte(content1)">Le mie carte</button>
 
-            
         </div>
     </div>
-    
+
     <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Biglietti acquistati</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Hello, World!</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
-  </div>
-</ng-template>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Biglietti acquistati</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Hello, World!</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
+        </div>
+    </ng-template>
 
+    <ng-template #content1 let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">le mie Carte</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-unstyled" >
+                <li class="media" *ngFor="let credenziale of carte">
+                    <img class="mr-3" src="assets/carte.png" alt="Film Image">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">CIRCUITO: {{credenziale.circuitocarta}}</h5>
+                        <p> SCADENZA: {{credenziale.scadenza}}</p>
+                        <p> NUMERO CARTA: {{credenziale.numerocarta}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
+        </div>
+    </ng-template>
 
-
-
-
-    
 </html>

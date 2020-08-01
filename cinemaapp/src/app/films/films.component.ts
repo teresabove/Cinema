@@ -18,7 +18,6 @@ export class FilmsComponent implements OnInit {
   getFilms(){
       this.sApi.getFilms().subscribe(res =>{
        this.films= res;
-       console.log(this.films);
        });
   }
   

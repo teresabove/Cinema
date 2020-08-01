@@ -52,6 +52,11 @@ export class AcquistoComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
+  
+  Paga(){
+      
+      this.router.navigate(['/pagamento']);
+  }
       
 
 }

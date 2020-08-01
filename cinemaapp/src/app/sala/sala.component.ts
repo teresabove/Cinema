@@ -18,7 +18,6 @@ export class SalaComponent implements OnInit {
   public posti : Array<posto> = new Array();
   public count: Array<posto> = new Array();
   public proiezione: proiezione = new proiezione();
-  //public file: Array<posto>[] = new Array();
   public r: number;
   public c: number;
   constructor(public sApi: ApiService, public router: Router) { }
@@ -50,7 +49,6 @@ export class SalaComponent implements OnInit {
          
   
   Seleziona(posto){
-      console.log(posto);
       this.count.push(posto);
       console.log(this.count);
       localStorage.setItem('posti',JSON.stringify(this.count));  
