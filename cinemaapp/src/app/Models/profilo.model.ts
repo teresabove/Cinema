@@ -13,6 +13,7 @@ export class profilo{
     public citta: string="";
     public telefono: string="";
     public a_listasconti: string="";
+    public idutente: string ="";
     
        constructor(obj?: any) {
         this.setObj(obj);
@@ -27,6 +28,7 @@ export class profilo{
             this.citta= obj.citta || this.citta;
             this.telefono= obj.telefono || this.telefono;
             this.a_listasconti= obj.a_listasconti || this.a_listasconti;
+            this.idutente = obj.idutente || this.idutente;
          }
     }
     

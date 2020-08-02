@@ -6,9 +6,6 @@
  * and open the template in the editor.
  */
 
-
-
-
 define ('ROOT_DIR', 'C:\xampp\htdocs\progetto\cinema');
 global $config;
 

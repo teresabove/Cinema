@@ -16,9 +16,10 @@ require_once ROOT_DIR.'\app\entity\EUtente.php';
 require_once ROOT_DIR.'\app\entity\EProfilo.php';
 require_once ROOT_DIR.'\app\foundation\FCredenziali.php';
 
-$app->get('/api/profilo/credenziale',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
+$app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
+    $idutente=$args['idutente'];
     $f= new FCredenziali();
-    $el=$f->loadall();
+    $el=$f->load($idutente);
     $response=json_encode($el);
     return $response;
 });

@@ -11,6 +11,7 @@ class EProfilo{
 		public $citta;
 		public $telefono;
 		public $listasconti;
+                public $idutente;
 
 public function __construct(){}
 public function costruttore2 (ECredenziale $CC, array $Sconti){
@@ -30,7 +31,7 @@ public function get_telefono (){return $this->telefono;}
 public function set_telefono(string $valore){$this->telefono=$valore;}
 public function get_listasconti(){return $this->a_listasconti;}
 public function set_listasconti (array $valore){$this->a_listasconti=$valore;}
-public function get_idregistrazione(){return $this->idregistrazione;}
-public function set_idregistrazione(string $valore){$this->idregistrazione=$valore;}
+public function get_idutente(){return $this->idutente;}
+public function set_idutente(string $valore){$this->idutente=$valore;}
 }
 ?>

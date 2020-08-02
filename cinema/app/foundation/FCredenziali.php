@@ -8,13 +8,13 @@ class FCredenziali extends Fdb
     public function __construct()
     {
         $this->_table='credenziale';
-        $this->_key='numerocarta';
+        $this->_key='idutente';
         $this->_return_class='ECredenziale';
         $this->_connection=USingleton::getInstance("Fdb")->get_connection();
     }
     
      public function load($key) {
-        $res = fdb::load($key);
+        $res = fdb::loadarray($key);
         return $res;
     }
     

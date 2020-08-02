@@ -113,6 +113,12 @@ class fdb {
         $this->query($query);
         return $this->getObject();
     }
+    
+    public function loadarray($key) {
+        $query = 'SELECT * FROM ' . $this->_table . ' WHERE ' . $this->_key . '=\'' . $key . '\'';
+        $this->query($query);
+        return $this->getObjectArray();
+    }
 
     public function loadall() {
         $query = 'SELECT * FROM ' . $this->_table;

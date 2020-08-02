@@ -79,7 +79,8 @@ export class ApiService {
     .pipe(
     map(res => this.filmsbygen = res));
     }
-     //vedere array input
+    
+    //vedere array input
     getFilmsbyCast(attore: any): Observable<film[]>{
     const headers = {'content-type': 'application/json'};
     return this.httpClient.get<film[]>('http://localhost/progetto/cinema/public/index.php/api/film/cast/+'+attore, {'headers': headers});
@@ -106,9 +107,9 @@ export class ApiService {
         map(res=> this.proiezioni= res));
         }
         
-        getCredenziale(): Observable<credenziale[]>{
+        getCredenziale(idutente: string): Observable<credenziale[]>{
         const headers = {'content-type': 'application/json'};
-        return this.httpClient.get<credenziale[]>('http://localhost/progetto/cinema/public/index.php/api/profilo/credenziale',{'headers': headers})
+        return this.httpClient.get<credenziale[]>('http://localhost/progetto/cinema/public/index.php/api/profilo/credenziale/'+idutente,{'headers': headers})
         .pipe(
         map(res=> this.carte=res));
         }
