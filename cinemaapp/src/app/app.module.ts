@@ -19,6 +19,7 @@ import { ProiezioniComponent } from './proiezioni/proiezioni.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProiezioneComponent } from './proiezione/proiezione.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
+import { authInterceptorProviders } from './interceptor';
      
            @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { PagamentoComponent } from './pagamento/pagamento.component';
     StorageServiceModule,
     NgbModule   
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   
   bootstrap: [AppComponent]
 })

@@ -15,15 +15,15 @@ export class AcquistoComponent implements OnInit {
   public posti : Array<posto> = new Array();
   public importo: number = 0;
   closeResult: string;
-  public tipo: string;
+  public tipo: string = "";
   
   ngOnInit(): void {
       var posti = JSON.parse(localStorage.getItem('posti'));
-      this.posti=posti;
-      
+      this.posti=posti;          
   }
   
   Scegli(event: any){
+      let length = this.posti.length;
       this.tipo= event.target.value;
       console.log(this.tipo);
       if (this.tipo == 'young'){
@@ -34,7 +34,9 @@ export class AcquistoComponent implements OnInit {
           this.importo= this.importo + 5;
       }
       console.log(this.importo);
+      localStorage.setItem('importo',JSON.stringify(this.importo));
     }
+    
   Apri(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -52,11 +54,10 @@ export class AcquistoComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-  
-  Paga(){
-      
-      this.router.navigate(['/pagamento']);
-  }
-      
-
+   
+ Paga(mymodal){
+     //this.modalService.close();
+     this.router.navigate(['/pagamento']);
+     
+ }
 }

@@ -48,6 +48,7 @@ export class ApiService {
         return localStorage.getItem('jwt') != null;
     }
     
+      
     getProfilo(): Observable<profilo>{
         const headers = {'content-type': 'application/json'};
         var email = JSON.parse(localStorage.getItem('email'));
@@ -93,7 +94,7 @@ export class ApiService {
      map(res=> new sala(res)));  
     }
     
-     getProiezionebytitolo(titolo: string): Observable<proiezione[]>{
+    getProiezionebytitolo(titolo: string): Observable<proiezione[]>{
      const headers = {'content-type': 'application/json'};
      return this.httpClient.get<proiezione[]>('http://localhost/progetto/cinema/public/index.php/api/proiezione/'+titolo,{'headers': headers})
      .pipe(
@@ -107,7 +108,7 @@ export class ApiService {
         map(res=> this.proiezioni= res));
         }
         
-        getCredenziale(idutente: string): Observable<credenziale[]>{
+    getCredenziale(idutente: string): Observable<credenziale[]>{
         const headers = {'content-type': 'application/json'};
         return this.httpClient.get<credenziale[]>('http://localhost/progetto/cinema/public/index.php/api/profilo/credenziale/'+idutente,{'headers': headers})
         .pipe(
