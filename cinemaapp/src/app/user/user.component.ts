@@ -63,9 +63,6 @@ signIn(){
         this.router.navigate(['/home']);
     }
     
-    toHome(){
-     this.router.navigate(['/home']);
-    }
  }
   
 /*ngModel, ngForm e ngSubmit sono direttive per creare template-based from for

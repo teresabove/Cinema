@@ -6,7 +6,8 @@
 
 export class biglietto{
     public riepilogo: any;
-    public idbiglietto: string;
+    public idutente: string;
+    
     
           constructor(obj?: any) {
         this.setObj(obj);
@@ -15,7 +16,7 @@ export class biglietto{
         setObj(obj?: any) {
         if (obj) {
             this.riepilogo= obj.riepilogo || this.riepilogo;
-            this.idbiglietto= obj.idbiglietto || this.idbiglietto;            
+            this.idutente= obj.idutente || this.idutente;            
          } 
          }
     

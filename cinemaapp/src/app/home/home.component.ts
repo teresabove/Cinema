@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
 import {ApiService} from '../api.service';
 import { Router } from '@angular/router';
 import * as $ from "jquery";
@@ -12,7 +11,7 @@ import * as $ from "jquery";
 })
 export class HomeComponent implements OnInit {
   constructor(public sApi: ApiService, 
-              public httpClient: HttpClient,
+              
               public router: Router) { }
     
   ngOnInit(): void {

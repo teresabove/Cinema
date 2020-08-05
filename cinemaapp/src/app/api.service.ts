@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+//import {HttpHandler, HttpRequest } from '@angular/common/http';
 import {film} from './Models/film.model';
 import {guest} from './Models/guest.model';
 import {mappa} from './Models/mappa.model';
@@ -11,6 +12,7 @@ import {posto} from './Models/posto.model';
 import {proiezione} from './Models/proiezione.model';
 import {sala} from './Models/sala.model';
 import {credenziale} from './Models/credenziale.model';
+import {biglietto} from './Models/biglietto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +24,15 @@ export class ApiService {
      public carte: Array<credenziale> = new Array();
      
    constructor(private httpClient: HttpClient, private router: Router) { }
+   
+           
+    postBiglietto(biglietto: any): Observable<biglietto>{
+        const headers = { 'content-type': 'application/json'};
+        const biglietto_json= JSON.stringify(biglietto);
+        console.log(biglietto_json);
+        return this.httpClient.post<any>('http://localhost/progetto/cinema/public/index.php/api/biglietto/add', biglietto_json , {'headers': headers});    
+    }
+    
    
     postGuest(guest: any): Observable<guest>{
        const headers = { 'content-type': 'application/json'};
@@ -41,11 +52,16 @@ export class ApiService {
     setUser(res){
         localStorage.setItem('email',res.email);
         localStorage.setItem('jwt',res.jwt);
+        localStorage.setItem('idutente',res.idutente);
         this.router.navigate(['/home']);
     } 
     
     isLoggedIn(){
         return localStorage.getItem('jwt') != null;
+    }
+    
+    getToken(): string{
+        return localStorage.getItem('jwt');
     }
     
       
@@ -114,6 +130,7 @@ export class ApiService {
         .pipe(
         map(res=> this.carte=res));
         }
+
 
 }
     
