@@ -18,6 +18,7 @@ require_once ROOT_DIR.'\app\foundation\FCredenziali.php';
 
 $app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
     $idutente=$args['idutente'];
+    
     $f= new FCredenziali();
     $el=$f->load($idutente);
     $response=json_encode($el);
@@ -28,7 +29,10 @@ $app->get('/api/profilo/{email}',function(ServerRequestInterface $request, Respo
     $email=$args['email'];
     $f= new FProfilo();
     $profilo=$f->loadbyemail($email);
-    $response=json_encode($profilo);
+    if (empty($profilo)){
+       $response=json_encode('empty'); 
+    } else {
+    $response=json_encode($profilo);}
     return $response;
 });
 
@@ -40,7 +44,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
    $password_n= json_decode($password);
    $freg= new FRegistrazione();   
    $res = $freg->login($email_n, $password_n);
-   if ( $res ===  true){
+   if ( $res !== null){
     $secretKey = "Ma69r3Ga8A";
     $issuerClaim = "APACHESERVER";
     $audienceClaim = "CINEMA";
@@ -55,7 +59,8 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
         "exp" => $expireClaim,
         "data" => array(
             "email" => $email,
-            "password" => $password));
+            "password" => $password),
+            "idregistrazione" => $res);
     $jwt = JWT::encode($token, $secretKey);
     $response= json_encode(
             array(

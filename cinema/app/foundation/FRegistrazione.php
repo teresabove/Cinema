@@ -4,9 +4,11 @@ require_once ROOT_DIR . '\app\utility\USingleton.php';
 require_once ROOT_DIR . '\app\foundation\fdb.php';
 require_once ROOT_DIR . '\app\entity\EUtente.php';
 require_once ROOT_DIR . '\app\foundation\FProfilo.php';
+
 use \Firebase\JWT\JWT;
 
 class FRegistrazione extends fdb {
+
     public function __construct() {
         $this->_table = 'registrazione';
         $this->_key = 'email';
@@ -37,19 +39,14 @@ class FRegistrazione extends fdb {
     //VERIFICO LA PRESENZA DI UN ACCOUNT UTENTE CON I PARAMTRI EMAIL E PWD
     //E RESTITUISCE UN TOKEN 
     public function login($email, $password) {
-        $islogged= false;
+        $islogged = false;
         $query = 'SELECT * FROM registrazione WHERE email = ' . '\'' . $email . '\'' . ' AND password = ' . '\'' . $password . '\'';
         $res = $this->_connection->query($query);
         if ($res->num_rows == 1) {
-    $islogged = true;} else {$islogged = false;}
-        return $islogged;
-    } 
+            return $res;
+        } else {
+            return $res = null;
+        }
     }
-    
-   
 
-
-
-
-
-     
+}

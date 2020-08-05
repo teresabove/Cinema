@@ -49,7 +49,8 @@ class FProfilo extends Fdb {
         $res2 = $this->_connection->query($query);
         $nr=$res2->num_rows;
         if ($nr>0){
-        $profilo=$res2->fetch_object('EProfilo');}
+        $profilo=$res2->fetch_object('EProfilo');} 
+        else {$profilo = 'empty'; }
         return $profilo;
     }
 

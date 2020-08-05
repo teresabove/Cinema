@@ -3,13 +3,13 @@ require_once ROOT_DIR.'\app\foundation\Fbiglietto.php';
 
 class EBiglietto{
       public $riepilogo;
-      public $idbiglietto;
+      public $idutente;
       
       public function __construct(){}
 
-      public function costruttore(string $text, string $idb){
+      public function costruttore(string $text, string $idu){
              $this->riepilogo=$text;
-             $this->idbiglietto=$idb;}
+             $this->idutente=$idu;}
         
       public function save(){
              $conn=new FBiglietto();
