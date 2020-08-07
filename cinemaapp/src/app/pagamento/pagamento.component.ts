@@ -16,6 +16,7 @@ export class PagamentoComponent implements OnInit {
   public posti : Array<posto> = new Array();
   public carte: Array<credenziale> = new Array();
   public ticket: biglietto = new biglietto();
+  public spettacolo: proiezione = new proiezione();
   constructor(public router: Router, private sApi: ApiService) { }
 
   ngOnInit(): void {
@@ -25,15 +26,15 @@ export class PagamentoComponent implements OnInit {
       this.importo= parseInt(importo);
       var posti= JSON.parse(localStorage.getItem('posti'));
       this.posti=posti;
-      var proiezione = JSON.parse(localStorage.getItem('proiezione')); 
-      var idutente= localStorage.getItem('idutente');
-      //this.carte = this.getCarte(idutente)    
-         this.ticket.riepilogo = "prova";
-         this.ticket.idutente = '2';
+      var proiezione = JSON.parse(localStorage.getItem('proiezione'));
+      this.spettacolo= proiezione; 
+      var idutente= localStorage.getItem('idutente');        
+         this.ticket.riepilogo = JSON.stringify(posti)+ ' ' + JSON.stringify(proiezione);
+         this.ticket.idutente = idutente;
          console.log(this.ticket);
       } //false
       else {
-          console.log('Devi effettuare il login');
+          console.log('Devi effettuare il login per fare un acquisto');
       }       
   }
   
@@ -43,6 +44,18 @@ export class PagamentoComponent implements OnInit {
   
   Pagamento(ticket: biglietto){
       this.sApi.postBiglietto(ticket).subscribe(res=>{
-        console.log('response',res)});
+        console.log('response',res)}); 
+            
+  }
+  
+  OccupaPosto(posti: posto[]){
+      for(var i = 0;i<posti.length;i++) { 
+      var posto = this.posti[i];
+      posto.proiezione = this.spettacolo.idproiezione;
+      console.log(posto);
+      this.sApi.postPosto(posto).subscribe(res=>{
+          console.log('response',res)
+      });
+   }  
   }
 }

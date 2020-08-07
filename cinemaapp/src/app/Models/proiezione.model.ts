@@ -11,6 +11,7 @@ export class proiezione{
     public orario: string="";
     public mappaproiezione: mappa= new mappa();
     public tipo: any;
+    public idproiezione: string = "";
     
      constructor(obj?: any) {
         this.setObj(obj);
@@ -24,6 +25,7 @@ export class proiezione{
             this.orario = obj.orario || this.orario;
             this.mappaproiezione= obj.mappaproiezione || this.mappaproiezione;
             this.tipo= obj.tipo || this.tipo;
+            this.idproiezione = obj.idproiezione || this.idproiezione;
          }
     }
     

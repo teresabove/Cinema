@@ -3,7 +3,6 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-//import {HttpHandler, HttpRequest } from '@angular/common/http';
 import {film} from './Models/film.model';
 import {guest} from './Models/guest.model';
 import {mappa} from './Models/mappa.model';
@@ -14,6 +13,7 @@ import {sala} from './Models/sala.model';
 import {credenziale} from './Models/credenziale.model';
 import {biglietto} from './Models/biglietto.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +22,7 @@ export class ApiService {
      public filmsbygen: Array<film> = new Array();
      public proiezioni: Array<proiezione> = new Array();
      public carte: Array<credenziale> = new Array();
+     public posti: Array<posto> = new Array();
      
    constructor(private httpClient: HttpClient, private router: Router) { }
    
@@ -29,8 +30,13 @@ export class ApiService {
     postBiglietto(biglietto: any): Observable<biglietto>{
         const headers = { 'content-type': 'application/json'};
         const biglietto_json= JSON.stringify(biglietto);
-        console.log(biglietto_json);
         return this.httpClient.post<any>('http://localhost/progetto/cinema/public/index.php/api/biglietto/add', biglietto_json , {'headers': headers});    
+    }
+    
+    postPosto(posto: posto) : Observable<posto>{
+       const headers = { 'content-type': 'application/json'};
+       const posto_json = JSON.stringify(posto);
+       return this.httpClient.post<posto>('http://localhost/progetto/cinema/public/index.php/api/posto/add', posto_json , {'headers': headers});
     }
     
    
@@ -64,7 +70,6 @@ export class ApiService {
         return localStorage.getItem('jwt');
     }
     
-      
     getProfilo(): Observable<profilo>{
         const headers = {'content-type': 'application/json'};
         var email = JSON.parse(localStorage.getItem('email'));
@@ -130,10 +135,15 @@ export class ApiService {
         .pipe(
         map(res=> this.carte=res));
         }
-
-
-}
     
+    getPostiOcc(idproiezione: string): Observable<posto[]>{
+        const headers = {'content-type': 'application/json'};
+        return this.httpClient.get<posto[]>('http://localhost/progetto/cinema/public/index.php/api/posto/'+ idproiezione, {'headers': headers})
+        .pipe (
+        map(res=> this.posti =res));
+    }
+        
+    }
 
 /*
 Angular9 HttpClient è modulo integrato che ci aiuta nell'inviare richieste di rete

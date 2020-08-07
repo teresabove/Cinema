@@ -17,5 +17,6 @@ export class AppComponent {
       this.router.navigate(['/profilo']);} 
       else { this.router.navigate(['/user']);}
   }
+
     
 }

@@ -8,6 +8,7 @@
      public fila: number;
      public numero: number;
      public occupato: boolean = false;
+     public proiezione: any; 
      
        constructor(obj?: any) {
         this.setObj(obj);
@@ -18,6 +19,7 @@
             this.fila= obj.fila || this.fila;
             this.numero = obj.numero || this.numero;
             this.occupato = obj.occupato || this.occupato;
+            this.proiezione = obj.proiezione || this.proiezione;
          }
     }
  }

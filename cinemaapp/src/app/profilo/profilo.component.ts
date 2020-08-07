@@ -67,7 +67,13 @@ export class ProfiloComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+  
+ /* jwt(){
+     this.sApi.getProva().subscribe(res=> {
+         console.log(res);
+     }) */
+  }
     
     
  
-}
+

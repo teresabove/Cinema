@@ -16,6 +16,13 @@ require_once ROOT_DIR.'\app\entity\EUtente.php';
 require_once ROOT_DIR.'\app\entity\EProfilo.php';
 require_once ROOT_DIR.'\app\foundation\FCredenziali.php';
 
+$app->get('/api/profilo/credenziale/prova',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
+    $array=$request->getHeaders();
+    $p=$request->getHeader('HTTP_AUTHORIZATION');
+    $response=json_encode($array);
+    return $response;
+});
+
 $app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
     $idutente=$args['idutente'];
     
@@ -27,6 +34,7 @@ $app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface 
 
 $app->get('/api/profilo/{email}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
     $email=$args['email'];
+    //$jwt= JWT::decode($jwt, $email);
     $f= new FProfilo();
     $profilo=$f->loadbyemail($email);
     if (empty($profilo)){

@@ -33,7 +33,7 @@ text-align: center;
   flex-direction: row;
 }
 
-.month-row {
+.row {
   display: flex;
   flex-direction: column;
   margin: 3px;
