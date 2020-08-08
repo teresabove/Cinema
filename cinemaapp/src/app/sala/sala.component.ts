@@ -33,7 +33,7 @@ export class SalaComponent implements OnInit {
           this.sala=res;
           console.log(this.sala);
           this.r = this.sala.numerofile; 
-          this.c = this.sala.numeroposti/this.r;         
+          this.c = this.sala.numeroposti/this.r;        
            for (let i=0; i< this.r; i++){
               this.mappa.matrice[i]=[];
               for (let j=0; j< this.c; j++){

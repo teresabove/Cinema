@@ -20,8 +20,9 @@
       <div *ngIf="formControls.password.errors.required">Password is required</div>
     </div>
     <p>
-      <input type="button" value="Sign in" (click)="signIn()"> &nbsp;
-      <input type="button" value="Sign up" (click)="signUp()" > &nbsp;
+      <button type="button" class="btn btn-primary" (click)="signIn()">Sign in</button> &nbsp; &nbsp; 
+      <button type="button" class="btn btn-primary" (click)="signUp()">Sign up</button>
+      
       
     </p>
   </form>

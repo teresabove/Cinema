@@ -24,9 +24,10 @@ class FRegistrazione extends fdb {
         $query = 'INSERT INTO registrazione (password,email) VALUES (' . '\'' . $eutente->get_password() . '\'' . ',' . '\'' . $eutente->get_email() . '\'' . ')';
         $this->query($query);
         $res = $this->load($email);
-        $id = $res->Idregistrazione;
+        $id = $res->idutente;
+        debug($id);
         $profilo = new EProfilo();
-        $profilo->set_idregistrazione($id);
+        $profilo->set_idutente($id);
         $f = new FProfilo();
         $f->store($profilo);
     }
@@ -41,12 +42,8 @@ class FRegistrazione extends fdb {
     public function login($email, $password) {
         $islogged = false;
         $query = 'SELECT * FROM registrazione WHERE email = ' . '\'' . $email . '\'' . ' AND password = ' . '\'' . $password . '\'';
-        $res = $this->_connection->query($query);
-        if ($res->num_rows == 1) {
-            return $res;
-        } else {
-            return $res = null;
-        }
+        $this->query($query);
+        return $res=$this->getObject();
     }
 
 }

@@ -23,6 +23,7 @@ export class ApiService {
      public proiezioni: Array<proiezione> = new Array();
      public carte: Array<credenziale> = new Array();
      public posti: Array<posto> = new Array();
+     public biglietti: Array<biglietto> = new Array();
      
    constructor(private httpClient: HttpClient, private router: Router) { }
    
@@ -59,7 +60,7 @@ export class ApiService {
         localStorage.setItem('email',res.email);
         localStorage.setItem('jwt',res.jwt);
         localStorage.setItem('idutente',res.idutente);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/profilo']);
     } 
     
     isLoggedIn(){
@@ -72,8 +73,8 @@ export class ApiService {
     
     getProfilo(): Observable<profilo>{
         const headers = {'content-type': 'application/json'};
-        var email = JSON.parse(localStorage.getItem('email'));
-        return this.httpClient.get<profilo>('http://localhost/progetto/cinema/public/index.php/api/profilo/'+ email,{'headers': headers})
+        var idutente = JSON.parse(localStorage.getItem('idutente'));
+        return this.httpClient.get<profilo>('http://localhost/progetto/cinema/public/index.php/api/profilo/'+ idutente,{'headers': headers})
         .pipe(
         map( res => new profilo(res)));
         }
@@ -141,6 +142,13 @@ export class ApiService {
         return this.httpClient.get<posto[]>('http://localhost/progetto/cinema/public/index.php/api/posto/'+ idproiezione, {'headers': headers})
         .pipe (
         map(res=> this.posti =res));
+    }
+    
+    getBigbyId(idutente: string): Observable<biglietto[]>{
+       const headers = {'content-type': 'application/json'};
+        return this.httpClient.get<biglietto[]>('http://localhost/progetto/cinema/public/index.php/api/biglietto/'+ idutente, {'headers': headers})
+        .pipe (
+        map(res=> this.biglietti =res));
     }
         
     }

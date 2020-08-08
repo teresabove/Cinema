@@ -30,7 +30,14 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>Hello, World!</p>
+            <ul class="list-unstyled" >
+                <li class="media" *ngFor="let biglietto of biglietti">
+                    <img class="mr-3" src="assets/carte.png" alt="Film Image">
+                    <div class="media-body">
+                        <p> riepilogo: {{biglietto.riepilogo}}</p>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>

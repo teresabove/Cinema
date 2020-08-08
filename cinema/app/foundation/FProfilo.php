@@ -30,18 +30,18 @@ class FProfilo extends Fdb {
     }
 
     public function store($object) {
-        $res = Fdb::store($object);
+        debug($res = Fdb::store($object));
         return $res;
     }
 
     public function load($key) {
         $res = Fdb::load($key);
-        $res->set_listasconti($this->convert_to_array($res->listasconti));
-        unset($res->listasconti);
+        $res->set_listasconti($this->convert_to_array($res->a_listasconti));
+        unset($res->a_listasconti);
         return $res;
     }
 
-    public function loadbyemail($email) {
+    /*public function loadbyId($email) {
         $f = new FRegistrazione();
         $res1 = $f->load($email);
         $id = $res1->Idregistrazione;
@@ -52,7 +52,7 @@ class FProfilo extends Fdb {
         $profilo=$res2->fetch_object('EProfilo');} 
         else {$profilo = 'empty'; }
         return $profilo;
-    }
+    }*/
 
 }
 

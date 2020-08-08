@@ -24,20 +24,19 @@ $app->get('/api/profilo/credenziale/prova',function(ServerRequestInterface $requ
 });
 
 $app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
-    $idutente=$args['idutente'];
-    
+    $idutente=$args['idutente'];   
     $f= new FCredenziali();
     $el=$f->load($idutente);
     $response=json_encode($el);
     return $response;
 });
-
-$app->get('/api/profilo/{email}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
-    $email=$args['email'];
+//profilo get by idutente corregere
+$app->get('/api/profilo/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
+    $idutente=$args['idutente'];
     //$jwt= JWT::decode($jwt, $email);
     $f= new FProfilo();
-    $profilo=$f->loadbyemail($email);
-    if (empty($profilo)){
+    $profilo=$f->load($idutente);
+    if (empty($profilo->nome) && empty($profilo->cognome)){
        $response=json_encode('empty'); 
     } else {
     $response=json_encode($profilo);}
@@ -52,6 +51,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
    $password_n= json_decode($password);
    $freg= new FRegistrazione();   
    $res = $freg->login($email_n, $password_n);
+   $idutente=$res->idutente;
    if ( $res !== null){
     $secretKey = "Ma69r3Ga8A";
     $issuerClaim = "APACHESERVER";
@@ -68,7 +68,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
         "data" => array(
             "email" => $email,
             "password" => $password),
-            "idregistrazione" => $res);
+            "idutente" => $res->idutente);
     $jwt = JWT::encode($token, $secretKey);
     $response= json_encode(
             array(
@@ -76,6 +76,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
                 "message" => "Login eseguito correttamente",
                 "jwt" => $jwt,
                 "email" => $email,
+                "idutente" => $idutente,
                 "exipireAt" => $expireClaim
     ));
    } else {
@@ -96,8 +97,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
     $putente->costruttore_registrazione($password,$email);
     $freg->store($putente);    
     $response=json_encode($putente);
-    return $response;
-     
+    return $response;     
 });
 
 

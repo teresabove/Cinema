@@ -27,3 +27,11 @@ $app->post('/api/biglietto/add', function(ServerRequestInterface $request, Respo
     return $response;
 });
 
+$app->get('/api/biglietto/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
+    $idutente=$args['idutente'];   
+    $f= new Fbiglietto();
+    $tickets=$f->loadbyId($idutente);
+    $response=json_encode($tickets);
+    return $response;
+});
+

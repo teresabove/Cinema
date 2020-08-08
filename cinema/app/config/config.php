@@ -13,7 +13,7 @@ $config['debug'] = true;
 $config['mysql']['user'] = 'root';
 $config['mysql']['password'] = '';
 $config['mysql']['host'] = 'localhost';
-$config['mysql']['db'] = 'cinema';
+$config['mysql']['db'] = 'cinemadb';
 
 
 function debug($var) {

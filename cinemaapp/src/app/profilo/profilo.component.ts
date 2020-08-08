@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {ApiService} from '../api.service';
 import {profilo} from '../Models/profilo.model';
 import {credenziale} from '../Models/credenziale.model';
+import {biglietto} from '../Models/biglietto.model';
 import { NgbModalConfig, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-profilo',
@@ -12,6 +13,7 @@ import { NgbModalConfig, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-
 export class ProfiloComponent implements OnInit {
   public prof: profilo = new profilo();
   public carte: Array<credenziale> = new Array();
+  public biglietti: Array<biglietto> = new Array();
   closeResult = '';
 
   constructor(public router: Router, private sApi: ApiService, config: NgbModalConfig, private modalService: NgbModal) { }
@@ -19,18 +21,30 @@ export class ProfiloComponent implements OnInit {
   ngOnInit(){
       this.sApi.getProfilo().subscribe(res =>{
           this.prof= res;
-          localStorage.setItem('idutente', this.prof.idutente);
+          console.log(res);
+          //localStorage.setItem('idutente', this.prof.idutente);
        this.getCartebyId();
+       this.getBigliettibyId();
       });
 
   }
     getCartebyId(){
         let idutente= localStorage.getItem('idutente');
-        if (idutente == ""){
+        if (idutente == "" ){
             console.log('profilo da creare');
        } else {
        this.sApi.getCredenziale(idutente).subscribe(res =>{
          this.carte=res;
+    });}
+    }
+    
+    getBigliettibyId(){
+        let idutente= localStorage.getItem('idutente');
+        if (idutente == ""){
+            console.log('profilo da creare');
+       } else {
+       this.sApi.getBigbyId(idutente).subscribe(res =>{
+         this.biglietti=res;
     });}
     }
    

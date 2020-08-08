@@ -17,5 +17,11 @@ class Fbiglietto extends Fdb           //necessaria al db l'implementazione alme
         $res = Fdb::store($object);
         return $res;
     }
+    
+    public function loadbyId($key){
+        $query = "SELECT * FROM " . $this->_table . " WHERE idutente = ". $key;
+        $this->query($query);
+        return $this->getObjectArray();
+    }
 
 }

@@ -7,6 +7,7 @@
     public circuitocarta: string="";
     public numerocarta: string="";
     public scadenza: string="";
+   
     
      constructor(obj?: any) {
         this.setObj(obj);
