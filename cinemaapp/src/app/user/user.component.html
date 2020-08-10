@@ -1,32 +1,45 @@
 <html>
     <br><br>
-     <p>{{title}}</p>
+    <p>{{title}}</p>
     <br>
-<div>
-    <div class="card">
-  <div class="card-body">
+    <div>
+        <div class="card">
+            <div class="card-body">
 
-  <form [formGroup]="authForm" (ngSubmit)= "signIn()">
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
-      <input type="email" placeholder="Email" formControlName="email">
-    </p>
-    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
-      <div *ngIf="formControls.email.errors.required">Email is required</div>
+                <form [formGroup]="authForm" (ngSubmit)= "signIn()">
+                    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+                        <input type="email" placeholder="Email" formControlName="email">
+                    </p>
+                    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+                        <div *ngIf="formControls.email.errors.required">Email is required</div>
+                    </div>
+                    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+                        <input type="password" placeholder="Password" formControlName="password">
+                    </p>
+                    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                        <div *ngIf="formControls.password.errors.required">Password is required</div>
+                    </div>
+                    <p>
+                        <button type="button" class="btn btn-primary" (click)="signIn()">Sign in</button> &nbsp; &nbsp; 
+                        <button type="button" class="btn btn-primary" (click)="signUp()">Sign up</button>      
+                    </p>
+                </form>                 
+
+                <div *ngIf="control === false; else elseBlock"></div>
+                <ng-template #elseBlock>
+                    <ngb-alert [dismissible]="false">
+                        <strong>Attenzione!</strong> Le credenziali sono errate, il login non è valido!
+                    </ngb-alert>
+                </ng-template>
+                
+                <div *ngIf="control1 === false; else elseBlock"></div>
+                <ng-template #elseBlock>
+                    <ngb-alert [dismissible]="false">
+                        <strong>Attenzione!</strong> L'email esiste gia!
+                    </ngb-alert>
+                </ng-template>
+               
+            </div>
+        </div>
     </div>
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-      <input type="password" placeholder="Password" formControlName="password">
-    </p>
-    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
-      <div *ngIf="formControls.password.errors.required">Password is required</div>
-    </div>
-    <p>
-      <button type="button" class="btn btn-primary" (click)="signIn()">Sign in</button> &nbsp; &nbsp; 
-      <button type="button" class="btn btn-primary" (click)="signUp()">Sign up</button>
-      
-      
-    </p>
-  </form>
-      </div>
-</div>
-</div>
 </html>

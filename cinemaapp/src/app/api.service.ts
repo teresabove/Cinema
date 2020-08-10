@@ -41,10 +41,10 @@ export class ApiService {
     }
     
    
-    postGuest(guest: any): Observable<guest>{
+    postGuest(guest: any): Observable<any>{
        const headers = { 'content-type': 'application/json'};
-       const obj = JSON.stringify(guest);     
-       return this.httpClient.post<any>('http://localhost/progetto/cinema/public/index.php/api/user/add', obj, {'headers': headers});
+       //const obj = JSON.stringify(guest);     
+       return this.httpClient.post<any>('http://localhost/progetto/cinema/public/index.php/api/user/add', guest, {'headers': headers});
        }
       
       //verify user credentials on server to get token  

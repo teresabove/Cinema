@@ -18,10 +18,10 @@
             <button class="btn btn-lg btn-outline-primary" (click)="modifica(content2)">Modifica profilo</button>   <br>  <br>
             <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>  <br>  <br>
             <button class="btn btn-lg btn-outline-primary" (click)="getCarte(content1)">Le mie carte</button>
-            <button class="btn btn-lg btn-outline-primary" (click)="jwt()">JWT</button>
+            
         </div>
     </div>
-
+   <!-->  MODAL BIGLIETTI ACQUISTATI</!--->
     <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Biglietti acquistati</h4>
@@ -43,7 +43,7 @@
             <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
         </div>
     </ng-template>
-
+   <!-->  MODAL CARTE DI CREDITO</!--->
     <ng-template #content1 let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">le mie Carte</h4>
@@ -67,17 +67,17 @@
             <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
         </div>
     </ng-template>
-
+     <!-->  MODAL MODIFICA PROFILO</!--->
     <ng-template #content2 let-modal>
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+            <h4 class="modal-title" id="modal-basic-title">Modifica Profilo</h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             <form>
-                <div class="form-group">
+                <div class="form-group">                   
                     <label for="dateOfBirth">Date of birth</label>
                     <div class="input-group">
                         <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">

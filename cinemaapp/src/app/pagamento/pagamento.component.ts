@@ -42,7 +42,7 @@ export class PagamentoComponent implements OnInit {
      this.sApi.getCredenziale(idutente);
   }
   
-  Pagamento(ticket: biglietto, posti:posto[]){
+  Pagamento(ticket: biglietto){
       this.sApi.postBiglietto(ticket).subscribe(res=>{
         console.log('response',res)}); 
        this.OccupaPosto(this.posti); 

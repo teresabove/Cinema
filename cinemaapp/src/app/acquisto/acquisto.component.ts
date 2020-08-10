@@ -55,7 +55,7 @@ export class AcquistoComponent implements OnInit {
     }
   }
    
- Paga(mymodal){
+ Paga(){
      //this.modalService.close();
      this.router.navigate(['/pagamento']);
      

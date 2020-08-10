@@ -14,7 +14,11 @@ export class UserComponent implements OnInit {
           title = 'Area utente: login e registrazione';
           guest = new guest();
           authForm: FormGroup;
-          isSubmitted  =  false;   
+          isSubmitted  =  false;
+          control = false;
+          control1= false;
+          value= "";
+             
   ngOnInit() {
         this.authForm  =  this.formBuilder.group({
         email: ['', Validators.required],
@@ -28,16 +32,18 @@ signIn(){
     if(this.authForm.invalid){
       return;
     }
-    this.guest.email=this.authForm.value.email;
+    this.guest.email= this.authForm.value.email;
     this.guest.password=this.authForm.value.password;
-    console.log(this.guest);
+    //console.log(this.guest);
     this.ApiS.postGuest(this.guest).subscribe(res=>{
-        console.log(res);     
+       this.value=res;
+       console.log(this.value);
     });
-    this.ApiS.postLogin(this.guest.email, this.guest.password).subscribe(res2=>{
-        console.log(res2);
-    this.ApiS.setUser(res2);   
-    })
+    if (this.value = 'email exists'){
+    this.control1= true;
+    } else {
+     // this.sApi.postLogin()
+    }
   }
   
   signUp(){
@@ -50,10 +56,11 @@ signIn(){
     this.ApiS.postLogin(email, password).subscribe(res=>{
         console.log(res);
     if (res && res.res== 'ok'){
+        this.control = false;
         this.ApiS.setUser(res);
     } else
     if (res.res== 'ko'){
-       
+       this.control = true;
     }
     });
     }

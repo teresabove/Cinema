@@ -23,6 +23,9 @@ export class ProiezioniComponent implements OnInit {
        });
        }
        
+       Verifica(){
+           this.router.navigate(['/sala']);
+       }
 
   }
 

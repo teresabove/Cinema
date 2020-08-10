@@ -30,7 +30,7 @@ $app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface 
     $response=json_encode($el);
     return $response;
 });
-//profilo get by idutente corregere
+
 $app->get('/api/profilo/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
     $idutente=$args['idutente'];
     //$jwt= JWT::decode($jwt, $email);
@@ -51,7 +51,6 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
    $password_n= json_decode($password);
    $freg= new FRegistrazione();   
    $res = $freg->login($email_n, $password_n);
-   $idutente=$res->idutente;
    if ( $res !== null){
     $secretKey = "Ma69r3Ga8A";
     $issuerClaim = "APACHESERVER";
@@ -70,13 +69,14 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
             "password" => $password),
             "idutente" => $res->idutente);
     $jwt = JWT::encode($token, $secretKey);
+    $id=$res->idutente;
     $response= json_encode(
             array(
                 "res" => "ok",
                 "message" => "Login eseguito correttamente",
                 "jwt" => $jwt,
                 "email" => $email,
-                "idutente" => $idutente,
+                "idutente" => $id,
                 "exipireAt" => $expireClaim
     ));
    } else {
@@ -92,12 +92,18 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
     $data = $request->getParsedBody();
     $password=$data['password'];
     $email=$data['email'];
+    //$email_n= json_decode($email);
+    //$password_n= json_decode($password);
     $freg= new FRegistrazione();
     $putente= new EUtente();
     $putente->costruttore_registrazione($password,$email);
+    $res= $freg->ifexistemail($email);
+    if ($res === true){
+        $response = json_encode("email exists");
+    } else {
     $freg->store($putente);    
-    $response=json_encode($putente);
-    return $response;     
+    $response=json_encode($putente);}
+    return $response; 
 });
 
 

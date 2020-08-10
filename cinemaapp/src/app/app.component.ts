@@ -17,6 +17,18 @@ export class AppComponent {
       this.router.navigate(['/profilo']);} 
       else { this.router.navigate(['/user']);}
   }
+  
+  gotoAreaFilm(){
+      this.router.navigate(['/areafilm']);
+  }
+  
+  gotoAreaSearch(){
+      this.router.navigate(['/search']);
+  }
+  
+  gotoAreaHome(){
+      this.router.navigate(['/home']);
+  }
 
     
 }

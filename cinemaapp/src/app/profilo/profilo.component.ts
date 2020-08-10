@@ -65,7 +65,7 @@ export class ProfiloComponent implements OnInit {
         this.modalService.open(content1);
      }
      
-     modifica(content2) {
+    modifica(content2) {
     this.modalService.open(content2, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
