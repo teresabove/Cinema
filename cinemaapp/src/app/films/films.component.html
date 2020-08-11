@@ -2,13 +2,10 @@
     <body>
         <div class="card" >
             <img class="card-img-top" src="assets/film.jpg" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Tutti i film in programmazione</p>
-            </div>
         </div>
         <ul class="list-unstyled" >
             <li class="media" *ngFor="let film of films">
-                <img class="mr-3" src="..." alt="Film Image">
+                <img class="mr-3" id="img" src="{{film.imagepath}}" alt="Film Image">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
                     <p> TRAMA: {{film.trama}}</p>
@@ -17,6 +14,5 @@
                 </div>
             </li>
         </ul>
-        <button type="button" class="btn btn-primary" (click)="goHome()">Home</button>
     </body>
 </html>

@@ -12,6 +12,7 @@ export class proiezione{
     public mappaproiezione: mappa= new mappa();
     public tipo: any;
     public idproiezione: string = "";
+    public imgspettacolo: any;
     
      constructor(obj?: any) {
         this.setObj(obj);
@@ -26,6 +27,7 @@ export class proiezione{
             this.mappaproiezione= obj.mappaproiezione || this.mappaproiezione;
             this.tipo= obj.tipo || this.tipo;
             this.idproiezione = obj.idproiezione || this.idproiezione;
+            this.imgspettacolo = obj.imgspettacolo || this.imgspettacolo;
          }
     }
     

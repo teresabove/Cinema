@@ -20,6 +20,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProiezioneComponent } from './proiezione/proiezione.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
 import { authInterceptorProviders } from './interceptor';
+import { AmministratoreComponent } from './amministratore/amministratore.component';
      
            @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { authInterceptorProviders } from './interceptor';
     AcquistoComponent,
     ProiezioniComponent,
     ProiezioneComponent,
-    PagamentoComponent
+    PagamentoComponent,
+    AmministratoreComponent
   ],
   imports: [
     BrowserModule,

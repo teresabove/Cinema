@@ -6,24 +6,25 @@
                 <input type="text"  [(ngModel)]="genere" />
                 <div class="input-group-prepend">
                     <button type="button" class="btn btn-primary" (click)="searchFilm(genere)">Cerca</button> <br><br>
-                            </div> <br> <br> <br>
-                            <div *ngIf="films?.length > 0; else elseBlock">
-                                <ul class="list-unstyled" >
-                                    <li class="media" *ngFor="let film of films">
-                                        <img class="mr-3" src="..." alt="Film Image">
-                                            <div class="media-body">
-                                                <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
-                                                <p> GENERI: {{film.a_generi}}</p>
-                                                <button type="button" class="btn btn-primary" (click)="getDetails(film.titolo)">Dettagli</button>
-                                            </div>
-                                    </li>
-                                </ul>
-                            </div> <br>
-                            <ng-template #elseBlock>
-                                Nessun risultato da mostrare.
-                            </ng-template>
+                </div> <br> <br> <br>
+                <div *ngIf="films?.length > 0; else elseBlock">
+                    <ul class="list-unstyled" >
+                        <li class="media" *ngFor="let film of films">
+                            <img class="mr-3" src="{{film.imagepath}}" id="img" alt="Film Image">
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
+                                <p> GENERI: {{film.a_generi}}</p>
+
+                                <button type="button" class="btn btn-primary" (click)="getDetails(film.titolo)">Dettagli</button>
                             </div>
-                            </div>
-                            </div>
-                            <button type="button" class="btn btn-primary" (click)="goHome()">Home</button> 
-                            </html>
+                        </li>
+                    </ul>
+                </div> <br>
+                <ng-template #elseBlock>
+
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+</html>

@@ -12,6 +12,7 @@ export class FilmsComponent implements OnInit {
   constructor(public sApi: ApiService, public router: Router) { }
 
   ngOnInit(): void {
+      localStorage.removeItem('titolo');
       this.getFilms();
   }
   
@@ -28,6 +29,7 @@ export class FilmsComponent implements OnInit {
   }
   getProiezioni(titolo: string){
       console.log(titolo);
+      localStorage.setItem('titolo', titolo);
       this.router.navigate(['/spettacoli']/*{state: {data: {titolo: this.film.titolo}}}*/);
   }
   

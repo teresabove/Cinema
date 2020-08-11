@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {ApiService} from '../api.service';
 import {profilo} from '../Models/profilo.model';
 import {credenziale} from '../Models/credenziale.model';
 import {biglietto} from '../Models/biglietto.model';
-import { NgbModalConfig, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-@Component({
+import { NgbModalConfig, NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+  
+        
+ @Component({
   selector: 'app-profilo',
   templateUrl: './profilo.component.html',
   styleUrls: ['./profilo.component.css']
@@ -15,37 +18,42 @@ export class ProfiloComponent implements OnInit {
   public carte: Array<credenziale> = new Array();
   public biglietti: Array<biglietto> = new Array();
   closeResult = '';
-
-  constructor(public router: Router, private sApi: ApiService, config: NgbModalConfig, private modalService: NgbModal) { }
+  configurato = false;
+  constructor(public router: Router, private sApi: ApiService, public config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit(){
+      if (this.configurato == false){
+            console.log('profilo da configurare');
+            this.configura(this.configurato);  
+        } else { 
       this.sApi.getProfilo().subscribe(res =>{
           this.prof= res;
           console.log(res);
-          //localStorage.setItem('idutente', this.prof.idutente);
+        
        this.getCartebyId();
        this.getBigliettibyId();
       });
-
-  }
+        }
+  }  
+  
+  configura(content){
+     this.modalService.open(content);
+  } 
+  
     getCartebyId(){
         let idutente= localStorage.getItem('idutente');
-        if (idutente == "" ){
-            console.log('profilo da creare');
-       } else {
        this.sApi.getCredenziale(idutente).subscribe(res =>{
          this.carte=res;
-    });}
+         console.log('carte caricate',this.carte);
+    });
     }
     
     getBigliettibyId(){
         let idutente= localStorage.getItem('idutente');
-        if (idutente == ""){
-            console.log('profilo da creare');
-       } else {
        this.sApi.getBigbyId(idutente).subscribe(res =>{
          this.biglietti=res;
-    });}
+         console.log('bigl acquistati',this.biglietti);
+    });
     }
    
      toHome(){
@@ -82,10 +90,6 @@ export class ProfiloComponent implements OnInit {
     }
   }
   
- /* jwt(){
-     this.sApi.getProva().subscribe(res=> {
-         console.log(res);
-     }) */
   }
     
     

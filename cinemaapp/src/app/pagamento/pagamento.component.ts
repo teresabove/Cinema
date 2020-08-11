@@ -24,10 +24,13 @@ export class PagamentoComponent implements OnInit {
       if (this.sApi.isLoggedIn()){        
       var importo =localStorage.getItem('importo');
       this.importo= parseInt(importo);
+      console.log('importo', importo);
       var posti= JSON.parse(localStorage.getItem('posti'));
       this.posti=posti;
+      console.log(this.posti);
       var proiezione = JSON.parse(localStorage.getItem('proiezione'));
       this.spettacolo= proiezione; 
+      console.log(this.spettacolo);
       var idutente= localStorage.getItem('idutente');        
          this.ticket.riepilogo = JSON.stringify(posti)+ ' ' + JSON.stringify(proiezione);
          this.ticket.idutente = idutente;

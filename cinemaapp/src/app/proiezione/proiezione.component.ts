@@ -14,25 +14,28 @@ export class ProiezioneComponent implements OnInit {
   constructor(public sApi: ApiService, public router: Router, private actRoute: ActivatedRoute) { }
   
    public proiezioni: Array<proiezione> = new Array();
-   titolo: string;
+   public titolo: string;
    
   ngOnInit(): void {
+      localStorage.removeItem('proiezione');
       this.titolo = this.actRoute.snapshot.paramMap.get('titolo');
       this.getProiezioni(this.titolo);
-      console.log(this.titolo);
+      //this.getTipoPr(this.proiezioni);
       }
   
   getProiezioni(titolo: string){
       this.sApi.getProiezionebytitolo(titolo).subscribe(res=>{
-      this.proiezioni=res;
-      console.log(this.proiezioni);  
-  });
-  }
+      this.proiezioni=res;  
+      console.log(this.proiezioni);
+    });
+
+    }
   
          Verifica(proiezione: proiezione){
              localStorage.setItem('proiezione', JSON.stringify(proiezione));
             this.router.navigate(['/sala']);
        }
+       
   
 
 }
