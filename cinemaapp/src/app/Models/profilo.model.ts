@@ -15,6 +15,7 @@ export class profilo{
     public a_listasconti: string="";
     public idutente: string ="";
     public imagepath: any;
+    public configurato: boolean;
     
        constructor(obj?: any) {
         this.setObj(obj);
@@ -31,6 +32,7 @@ export class profilo{
             this.a_listasconti= obj.a_listasconti || this.a_listasconti;
             this.idutente = obj.idutente || this.idutente;
             this.imagepath = obj.imagepath || this.imagepath;
+            this.configurato = obj.configurato || this.configurato;
          }
     }
     

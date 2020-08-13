@@ -28,6 +28,7 @@ require_once ROOT_DIR.'\app\controller\CProiezioni.php';
 require_once ROOT_DIR.'\app\controller\CSala.php';
 require_once ROOT_DIR.'\app\controller\CBiglietto.php';
 require_once ROOT_DIR.'\app\controller\CPosto.php';
+require_once ROOT_DIR.'\app\controller\CSconto.php';
 
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];

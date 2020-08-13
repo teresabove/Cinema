@@ -5,5 +5,10 @@
 
 #img{
     max-height: 300px;
-    max-width: 400px;
+    max-width: 200px;
+}
+
+#card-img{
+     max-height: 300px;
+    max-width: 200px;
 }

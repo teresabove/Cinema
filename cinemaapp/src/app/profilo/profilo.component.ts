@@ -1,4 +1,5 @@
 import { Component, OnInit,  Input } from '@angular/core';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import {ApiService} from '../api.service';
 import {profilo} from '../Models/profilo.model';
@@ -15,30 +16,28 @@ import { NgbModalConfig, NgbModal, ModalDismissReasons, NgbActiveModal } from '@
 })
 export class ProfiloComponent implements OnInit {
   public prof: profilo = new profilo();
+  public newprof: profilo = new profilo();
   public carte: Array<credenziale> = new Array();
   public biglietti: Array<biglietto> = new Array();
+  profileForm: FormGroup;
+  isSubmitted  =  false;
   closeResult = '';
-  configurato = false;
-  constructor(public router: Router, private sApi: ApiService, public config: NgbModalConfig, private modalService: NgbModal) { }
+  //configurato = false;
+  constructor(public router: Router, private sApi: ApiService, public config: NgbModalConfig, private modalService: NgbModal, private formBuilder: FormBuilder,) { }
 
-  ngOnInit(){
-      if (this.configurato == false){
-            console.log('profilo da configurare');
-            this.configura(this.configurato);  
-        } else { 
+  ngOnInit(){ 
       this.sApi.getProfilo().subscribe(res =>{
           this.prof= res;
-          console.log(res);
-        
+          console.log(res); 
+         if(this.prof.configurato == true){     
        this.getCartebyId();
        this.getBigliettibyId();
-      });
-        }
-  }  
-  
-  configura(content){
-     this.modalService.open(content);
+         } else {
+         console.log('profilo da configurare');           
+         }});      
   } 
+ 
+ 
   
     getCartebyId(){
         let idutente= localStorage.getItem('idutente');
@@ -73,6 +72,8 @@ export class ProfiloComponent implements OnInit {
         this.modalService.open(content1);
      }
      
+
+     
     modifica(content2) {
     this.modalService.open(content2, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -89,8 +90,8 @@ export class ProfiloComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+}
   
-  }
     
     
  

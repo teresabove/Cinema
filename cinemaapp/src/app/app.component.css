@@ -1,0 +1,22 @@
+#fbicon{
+    max-height: 15px;
+    max-width: 15px;
+}
+
+#ghicon{
+    max-height: 20px;
+    max-width: 20px;
+}
+
+#emicon{
+    max-height: 20px;
+    max-width: 20px;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: buttonhighlight;
+}

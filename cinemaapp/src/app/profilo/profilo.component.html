@@ -3,25 +3,35 @@
     <br>
     <br>
     <div class="card" >
-        <img src="assets/me.jpg" class="card-img-top" alt="...">
+        <img class="avatar" src="{{prof.imagepath}}" alt="Not Found">
+        <!----img src="{{profilo.imagepath}}" class="card-img-top" alt="..."-->
         <div class="card-body">
             <h5 class="card-title">IL MIO PROFILO</h5>
             <p class="card-text">Nome: {{prof.nome}} </p>
             <p class="card-text">Cognome: {{prof.cognome}} </p>
             <p class="card-text">Indirizzo: {{prof.indirizzo}} </p>
-            <p class="card-text">Data di nascita: {{prof.datadinascita}} </p>
             <p class="card-text">Città: {{prof.citta}}</p>
+            <p class="card-text">Data di nascita: {{prof.datadinascita}} </p>
             <p class="card-text">Telefono: {{prof.telefono}} </p>
             <p class="card-text">Lista sconti: {{prof.a_listasconti}}  </p>
-            
-            
-            <button class="btn btn-lg btn-outline-primary" (click)="modifica(content2)">Modifica profilo</button>   <br><br>
+
+            <div *ngIf="prof.configurato == true; else elseBlock"></div>
+            <ng-template #elseBlock><ngb-alert [dismissible]="false">
+                    <strong>Attenzione!</strong> Il tuo profilo è vuoto, clicca su configura per aggiungere informazioni!
+                </ngb-alert></ng-template> 
+
+
+
+
+            <button class="btn btn-lg btn-outline-primary" (click)="modifica(content2)">Configura </button>   <br><br>
             <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>  <br><br>
             <button class="btn btn-lg btn-outline-primary" (click)="getCarte(content1)">Le mie carte</button>  <br><br>
             <button class="btn btn-lg btn-outline-primary" (click)="logOut()">Log out</button>  <br><br>
         </div>
     </div>
-   <!-->  MODAL BIGLIETTI ACQUISTATI</!--->
+
+
+    <!-->  MODAL BIGLIETTI ACQUISTATI</!--->
     <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Biglietti acquistati</h4>
@@ -43,7 +53,9 @@
             <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
         </div>
     </ng-template>
-   <!-->  MODAL CARTE DI CREDITO</!--->
+
+
+    <!-->  MODAL CARTE DI CREDITO</!--->
     <ng-template #content1 let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">le mie Carte</h4>
@@ -67,59 +79,35 @@
             <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
         </div>
     </ng-template>
-     <!-->  MODAL MODIFICA PROFILO</!--->
+
+    <!-->  MODAL MODIFICA PROFILO</!--->
     <ng-template #content2 let-modal>
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Modifica Profilo</h4>
+            <h4 class="modal-title" id="modal-basic-title">Configura profilo</h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             <form>
-                <div class="form-group">                   
+                <div class="form-group">
+                    Nome : <input class="form-control" type="text"  formControlName="nome">
+                    Cognome: <input class="form-control" type="text"  formControlName="cognome">
                     <label for="dateOfBirth">Date of birth</label>
                     <div class="input-group">
                         <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
                                <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button" formControlName="datadinascita"></button>
                         </div>
                     </div>
+                    Indirizzo: <input class="form-control" type="text"  formControlName="indirizzo">
+                    Città: <input class="form-control" type="text" formControlName="citta">
+                    Telefono: <input class="form-control" type="text"  formControlName="telefono">
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            <!----button type="button" class="btn btn-outline-dark" (click)="Salva()">Save</button>---->
         </div>
     </ng-template>
-     
-     <!----PRIMA CONFIGURAZIONE-->
-     
-     <ng-template #configurato let-modal>
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Configura il tuo Profilo</h4>
-            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-group">                   
-                    <label for="dateOfBirth">Date of birth</label>
-                    <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-                               <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-        </div>
-    </ng-template>
-
-    
-
 </html>

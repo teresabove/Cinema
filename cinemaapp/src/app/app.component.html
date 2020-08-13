@@ -1,24 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">AppCinema.it</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<html>
+    <head>
+        
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">AppCinema.it</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" (click)="gotoAreaHome()">Home <span class="sr-only">(current)</span></a>
-      </li>
-        <li class="nav-item" (click)="gotoAreaSearch()">
-        <a class="nav-link">Ricerca</a>
-      </li>
-          <li class="nav-item" (click)="gotoAreaFilm()">
-        <a class="nav-link">Area Film</a>
-      </li>
-        <li class="nav-item" (click)="gotoAreaUser()">
-        <a class="nav-link" >Area Utente</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<router-outlet></router-outlet>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="gotoAreaHome()">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" (click)="gotoAreaSearch()">
+                    <a class="nav-link">Ricerca</a>
+                </li>
+                <li class="nav-item" (click)="gotoAreaFilm()">
+                    <a class="nav-link">Area Film</a>
+                </li>
+                <li class="nav-item" (click)="gotoAreaUser()">
+                    <a class="nav-link" >Area Utente</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p> 
+                    Made by Teresa Bove <br> 
+                    Contact me with: &nbsp; &nbsp; &nbsp;
+                    <img src="assets/fbicon.png" id ="fbicon" class="card-img-top" alt="..."> &nbsp;
+                    <a href="https://facebook.com/teresa.bove.95">Teresa Bove Facebook Profile</a> &nbsp; &nbsp;
+                    <img src="assets/ghicon.png" id ="ghicon" class="card-img-top" alt="..."> &nbsp;
+                    <a href="https://github.com/teresabove">Teresa Bove Github Repository</a> &nbsp; &nbsp;
+                    <img src="assets/emicon.png" id ="emicon" class="card-img-top" alt="..."> &nbsp;
+                    <a href="mailto:teresa.4us@gmail.com">Teresa Bove Mail</a> &nbsp; &nbsp; <br>
+                </p> 
+            </div>
+        </div>
+    </footer>
+</html>
+

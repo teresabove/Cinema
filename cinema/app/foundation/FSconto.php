@@ -11,5 +11,10 @@ class FSconto extends Fdb{
         $this->_return_class = 'ESconto';
         $this->_connection = USingleton::getInstance('Fdb')->get_connection();
     }
+    
+    public function loadall(){
+        $res= Fdb::loadall();
+        return $res;
+    }
 
 }
