@@ -1,23 +1,15 @@
 <html>
     <body>
-        <br>
-        <br>
-        <div class="card">
-            <div class="card-body" >
-                <div class="alert alert-danger" role="alert">
-                    VISUALIZZA FILM
-                </div>
-                <img class="mr-3" id="img" src="{{film.imagepath}}" alt="Film Image">
-                <p> TITOLO: {{film.titolo}}</p>
-                <p> REGISTA: {{film.regista}}</p>
-                <p> ANNO DI PRODUZIONE: {{film.anno}}</p>
-                <p> CAST: {{film.a_cast}}</p>
-                <p> GENERI: {{film.a_generi}}</p>
-                <p> CASA DI PRODUZIONE: {{film.casaproduzione}}</p>
-                <p> TRAMA: {{film.trama}}</p>
-            </div>
-        </div>
-        <button type="button" class="btn btn-primary" (click)="gotoHome()">Home</button> &nbsp; &nbsp;
-        <button type="button" class="btn btn-primary" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
-    </body>
+    <div>
+        <img class="mr-3" id="img" src="{{film.imagepath}}" alt="Film Image">
+        <p> TITOLO: {{film.titolo}}</p>
+        <p> REGISTA: {{film.regista}}</p>
+        <p> ANNO DI PRODUZIONE: {{film.anno}}</p>
+        <p> CAST: {{film.a_cast}}</p>
+        <p> GENERI: {{film.a_generi}}</p>
+        <p> CASA DI PRODUZIONE: {{film.casaproduzione}}</p>
+        <p> TRAMA: {{film.trama}}</p>
+    </div>
+    <button type="button" class="btn btn-primary" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
+</body>
 </html>

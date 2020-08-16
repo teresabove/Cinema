@@ -29,6 +29,10 @@ export class AppComponent {
   gotoAreaHome(){
       this.router.navigate(['/home']);
   }
+  
+  gotoAdmin(){
+      this.router.navigate(['/admin']);
+  }
 
     
 }

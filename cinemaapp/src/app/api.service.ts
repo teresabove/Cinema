@@ -150,6 +150,14 @@ export class ApiService {
         .pipe (
         map(res=> this.biglietti =res));
     }
+    
+      getprova(): Observable<any>{
+       const headers = {'content-type': 'application/json'};
+        return this.httpClient.get<any>('http://localhost/progetto/cinema/public/index.php/api/prova', {'headers': headers});
+        
+    }
+    
+    
         
     }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { film } from '../Models/film.model';
+import { proiezione } from '../Models/proiezione.model';
+//import { sconto } from '../Models/sconto.model';
 
 
 @Component({
@@ -11,6 +14,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 export class AmministratoreComponent implements OnInit {
 closeResult = '';
+public nuovofilm: film = new film();
+public nuovospettacolo: proiezione = new proiezione();
 
   constructor(private modalService: NgbModal) { }
 
@@ -21,7 +26,8 @@ closeResult = '';
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    console.log(this.nuovofilm);
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;     
     });
   }
   //AGGIUNGI SPETTACOLO

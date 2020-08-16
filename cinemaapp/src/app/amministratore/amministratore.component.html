@@ -7,55 +7,52 @@
     <!--RIMUOVERE FILM E SPETTACOLI-->
     <!--AMMINISTRARE IL DATABASE CON I DATI-->
 
-    <div class="card">
-        <h5>PANNELLO AMMINISTRATORE</h5>
-        <div class="card-body">
-            INSERISCI UN NUOVO FILM  
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Area amministratore</h1>
+                <p class="lead">Aggiungere testo</p>
+            </div>
+        </div>
+        <div>
+            <h2>INSERISCI UN NUOVO FILM</h2>
+
             <ng-template #content let-modal>
                 <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Aggiungi film</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h2 class="modal-title" id="modal-basic-title">Aggiungi film</h2>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="dateOfBirth">Date of birth</label>
-                            <div class="input-group">
-                                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-                                       <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-                                </div>
-                            </div>
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.titolo" name="titolo" placeholder="titolo">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.regista" name="regista" placeholder="regista">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.anno" name="anno" placeholder="anno">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.durata" name="durata" placeholder="durata">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.a_generi" name="generi" placeholder="generi">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.a_cast" name="cast" placeholder="cast">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.casaproduzione" name="casaprod" placeholder="casa di produzione">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.trama" name="trama" placeholder="trama">
+                            <input type="text" class="form-control" id="filminput" [(ngModel)]="nuovofilm.imagepath" name="imgpath" placeholder="img path">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click',nuovofilm)">Aggiungi</button>
                 </div>
             </ng-template>
-
             <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Aggiungi film</button> <br> <br>
-            
-            INSERISCI UN NUOVO SPETTACOLO
+
+            <h2>INSERISCI UN NUOVO SPETTACOLO</h2>
             <ng-template #content1 let-modal>
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-basic-title">Aggiungi spettacolo</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="dateOfBirth">Date of birth</label>
-                            <div class="input-group">
-                                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-                                       <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-                                </div>
-                            </div>
+                                                        
                         </div>
                     </form>
                 </div>
@@ -66,9 +63,9 @@
 
             <button class="btn btn-lg btn-outline-primary" (click)="open1(content1)">Aggiungi spettacolo</button>
         </div>
-    </div>
     
+
     <!--INSERIRE I SCONTI-->
-    
+
 
 </html>

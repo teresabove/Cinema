@@ -1,11 +1,19 @@
 <html>
-    <br><br>
-    <p>{{title}}</p>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Area utente</h1>
+            <p class="lead">Questo spazio è riservato all'utente per il login e la registrazione. 
+            Se sei un nuovo utente, inserisci email e password ed effettua la registrazione in pochi secondi.
+            Se sei già nostro utente e desideri fare il login, inserisci le credenziali ed effettua il login.
+            Ricorda che, nel tuo profilo, trovi i biglietti che hai acquistato, puoi modificare i dati personali e 
+            aggiungere carte di credito per il pagamento on-line.
+            </p>
+        </div>
+    </div>
     <br>
     <div>
         <div class="card">
             <div class="card-body">
-
                 <form [formGroup]="authForm" (ngSubmit)= "signIn()">
                     <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
                         <input type="email" placeholder="Email" formControlName="email">
@@ -20,8 +28,8 @@
                         <div *ngIf="formControls.password.errors.required">Password is required</div>
                     </div>
                     <p>
-                        <button type="button" class="btn btn-primary" (click)="signIn()">Sign in</button> &nbsp; &nbsp; 
-                        <button type="button" class="btn btn-primary" (click)="signUp()">Sign up</button>      
+                        <button type="button" class="btn btn-primary" (click)="signIn()">REGISTRAZIONE</button> &nbsp; &nbsp; 
+                        <button type="button" class="btn btn-primary" (click)="signUp()">LOGIN</button>      
                     </p>
                 </form>                 
 
@@ -31,14 +39,14 @@
                         <strong>Attenzione!</strong> Le credenziali sono errate, il login non è valido!
                     </ngb-alert>
                 </ng-template>
-                
+
                 <div *ngIf="control1 === false; else elseBlock"></div>
                 <ng-template #elseBlock>
                     <ngb-alert [dismissible]="false">
                         <strong>Attenzione!</strong> L'email esiste gia!
                     </ngb-alert>
                 </ng-template>
-               
+
             </div>
         </div>
     </div>

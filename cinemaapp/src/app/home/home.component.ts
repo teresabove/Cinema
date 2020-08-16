@@ -15,10 +15,9 @@ export class HomeComponent implements OnInit {
       constructor(public sApi: ApiService, public router: Router) {
   }
     
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
   }
-  
+
   
   gotoAreaUser(){
       if (this.sApi.isLoggedIn()){
@@ -32,6 +31,13 @@ export class HomeComponent implements OnInit {
   
    gotoRicerca(){
       this.router.navigate(['/search']);
+  }
+  
+  prova(){
+      this.sApi.getprova().subscribe(res=>{
+          console.log('riposta api prova',res);
+      });
+      
   }
   
   }

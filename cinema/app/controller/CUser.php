@@ -16,12 +16,7 @@ require_once ROOT_DIR.'\app\entity\EUtente.php';
 require_once ROOT_DIR.'\app\entity\EProfilo.php';
 require_once ROOT_DIR.'\app\foundation\FCredenziali.php';
 
-$app->get('/api/profilo/credenziale/prova',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
-    $array=$request->getHeaders();
-    $p=$request->getHeader('HTTP_AUTHORIZATION');
-    $response=json_encode($array);
-    return $response;
-});
+global $config;
 
 $app->get('/api/profilo/credenziale/{idutente}',function(ServerRequestInterface $request, ResponseInterface $response,array $args){
     $idutente=$args['idutente'];   
@@ -44,6 +39,7 @@ $app->get('/api/profilo/{idutente}',function(ServerRequestInterface $request, Re
 });
 
 $app->post('/api/user/login', function(ServerRequestInterface $request, ResponseInterface $response) use ($app){
+    global $config;
    $data= $request->getParsedBody();
    $email= $data['email_json'];
    $password=$data['password_json'];
@@ -52,23 +48,22 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
    $freg= new FRegistrazione();   
    $res = $freg->login($email_n, $password_n);
    if ( $res !== null){
-    $secretKey = "Ma69r3Ga8A";
-    $issuerClaim = "APACHESERVER";
-    $audienceClaim = "CINEMA";
+    //$secretKey = "Ma69r3Ga8A";
+    //$issuerClaim = "APACHESERVER";
+    //$audienceClaim = "CINEMA";
     $issuedatClaim = time();
-    $notbeforeClaim = $issuedatClaim + 10;
+    $notbeforeClaim = $issuedatClaim + 5;
     $expireClaim = $issuedatClaim + 60000;
     $token = array(
-        "iss" => $issuerClaim,
-        "aud" => $audienceClaim,
+        "iss" => $config['issuerclaim'],
+        "aud" => $config['audienceclaim'],
         "iat" => $issuedatClaim,
         "nbf" => $notbeforeClaim,
         "exp" => $expireClaim,
         "data" => array(
-            "email" => $email,
-            "password" => $password),
+            "email" => $email),
             "idutente" => $res->idutente);
-    $jwt = JWT::encode($token, $secretKey);
+    $jwt = JWT::encode($token, $config['secretkey']);
     $id=$res->idutente;
     $response= json_encode(
             array(

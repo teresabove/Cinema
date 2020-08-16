@@ -1,11 +1,16 @@
 <html>
-    <div class="card">
-        <div class="card-body">
-            <h2>RICERCA</h2>
+    <div >
+        <div>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Ricerca</h1>
+                    <p class="lead">Area per ricercare il film preferito</p>
+                </div>
+            </div>
             <div class="input-group input-group-sm mb-3">
-                <input type="text"  [(ngModel)]="genere" />
+                <input type="text"  [(ngModel)]="genere"/>
                 <div class="input-group-prepend">
-                    <button type="button" class="btn btn-primary" (click)="searchFilm(genere)">Cerca</button> <br><br>
+                    <button type="button" class="btn btn-primary" (click)="searchFilm(genere)">Cerca</button> 
                 </div> <br> <br> <br>
                 <div *ngIf="films?.length > 0; else elseBlock">
                     <ul class="list-unstyled" >
@@ -14,12 +19,11 @@
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
                                 <p> GENERI: {{film.a_generi}}</p>
-
                                 <button type="button" class="btn btn-primary" (click)="getDetails(film.titolo)">Dettagli</button>
                             </div>
                         </li>
                     </ul>
-                </div> <br>
+                </div>
                 <ng-template #elseBlock>
 
                 </ng-template>
