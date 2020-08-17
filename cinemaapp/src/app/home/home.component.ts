@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {ApiService} from '../api.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import * as $ from "jquery";
 
 @Component({
@@ -11,8 +12,16 @@ import * as $ from "jquery";
 })
 export class HomeComponent implements OnInit {
 
-  
-      constructor(public sApi: ApiService, public router: Router) {
+  constructor(public sApi: ApiService, public router: Router) {
+      router.events.subscribe(s => {
+      if (s instanceof NavigationEnd) {
+        const tree = router.parseUrl(router.url);
+        if (tree.fragment) {
+          const element = document.querySelector("#" + tree.fragment);
+          if (element) { element.scrollIntoView(); }
+        }
+      }
+    });
   }
     
   ngOnInit(): void {  
@@ -37,6 +46,8 @@ export class HomeComponent implements OnInit {
       this.sApi.getprova().subscribe(res=>{
           console.log('riposta api prova',res);
       });
+      
+      
       
   }
   

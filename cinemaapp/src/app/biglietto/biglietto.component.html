@@ -1,14 +1,20 @@
 <html>
-    <div class="card" >
-        <img class="card-img-top" src="assets/biglietti.jpg" alt="Card image cap">
-        <div class="card-body">
-            <p class="card-text"><h5 class="card-title">Riepilogo biglietto</h5>
-            <p class="card-text">Qui è descritto i biglietti aqcuistati dall'utente:</p>
-            <li class="media" *ngFor="let posto of posti">  
+    <div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Biglietti selezionati</h1>
+                <p class="lead">In questa sezione puoi modificare i posti prenotati. Successivamente si può procedere all'acquisto</p>
+            </div>
+        </div>
+        <img src="assets/biglietti.jpg" id="ticket" alt="Card image cap">
+        <div>
+            <p><h5>Riepilogo biglietto</h5>
+            <p>Qui è descritto i biglietti acquistati dall'utente:</p>
+            <div *ngFor="let posto of posti">  
                 <br>
                 <p> Numero fila: {{posto.fila}} </p> &nbsp; &nbsp;
                 <p> Numero posto : {{posto.numero}}</p>
-            </li>
+            </div>
         </div>
     </div>
     <button type="button" class="btn btn-primary" (click)="gotoAcquisto()">Procedi all'acquisto</button>

@@ -21,7 +21,7 @@ import { ProiezioneComponent } from './proiezione/proiezione.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
 import { authInterceptorProviders } from './interceptor';
 import { AmministratoreComponent } from './amministratore/amministratore.component';
-
+import { TabsModule } from 'ngx-bootstrap/tabs';
      
            @NgModule({
   declarations: [
@@ -47,10 +47,10 @@ import { AmministratoreComponent } from './amministratore/amministratore.compone
     ReactiveFormsModule,
     JwtModule,
     StorageServiceModule,
-    NgbModule   
+    NgbModule,
+    TabsModule.forRoot()  
   ],
   providers: [authInterceptorProviders],
-  
   bootstrap: [AppComponent]
 })
 

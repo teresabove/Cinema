@@ -1,34 +1,28 @@
 <html>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div class="card">
-        <img class="card-img-top" src="assets/biglietti.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Biglietto</h5>
-            <p class="card-text">Puoi presentare questo biglietto al botteghino ed entrare in sala senza metterti in coda all''ingresso.</p>
-            <p> FILM :{{spettacolo.film}}</p>
-            <p> ALLE ORE :{{spettacolo.orario}}</p>
-            <p> IN SALA :{{spettacolo.sala}}</p>
-            
-            <ul class="list-unstyled" >
-                <li class="media" *ngFor="let posto of posti">
-                    <div class="media-body"> I tuoi posti sono alla:
-                        <p> fila: {{posto.fila}}</p>
-                        <p> numero: {{posto.numero}}</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Pagamento</h1>
+            <p class="lead">Puoi effettuare il pagamento online tramite carta di credito</p>
         </div>
     </div>
 
+    <div>
+        <h5>Biglietto</h5>
+        <img  src="assets/biglietti.jpg" id="ticket" alt="Card image cap">
+        <p>Puoi presentare questo biglietto all'addetto in ingresso ed entrare in sala senza passare per il botteghino</p>
+        <p> FILM :{{spettacolo.film}}</p>
+        <p> ALLE ORE :{{spettacolo.orario}}</p>
+        <p> IN SALA :{{spettacolo.sala}}</p>
 
-
-
+        <ul class="list-unstyled">
+            <li class="media" *ngFor="let posto of posti">
+                <div class="media-body"> I tuoi posti sono alla:
+                    <p> fila: {{posto.fila}}</p>
+                    <p> numero: {{posto.numero}}</p>
+                    <p> </p>
+                </div>
+            </li>
+        </ul>
+    </div>
     <button type="button" class="btn btn-primary" (click)="Pagamento(ticket)">Paga</button> &nbsp; &nbsp;
 </html>
