@@ -12,8 +12,8 @@
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
                     <p> TRAMA: {{film.trama}}</p>
-                    <button type="button" class="btn btn-primary" (click)="getDetails(film.titolo)">Dettagli</button> &nbsp; &nbsp; 
-                    <button type="button" class="btn btn-primary" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
+                    <button type="button" class="btn btn-outline-primary" (click)="getDetails(film.titolo)">Dettagli</button> &nbsp; &nbsp; 
+                    <button type="button" class="btn btn-outline-primary" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
                 </div>
             </li> 
         </ul>

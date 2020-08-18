@@ -1,32 +1,43 @@
 <html>
     <div class="card">
         <div class="card-body">
-            MAPPA DELLA SALA {{sala.nomesala}}
+            <p class="text-center">{{sala.nomesala}}</p>
             <div class="card">
                 <div class="card-body">
-                    <div id="container">
-                        <table class="my-table">
-                            <tr class="row" *ngFor="let p of mappa.matrice; index as i">       
-                        <table class="my-table">
-                            <tr class="row">
-                                <td *ngFor="let p of mappa.matrice[i]; index as j">
-                                    <div *ngIf="p.occupato == false; else elseBlock">
-                                        <img src="assets/poltroncina.png" id = "postol" class="card-img-top" alt="..." (click)="Seleziona(p)"></div>
-                            <ng-template #elseBlock>
-                                <img src="assets/poltroncina.png" id = "postoo" class="card-img-top" alt="...">
-                            </ng-template>
-                            </tr>
-                        </table>            
+
+                    <p id="legenda">Legenda:<br>
+                        <b>Posto libero:</b> bluchiaro;<br>
+                        <b>Posto occupato:</b> rosso;</p>
+
+                    <p>Hai selezionato i posti:</p>
+                    <li *ngFor="let posto of count">
+                        fila: {{posto.fila}}
+                        numero: {{posto.numero}}
+                </li>
+
+
+                <div id="container">
+                    <table class="my-table">
+                        <tr class="row" *ngFor="let p of mappa.matrice; index as i">       
+                    <table class="my-table">
+                        <tr class="row">
+                            <td *ngFor="let p of mappa.matrice[i]; index as j">
+                                <div *ngIf="p.occupato == false; else elseBlock">
+                                    <img src="assets/poltroncina.png" id = "postol" class="card-img-top" alt="..." (click)="Seleziona(p)"></div>
+                        <ng-template #elseBlock>
+                            <img src="assets/poltroncina.png" id = "postoo" class="card-img-top" alt="...">
+                        </ng-template>
                         </tr>
-                    </table>
-                </div>
-                      <img src="assets/rettangolo.png" id ="schermo" class="card-img-top" alt="...">                                         
+                    </table>            
+                    </tr>
+                </table>
             </div>
+            <img src="assets/rettangolo.png" id ="schermo" class="card-img-top" alt="...">    
+
         </div>
     </div>
+    <button type="button" class="btn btn-outline-primary" (click)="gotoBiglietto()">Conferma</button>
+
 </div>
-
-
-<button type="button" class="btn btn-primary" (click)="gotoBiglietto()">Conferma</button>
-
+</div>
 </html>

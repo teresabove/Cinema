@@ -173,6 +173,17 @@ class fdb {
             return $this->getObjectArray();
         }
     }
+    
+    public function convert_to_string(array $a) {
+        $ret = '';
+        for ($i = 0; $i < count($a); $i++) {
+            if ($i == 0)
+                $ret .= $a[$i];
+            else
+                $ret .= ',' . $a[$i];
+        }
+        return $ret;
+    }
 
    
 

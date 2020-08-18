@@ -36,9 +36,7 @@ export class ProfiloComponent implements OnInit {
          console.log('profilo da configurare');           
          }});      
   } 
- 
- 
-  
+
     getCartebyId(){
         let idutente= localStorage.getItem('idutente');
        this.sApi.getCredenziale(idutente).subscribe(res =>{
@@ -81,6 +79,16 @@ export class ProfiloComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+  
+ Salva(prof: profilo){
+     this.newprof=prof;
+     this.newprof.idutente = this.prof.idutente;
+     console.log(this.newprof);
+     this.sApi.postProfilo(this.newprof).subscribe(res =>{
+         console.log(res);
+     });
+ }
+  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

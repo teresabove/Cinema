@@ -14,16 +14,6 @@ class FFilm extends fdb {
         $this->_connection = USingleton::getInstance("fdb")->get_connection();
     }
 
-    public function convert_to_string(array $a) {
-        $ret = '';
-        for ($i = 0; $i < count($a); $i++) {
-            if ($i == 0)
-                $ret .= $a[$i];
-            else
-                $ret .= ',' . $a[$i];
-        }
-        return $ret;
-    }
 
     public function convert_to_array(string $s) {
         return explode(',', $s);

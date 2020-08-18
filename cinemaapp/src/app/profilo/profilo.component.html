@@ -3,7 +3,7 @@
     <br>
     <br>
     <div class="card" >
-        <img class="avatar" src="{{prof.imagepath}}" alt="Not Found">
+        <img class="avatar" src="{{prof.imagepath}}" alt="immagine del profilo non trovata">
         <!----img src="{{profilo.imagepath}}" class="card-img-top" alt="..."-->
         <div class="card-body">
             <h5 class="card-title">IL MIO PROFILO</h5>
@@ -91,23 +91,23 @@
         <div class="modal-body">
             <form>
                 <div class="form-group">
-                    Nome : <input class="form-control" type="text"  formControlName="nome">
-                    Cognome: <input class="form-control" type="text"  formControlName="cognome">
-                    <label for="dateOfBirth">Date of birth</label>
+                    <input type="text" class="form-control" id="profinput" [(ngModel)]="newprof.nome" name="nome" placeholder="nome">
+                    <input type="text" class="form-control" id="profinput" [(ngModel)]="newprof.cognome" name="cognome" placeholder="cognome">
+                    <label for="dateOfBirth">Data di nascita</label>
                     <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp"[(ngModel)]="newprof.datadinascita" ngbDatepicker #dp="ngbDatepicker">
                                <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button" formControlName="datadinascita"></button>
+                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"  type="button" formControlName="datadinascita"></button>
                         </div>
                     </div>
-                    Indirizzo: <input class="form-control" type="text"  formControlName="indirizzo">
-                    Città: <input class="form-control" type="text" formControlName="citta">
-                    Telefono: <input class="form-control" type="text"  formControlName="telefono">
+                   <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.indirizzo" name="indirizzo" placeholder="indirizzo">
+                   <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.citta" name="citta" placeholder="citta">
+                   <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.telefono" name="telefono" placeholder="telefono">
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <!----button type="button" class="btn btn-outline-dark" (click)="Salva()">Save</button>---->
+            <button type="button" class="btn btn-outline-dark" (click)="Salva(newprof)">Save</button>
         </div>
     </ng-template>
 </html>

@@ -8,3 +8,15 @@
     max-width: 1230px;
 }
 
+#logo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+    width: 50px;
+}
+
+.media{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

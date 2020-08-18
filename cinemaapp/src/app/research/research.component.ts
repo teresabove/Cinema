@@ -8,24 +8,35 @@ import {film} from '../Models/film.model';
   styleUrls: ['./research.component.css']
 })
 export class ResearchComponent implements OnInit {
-
+  public value: string;
+  public parametro: string;
+  public films: Array<film>= new Array();
+    
   constructor(public router: Router, private sApi: ApiService) { }
 
-  public films: Array<film>= new Array();
-  genere: string;
   ngOnInit(): void {
   }
 
-   searchFilm(genere:string){
-   this.sApi.getFilmsbyGenere(genere).subscribe(res=>{
+    CambiaParametro(value: string){
+    this.value= value;
+    console.log('this value',this.value);
+  }
+
+   searchFilm(parametro:string){
+       if (this.value= "genere"){
+   this.sApi.getFilmsbyGenere(parametro).subscribe(res=>{
    this.films=res;
    console.log(this.films);
-   })
+   });
+       } else if (this.value= "attore"){
+           this.sApi.getFilmsbyCast(parametro).subscribe(res=>{
+               this.films=res;
+               console.log(this.films);
+           });
+       }
+   console.log(parametro);
   }
-  
-  goHome(){
-      this.router.navigate(['/home']);
-  }
+
   
    getDetails(titolo: string){
       localStorage.setItem('titolo',titolo);

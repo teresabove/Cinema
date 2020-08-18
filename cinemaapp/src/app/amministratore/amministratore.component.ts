@@ -48,7 +48,5 @@ public nuovospettacolo: proiezione = new proiezione();
       return `with: ${reason}`;
     }
   }
-  
-
 
 }

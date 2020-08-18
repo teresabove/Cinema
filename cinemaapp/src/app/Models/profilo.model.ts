@@ -13,7 +13,7 @@ export class profilo{
     public citta: string="";
     public telefono: string="";
     public a_listasconti: string="";
-    public idutente: string ="";
+    public idutente: any;
     public imagepath: any;
     public configurato: boolean;
     

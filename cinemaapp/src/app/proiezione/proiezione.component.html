@@ -1,11 +1,20 @@
 <html>
-    <div class="card">
-        <div class="card-body">
             <div class="card">
                 <div class="card-body">
-                    <img class="card-img-top" src="assets/spettacolo.png" alt="Card image cap">
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Proiezioni</h1>
+                            <p class="lead">Le proiezioni di questa settimana</p>
+                            <img id="logo" src="assets/2d.png" alt="Film Image"> 
+                            La proiezione sarà in <b>modalità 2D</b> (tradizionale) <br>
+                            <img id="logo" src="assets/3d.jpg" alt="Film Image">
+                            La proiezione sarà in <b>modalità 3D</b> (gli occhiali per la visualizzazione
+                                saranno forniti da noi) <br>
+                        </div>
+                    </div>
                 </div>
             </div>
+    
             <div *ngIf="proiezioni.length > 0">
                 <ul class="list-unstyled" >   
                     <li class="media" *ngFor="let proiezione of proiezioni">
@@ -19,6 +28,4 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </div>
 </html>

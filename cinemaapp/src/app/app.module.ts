@@ -22,6 +22,7 @@ import { PagamentoComponent } from './pagamento/pagamento.component';
 import { authInterceptorProviders } from './interceptor';
 import { AmministratoreComponent } from './amministratore/amministratore.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
      
            @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     JwtModule,
     StorageServiceModule,
     NgbModule,
-    TabsModule.forRoot()  
+    TabsModule.forRoot(),
+    NoopAnimationsModule  
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

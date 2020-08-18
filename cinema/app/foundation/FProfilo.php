@@ -33,6 +33,17 @@ class FProfilo extends Fdb {
         debug($res = Fdb::store($object));
         return $res;
     }
+    
+    public function ProfiloUpdate(string $nome, string $cognome, string $citta, string $indirizzo, string $telefono, int $idutente){
+        $query ="UPDATE ".$this->_table . " SET nome = ".'\''. $nome .'\'' . " , cognome= ".'\''. $cognome. '\''. " , indirizzo =". '\''.$indirizzo .'\''. ", citta=". '\''. $citta .'\''. " , telefono=" .'\''. $telefono.'\'' . " WHERE idutente=" .$idutente;
+        $res =$this->query($query);
+        if ($res){
+            $query1 = "UPDATE ". $this->_table . " SET configurato = true";
+            $res1=$this->query($query1);
+            return $res1;
+        }
+        return $res1;
+    }
 
     public function load($key) {
         $res = Fdb::load($key);
@@ -41,18 +52,6 @@ class FProfilo extends Fdb {
         return $res;
     }
 
-    /*public function loadbyId($email) {
-        $f = new FRegistrazione();
-        $res1 = $f->load($email);
-        $id = $res1->Idregistrazione;
-        $query = 'SELECT * FROM profilo WHERE IdRegistrazione=' . '\'' . $id . '\'';
-        $res2 = $this->_connection->query($query);
-        $nr=$res2->num_rows;
-        if ($nr>0){
-        $profilo=$res2->fetch_object('EProfilo');} 
-        else {$profilo = 'empty'; }
-        return $profilo;
-    }*/
 
 }
 

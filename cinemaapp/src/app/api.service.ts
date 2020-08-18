@@ -27,7 +27,16 @@ export class ApiService {
      
    constructor(private httpClient: HttpClient, private router: Router) { }
    
-           
+       
+    postProfilo(prof: any): Observable<profilo>{
+        const headers = {'content-type': 'application/json'};
+        const profilo_json= JSON.stringify(prof);
+        console.log(profilo_json);
+        return this.httpClient.post<any>('http://localhost/progetto/cinema/public/index.php/api/profilo/mod', profilo_json , {'headers': headers});
+    }
+      
+   
+       
     postBiglietto(biglietto: any): Observable<biglietto>{
         const headers = { 'content-type': 'application/json'};
         const biglietto_json= JSON.stringify(biglietto);
@@ -153,10 +162,10 @@ export class ApiService {
     
       getprova(): Observable<any>{
        const headers = {'content-type': 'application/json'};
-        return this.httpClient.get<any>('http://localhost/progetto/cinema/public/index.php/api/prova', {'headers': headers});
+        return this.httpClient.get<any>('http://localhost/progetto/cinema/public/index.php/api/jwt', {'headers': headers});
         
     }
-    
+
     
         
     }

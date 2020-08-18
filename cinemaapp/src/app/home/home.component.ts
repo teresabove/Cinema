@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {ApiService} from '../api.service';
 import { Router, NavigationEnd } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import * as $ from "jquery";
 
 @Component({
@@ -11,8 +10,10 @@ import * as $ from "jquery";
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor(public sApi: ApiService, public router: Router) {
+    
+     active =1;
+  
+      constructor(public sApi: ApiService, public router: Router) {
       router.events.subscribe(s => {
       if (s instanceof NavigationEnd) {
         const tree = router.parseUrl(router.url);

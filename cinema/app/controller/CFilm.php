@@ -53,9 +53,9 @@ $app->get('/api/film/genere/{tipo}',function(ServerRequestInterface $request, Re
 });
 
 $app->get('/api/film/cast/{attore}',function(ServerRequestInterface $request, ResponseInterface $response, array $args){
-    $tipo=$args['attore'];
+    $attore=$args['attore'];
     $f= new FFilm();
-    $res=$f->searchbygenere($tipo,'a_cast');
+    $res=$f->searchbygenere($attore,'a_cast');
     $response=json_encode($res);
     return $response;
 });

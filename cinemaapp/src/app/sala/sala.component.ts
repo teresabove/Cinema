@@ -50,7 +50,7 @@ export class SalaComponent implements OnInit {
           
   Seleziona(posto){
       this.count.push(posto);
-      console.log(this.count);
+      console.log('posti selezionati',this.count);
       localStorage.setItem('posti',JSON.stringify(this.count));  
   }
 

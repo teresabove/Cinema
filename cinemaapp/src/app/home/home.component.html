@@ -1,5 +1,5 @@
-<html>
-    <body>
+<body>
+        <button class="btn btn-lg btn-outline-primary" (click)="prova()">prova</button>
 
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -11,7 +11,7 @@
         </div>  
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="#sale">Le nostre sale</a>
+                <a class="nav-link" href="sale">Le nostre sale</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#eventi">I nostri eventi</a>
@@ -24,14 +24,14 @@
 
         <ul class="list-unstyled">
             <li class="media" id="sale">
-                <img src="assets/salagiala.jpg" class="mr-3" alt="...">
+                <img src="assets/salagiala.jpg" id="sala" class="mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">SALA GIALLA</h5>
                     La sala gialla ha una capienza di 100 posti, disposti in 10 file. 
                 </div>
             </li>
             <li class="media">
-                <img src="assets/salablu.jpg" class="mr-3" alt="...">
+                <img src="assets/salablu.jpg" id="sala" class="mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">SALA BLU</h5>
                     La sala blu ha una capienza di 200 posti, disposte in 10 file, è la più grande delle nostre sale. Viene 
@@ -39,7 +39,7 @@
                 </div>
             </li>
             <li class="media">
-                <img src="assets/home2.png" class="mr-3" alt="...">
+                <img src="assets/home2.png" id="sala" class="mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">SALA ROSSA</h5>
                      La sala rossa ha una capienza di 150 posti, disposti in 10 file, è la nostra sala di dimensioni medie. Anche essa,
@@ -47,8 +47,8 @@
                      dei film. Nelle proiezioni 3D, gli occhiali sono gratuitamente forniti da noi.
                 </div>
             </li>
-            <li class="media" id="eventi">
-                <img src="assets/home1.jpg" class="mr-3" alt="...">
+            <li class="media">
+                <img src="assets/home1.jpg" id="eventi" class="mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">COMPLEANNI</h5>
                     Siamo a vostra disposizione per festeggiare i compleanni dei nostri piccoli amici con animatori specializzati. Abbiamo tutto per
@@ -57,7 +57,7 @@
                 </div>
             </li>
             <li class="media" >
-                <img src="assets/convegno.jpg" class="mr-3" alt="...">
+                <img src="assets/convegno.jpg" id="eventi" class="mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">CONVEGNI</h5>
                     Possibilità di affittare le nostre sale per convegni e riunioni aziendali, con rinfresco e buffet organizzato da catering da noi scelto.
@@ -65,7 +65,7 @@
                 </div>
             </li>
             <li class="media" id="contatti">
-                <img src="assets/mappa.PNG" class="mr-3" alt="...">
+                <img src="assets/mappa.PNG" id="contatti" class="mr-3" alt="...">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">CONTATTACI</h5>
                     Ci troviamo ad Avezzano (AQ) 67050 Zona Nucleo Industriale
@@ -74,4 +74,3 @@
         </ul>
 
     </body>
-</html>

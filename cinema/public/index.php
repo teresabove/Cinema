@@ -36,31 +36,5 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
     return $response;
 });
 
-$app->get('/api/prova', function(Request $request, Response $response) {
-    //$array=$request->getHeaders();
-    $authHeader = $request->getHeader('HTTP_AUTHORIZATION');
-    if ($authHeader) {
-        $authHeaders = implode($authHeader);
-        $s=list($jwt) = sscanf($authHeaders, 'Authorization: Bearer %s');
-        $response = json_encode($s);
-        if ($jwt){
-                global $config;
-                $secretKey = base64_decode($config['secretkey']);
-                $token = JWT::decode($jwt, $secretKey);
-                $res =$token;
-                $response = json_encode($s);            
-        }
-    }
-    return $response;
-});
-
-$app->get('/api/prova2', function(Request $request, Response $response) {
-    //$array=$request->getHeaders();
-    $authHeader = $request->getHeader('HTTP_AUTHORIZATION');
-    $response = json_encode($authHeader);
-    return $response;
-});
-
-
 $app->run();
 

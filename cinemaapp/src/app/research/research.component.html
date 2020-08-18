@@ -1,17 +1,35 @@
 <html>
-    <div >
-        <div>
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Ricerca</h1>
-                    <p class="lead">Area per ricercare il film preferito</p>
-                </div>
+    <div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Ricerca</h1>
+                <p class="lead">Area per ricercare il film preferito</p>
             </div>
-            <div class="input-group input-group-sm mb-3">
-                <input type="text"  [(ngModel)]="genere"/>
-                <div class="input-group-prepend">
-                    <button type="button" class="btn btn-primary" (click)="searchFilm(genere)">Cerca</button> 
-                </div> <br> <br> <br>
+        </div>
+
+
+        <div class="card">
+            <div class="card-body">
+                <p>Inserisci il parametro di ricerca </p> 
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text"  [(ngModel)]="parametro"/>
+                    <div class="row">
+                        <div class="col">
+                            <div ngbDropdown class="d-inline-block"> &nbsp; &nbsp;
+                                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Ricerca per</button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <button ngbDropdownItem (click)="CambiaParametro('titolo')">titolo</button>
+                                    <button ngbDropdownItem (click)="CambiaParametro('genere')">genere</button>
+                                    <button ngbDropdownItem (click)="CambiaParametro('attore')">attore</button>
+                                </div>
+                            </div>
+                        </div> 
+                                    <p>Stai cercando per: <br> <b>{{value}}</b></p> &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="input-group-prepend"> 
+                            <button type="button" class="btn btn-outline-primary" (click)="searchFilm(parametro)">Cerca</button> 
+                        </div> 
+                    </div>
+                </div> 
                 <div *ngIf="films?.length > 0; else elseBlock">
                     <ul class="list-unstyled" >
                         <li class="media" *ngFor="let film of films">
@@ -30,5 +48,4 @@
             </div>
         </div>
     </div>
-
 </html>

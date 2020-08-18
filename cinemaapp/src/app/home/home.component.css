@@ -1,7 +1,19 @@
-.md-3{
-    max-height: 200px;
-    max-width: 200px; 
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 15px;
+#contatti{
+    height: 200px;
+    width: 500px;
+}
+
+#sala{
+    height: 200px;
+    width: 500px;
+}
+
+#eventi{
+    height: 200px;
+    width: 500px;
+}
+
+.nav nav-tabs{
+    position: absolute;
+    margin-left: 500px;
 }
