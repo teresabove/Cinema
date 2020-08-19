@@ -93,16 +93,10 @@
                 <div class="form-group">
                     <input type="text" class="form-control" id="profinput" [(ngModel)]="newprof.nome" name="nome" placeholder="nome">
                     <input type="text" class="form-control" id="profinput" [(ngModel)]="newprof.cognome" name="cognome" placeholder="cognome">
-                    <label for="dateOfBirth">Data di nascita</label>
-                    <div class="input-group">
-                        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp"[(ngModel)]="newprof.datadinascita" ngbDatepicker #dp="ngbDatepicker">
-                               <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"  type="button" formControlName="datadinascita"></button>
-                        </div>
-                    </div>
-                   <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.indirizzo" name="indirizzo" placeholder="indirizzo">
-                   <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.citta" name="citta" placeholder="citta">
-                   <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.telefono" name="telefono" placeholder="telefono">
+                    <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.datadinascita" name="datadinascita" placeholder="datadinascita: gg-mm-aaaa">
+                    <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.indirizzo" name="indirizzo" placeholder="indirizzo">
+                    <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.citta" name="citta" placeholder="citta">
+                    <input type="text" class="form-control" id="filminput" [(ngModel)]="newprof.telefono" name="telefono" placeholder="telefono">
                 </div>
             </form>
         </div>

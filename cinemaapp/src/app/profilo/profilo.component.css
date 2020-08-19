@@ -22,3 +22,11 @@
     max-height: 300px;
     max-width:  300px;
 }
+
+#buttons{
+    margin-left: 30px;
+}
+
+.card{
+    margin-left: 50px;
+}

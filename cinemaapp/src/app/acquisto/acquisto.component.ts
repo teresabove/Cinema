@@ -13,28 +13,33 @@ export class AcquistoComponent implements OnInit {
    
   constructor(public router: Router, private modalService: NgbModal) { }
   public posti : Array<posto> = new Array();
+  public importi: Array<number>;
   public importo: number = 0;
   closeResult: string;
   public tipo: string = "";
   
   ngOnInit(): void {
       var posti = JSON.parse(localStorage.getItem('posti'));
-      this.posti=posti;          
+      this.posti=posti;
+      let length = this.posti.length;
+      this.importi = new Array(length);
+      console.log(this.importi);          
   }
   
   Scegli(event: any){
-      let length = this.posti.length;
       this.tipo= event.target.value;
       console.log(this.tipo);
+      for (let i=0; i< this.importi.length; i++){
       if (this.tipo == 'young'){
-          this.importo= this.importo + 5;
+          this.importi[i]=5
       } else if (this.tipo == 'full'){
-          this.importo= this.importo + 6;
+          this.importi[i]=6;
       }else if (this.tipo == 'senior'){
-          this.importo= this.importo + 5;
+          this.importi[i]=5;
       }
-      console.log(this.importo);
-      localStorage.setItem('importo',JSON.stringify(this.importo));
+     }
+      console.log(this.importi);
+      localStorage.setItem('importo',JSON.stringify(this.importi));
     }
     
   Apri(content) {

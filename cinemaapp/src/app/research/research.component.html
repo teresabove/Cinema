@@ -10,26 +10,22 @@
 
         <div class="card">
             <div class="card-body">
-                <p>Inserisci il parametro di ricerca </p> 
+                <p>Inserisci il parametro di ricerca per <b>genere</b> </p> 
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text"  [(ngModel)]="parametro"/>
-                    <div class="row">
-                        <div class="col">
-                            <div ngbDropdown class="d-inline-block"> &nbsp; &nbsp;
-                                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Ricerca per</button>
-                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                    <button ngbDropdownItem (click)="CambiaParametro('titolo')">titolo</button>
-                                    <button ngbDropdownItem (click)="CambiaParametro('genere')">genere</button>
-                                    <button ngbDropdownItem (click)="CambiaParametro('attore')">attore</button>
-                                </div>
-                            </div>
-                        </div> 
-                                    <p>Stai cercando per: <br> <b>{{value}}</b></p> &nbsp; &nbsp; &nbsp; &nbsp;
-                        <div class="input-group-prepend"> 
-                            <button type="button" class="btn btn-outline-primary" (click)="searchFilm(parametro)">Cerca</button> 
-                        </div> 
-                    </div>
+                    <input type="text"  [(ngModel)]="parametro"/> &nbsp; &nbsp; &nbsp;
+                    <button type="button" class="btn btn-outline-primary" (click)="searchFilmbyG(parametro)">Cerca</button> 
                 </div> 
+                
+                <p>Inserisci il parametro di ricerca per <b>attore</b> </p> 
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text"  [(ngModel)]="parametro1"/> &nbsp; &nbsp; &nbsp;
+                    <button type="button" class="btn btn-outline-primary" (click)="searchFilmbyC(parametro1)">Cerca</button> 
+                </div> 
+                
+                
+                
+                
+                
                 <div *ngIf="films?.length > 0; else elseBlock">
                     <ul class="list-unstyled" >
                         <li class="media" *ngFor="let film of films">
@@ -37,7 +33,7 @@
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
                                 <p> GENERI: {{film.a_generi}}</p>
-                                <button type="button" class="btn btn-primary" (click)="getDetails(film.titolo)">Dettagli</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="getDetails(film.titolo)">Dettagli</button>
                             </div>
                         </li>
                     </ul>

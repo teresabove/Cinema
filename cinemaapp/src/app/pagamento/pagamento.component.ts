@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { posto } from '../Models/posto.model';
 import { credenziale } from '../Models/credenziale.model';
 import { biglietto } from '../Models/biglietto.model';
 import { proiezione } from '../Models/proiezione.model';
+import { NgbModalConfig, NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pagamento',
@@ -17,7 +18,10 @@ export class PagamentoComponent implements OnInit {
   public carte: Array<credenziale> = new Array();
   public ticket: biglietto = new biglietto();
   public spettacolo: proiezione = new proiezione();
-  constructor(public router: Router, private sApi: ApiService) { }
+  constructor(public router: Router, private sApi: ApiService, private modalService: NgbModal) { }
+  
+  //@ViewChild(TemplateRef) contentRef: TemplateRef; 
+  //@ViewChild('content', {static: true}) contentRef: ElementRef;
 
   ngOnInit(): void {
       //1- verifica del login utente 
@@ -38,6 +42,7 @@ export class PagamentoComponent implements OnInit {
       } //false
       else {
           console.log('Devi effettuare il login per fare un acquisto');
+          this.Avviso();
       }       
   }
   
@@ -61,5 +66,11 @@ export class PagamentoComponent implements OnInit {
           console.log('response',res)
       });
    }  
+  }
+  
+  Avviso(content){
+      this.modalService.open('Per acquistare il biglietto è necessario aver effettutato il login. Sarai reindirizzato alla pagina USER per \n\
+                              poter effettuare il LOGIN o per poter effettuare una REGISTRAZIONE, nel caso non hai un account registrato.');
+                              this.router.navigate(['/user'])
   }
 }

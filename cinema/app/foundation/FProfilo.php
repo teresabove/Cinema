@@ -34,8 +34,8 @@ class FProfilo extends Fdb {
         return $res;
     }
     
-    public function ProfiloUpdate(string $nome, string $cognome, string $citta, string $indirizzo, string $telefono, int $idutente){
-        $query ="UPDATE ".$this->_table . " SET nome = ".'\''. $nome .'\'' . " , cognome= ".'\''. $cognome. '\''. " , indirizzo =". '\''.$indirizzo .'\''. ", citta=". '\''. $citta .'\''. " , telefono=" .'\''. $telefono.'\'' . " WHERE idutente=" .$idutente;
+    public function ProfiloUpdate(string $nome, string $cognome, string $datadinascita, string $citta, string $indirizzo, string $telefono, int $idutente){
+        $query ="UPDATE ".$this->_table . " SET nome = ".'\''. $nome .'\'' . " , cognome= ".'\''. $cognome. '\''. ", datadinascita=" .'\''.$datadinascita.'\''. " , indirizzo =". '\''.$indirizzo .'\''. ", citta=". '\''. $citta .'\''. " , telefono=" .'\''. $telefono.'\'' . " WHERE idutente=" .$idutente;
         $res =$this->query($query);
         if ($res){
             $query1 = "UPDATE ". $this->_table . " SET configurato = true";

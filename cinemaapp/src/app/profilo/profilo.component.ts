@@ -30,8 +30,6 @@ export class ProfiloComponent implements OnInit {
           this.prof= res;
           console.log(res); 
          if(this.prof.configurato == true){     
-       this.getCartebyId();
-       this.getBigliettibyId();
          } else {
          console.log('profilo da configurare');           
          }});      
@@ -63,10 +61,12 @@ export class ProfiloComponent implements OnInit {
     }
     
     getAcquisti(content){
+        this.getBigliettibyId();
         this.modalService.open(content);
     }
     
     getCarte(content1){
+        this.getCartebyId();
         this.modalService.open(content1);
      }
      

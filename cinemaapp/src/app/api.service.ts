@@ -69,7 +69,7 @@ export class ApiService {
         localStorage.setItem('email',res.email);
         localStorage.setItem('jwt',res.jwt);
         localStorage.setItem('idutente',res.idutente);
-        this.router.navigate(['/profilo']);
+        this.router.navigate(['/home']);
     } 
     
     isLoggedIn(){

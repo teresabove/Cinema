@@ -1,6 +1,5 @@
 <html>
     <div>
-        <img src="assets/ccredito.jpg" id="cc" alt="Card image cap">
         <div>
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
@@ -9,17 +8,18 @@
                     <p>Scegli il tipo di biglietto:</p>
 
 
-                    <p>-Full: Riservato allo spettatore con età compresa tra i 15 e 60 anni; COSTO 6.00 €</p>
-                    <p>-Young: Riservato allo spettatore con età compresa tra i 0 e 15 anni; COSTO 5.00 €</p>
-                    <p>-Senior: Riservato allo spettatore con età maggiore di 60 anni; COSTO 5.00 €</p>
+                    <p>-<b>Full:</b> Riservato allo spettatore con età compresa tra i 15 e 60 anni; <b>COSTO 6.00 €</b></p>
+                    <p>-<b>Young:</b> Riservato allo spettatore con età compresa tra i 0 e 15 anni; <b>COSTO 5.00 €</b></p>
+                    <p>-<b>Senior:</b> Riservato allo spettatore con età maggiore di 60 anni; <b>COSTO 5.00 €</b></p>
                 </div>
             </div>
 
-            <li id="scegli" *ngFor="let posto of posti">               
-                <p> Numero fila: {{posto.fila}} </p> &nbsp; &nbsp;
-                <p> Numero posto: {{posto.numero}}</p> 
-
-                <select class="custom-select"  (change)="CambiaParametro(value)">
+            <li class="list-unstyled" id="scegli" *ngFor="let posto of posti">
+                <b>Posto</b> &nbsp; &nbsp; &nbsp;
+                Fila: {{posto.fila}}  &nbsp; &nbsp;
+                Numero: {{posto.numero}}
+                
+                <select style="width:200px" class="custom-select"  (change)="Scegli($event)">
                     <option selected>Tipologia</option>
                     <option value="full">Full</option>
                     <option value="young">Young</option>
@@ -30,7 +30,7 @@
     </div>
 
 
-    <button class="btn btn-lg btn-outline-primary" (click)="Apri(mymodal)">Conferma</button>
+    <button class="btn btn-lg btn-outline-primary" id="conferma" (click)="Apri(mymodal)">Conferma</button>
 
     <ng-template #mymodal let-modal>
         <div class="modal-header">
@@ -47,7 +47,7 @@
                 <p> Numero posto: {{posto.numero}}</p> &nbsp;
                 <p> Tipologia <p>          
             </li>
-            TOTALE: {{importo}} € 
+            TOTALE: {{importi}} € 
         </div>
         <div class="modal-footer">
             <button class="btn btn-lg btn-outline-primary" (click)="Paga()">Paga</button>
