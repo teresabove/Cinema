@@ -12,6 +12,7 @@ import { AcquistoComponent } from './acquisto/acquisto.component';
 import { ProiezioniComponent } from './proiezioni/proiezioni.component';
 import { ProiezioneComponent } from './proiezione/proiezione.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
+import { InstallazioneComponent } from './installazione/installazione.component';
 
 
 const routes: Routes = [
@@ -27,8 +28,8 @@ const routes: Routes = [
      { path: 'acquisto', component: AcquistoComponent},
      { path: 'areaspettacoli', component: ProiezioniComponent},
      { path: 'spettacoli/:titolo', component: ProiezioneComponent},
-     { path: 'pagamento', component: PagamentoComponent}
-     
+     { path: 'pagamento', component: PagamentoComponent},
+     { path: 'install', component: InstallazioneComponent},    
 ];
 
 @NgModule({

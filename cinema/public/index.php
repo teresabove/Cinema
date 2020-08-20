@@ -30,11 +30,18 @@ require_once ROOT_DIR . '\app\controller\CBiglietto.php';
 require_once ROOT_DIR . '\app\controller\CPosto.php';
 require_once ROOT_DIR . '\app\controller\CSconto.php';
 
+/*
+if(file_exists('config.inc.php')){
+    
+}
+*/
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
     $response->getBody()->write("Hello, $name");
     return $response;
 });
+
+
 
 
 $app->run();

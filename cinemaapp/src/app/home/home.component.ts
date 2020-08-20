@@ -10,19 +10,9 @@ import * as $ from "jquery";
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-    
-     active =1;
-  
-      constructor(public sApi: ApiService, public router: Router) {
-      router.events.subscribe(s => {
-      if (s instanceof NavigationEnd) {
-        const tree = router.parseUrl(router.url);
-        if (tree.fragment) {
-          const element = document.querySelector("#" + tree.fragment);
-          if (element) { element.scrollIntoView(); }
-        }
-      }
-    });
+
+    constructor(public sApi: ApiService, public router: Router) {
+
   }
     
   ngOnInit(): void {  

@@ -22,6 +22,7 @@ import { PagamentoComponent } from './pagamento/pagamento.component';
 import { authInterceptorProviders } from './interceptor';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { InstallazioneComponent } from './installazione/installazione.component';
      
            @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ProiezioniComponent,
     ProiezioneComponent,
     PagamentoComponent,
+    InstallazioneComponent,
     //AmministratoreComponent
   ],
   imports: [

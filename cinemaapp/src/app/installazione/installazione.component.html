@@ -1,0 +1,16 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Installazione</h1>
+    <p class="lead">Fase di installazione dell'applicazione: inserisci <b>ADMIN</b>, <b>PASSWORD</b> e <b>NOME DEL DATABASE</b> che si vuole costruire</p>
+  </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <p><b>Inserisci i dati:</b></p>
+       <input type="text" class="form-control" id="install" [(ngModel)]="admin" name="name" placeholder="ADMIN">
+       <input type="password" class="form-control" id="install" [(ngModel)]="pwd" name="name" placeholder="PASSWORD">
+       <input type="text" class="form-control" id="install" [(ngModel)]="database" name="name" placeholder="DATABASE">
+    </div>
+</div>
+<button type="button" style="margin-left: 450px;" class="btn btn-outline-primary" (click)="conferma(admin,pwd,database)">Conferma</button>

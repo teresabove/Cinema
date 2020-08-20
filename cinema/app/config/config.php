@@ -18,6 +18,7 @@ $config['secretkey'] = base64_encode("Ma69r3Ga8A");
 $config['issuerclaim']= "APACHESERVER";
 $config['audienceclaim']= "CINEMA";
 
+/*
 function debug($var) {
     global $config;
     if ($config['debug']) {
@@ -26,5 +27,5 @@ function debug($var) {
         echo "</pre>\n";
     }
 }
-
+*/
 ?>
