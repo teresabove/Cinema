@@ -1,9 +1,9 @@
 <?php
 
-require_once ROOT_DIR . '\app\utility\USingleton.php';
-require_once ROOT_DIR . '\app\foundation\fdb.php';
-require_once ROOT_DIR . '\app\entity\EUtente.php';
-require_once ROOT_DIR . '\app\foundation\FProfilo.php';
+require_once 'app\utility\USingleton.php';
+require_once 'app\foundation\fdb.php';
+require_once 'app\entity\EUtente.php';
+require_once 'app\foundation\FProfilo.php';
 
 use \Firebase\JWT\JWT;
 
@@ -25,7 +25,7 @@ class FRegistrazione extends fdb {
         $this->query($query);
         $res = $this->load($email);
         $id = $res->idutente;
-        debug($id);
+        //debug($id);
         $profilo = new EProfilo();
         $profilo->set_idutente($id);
         $f = new FProfilo();

@@ -10,9 +10,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use \Firebase\JWT\JWT;
 
-require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
-require_once ROOT_DIR . '\app\foundation\FBiglietto.php';
-require_once ROOT_DIR . '\app\entity\EBiglietto.php';
+//require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
+require_once 'app\foundation\FBiglietto.php';
+require_once 'app\entity\EBiglietto.php';
 
 $app->post('/api/biglietto/add', function(ServerRequestInterface $request, ResponseInterface $response) use ($app) {
     global $config;

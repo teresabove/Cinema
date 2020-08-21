@@ -7,9 +7,9 @@
  */
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
-require_once ROOT_DIR.'\app\foundation\FPosto.php';
-require_once ROOT_DIR.'\app\entity\EPosto.php';
+//require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
+require_once 'app\foundation\FPosto.php';
+require_once 'app\entity\EPosto.php';
 use \Firebase\JWT\JWT;
 
   $app->post('/api/posto/add',function(ServerRequestInterface $request, ResponseInterface $response) use ($app) {

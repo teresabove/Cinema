@@ -10,12 +10,12 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use \Firebase\JWT\JWT;
 
-require_once ROOT_DIR . '\app\foundation\FFilm.php';
-require_once ROOT_DIR . '\app\foundation\FRegistrazione.php';
-require_once ROOT_DIR . '\app\entity\EUtente.php';
-require_once ROOT_DIR . '\app\entity\EProfilo.php';
-require_once ROOT_DIR . '\app\foundation\FCredenziali.php';
-require_once ROOT_DIR . '\app\foundation\fdb.php';
+require_once 'app\foundation\FFilm.php';
+require_once 'app\foundation\FRegistrazione.php';
+require_once 'app\entity\EUtente.php';
+require_once 'app\entity\EProfilo.php';
+require_once 'app\foundation\FCredenziali.php';
+require_once 'app\foundation\fdb.php';
 
 //global $config;
 
@@ -121,10 +121,11 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
     $password_n = json_decode($password);
     $freg = new FRegistrazione();
     $res = $freg->login($email_n, $password_n);
-    if ($res !== null) {
+    if ($res !== false) {
         //$secretKey = "Ma69r3Ga8A";
         //$issuerClaim = "APACHESERVER";
         //$audienceClaim = "CINEMA";
+        $id = $res->idutente;
         $tokenId = base64_encode(random_bytes(32));
         $issuedatClaim = time();
         $notbeforeClaim = $issuedatClaim + 5;

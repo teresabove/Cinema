@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_DIR.'\app\foundation\Fbiglietto.php';
+require_once 'app\foundation\Fbiglietto.php';
 
 class EBiglietto{
       public $riepilogo;

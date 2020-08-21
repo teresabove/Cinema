@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
 import {ApiService} from '../api.service';
 import { Router, NavigationEnd } from '@angular/router';
-import * as $ from "jquery";
 
 @Component({
   selector: 'app-home',
@@ -10,12 +8,13 @@ import * as $ from "jquery";
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
+public res: string= "";
     constructor(public sApi: ApiService, public router: Router) {
 
   }
     
-  ngOnInit(): void {  
+  ngOnInit(): void {
+        this.verificaInstall();
   }
 
   
@@ -37,10 +36,20 @@ export class HomeComponent implements OnInit {
       this.sApi.getprova().subscribe(res=>{
           console.log('riposta api prova',res);
       });
-      
-      
-      
   }
   
+    verificaInstall(){
+        this.sApi.getInstall().subscribe(res=>{
+            console.log(res);
+               if (res =='update'){
+               console.log('Update');
+                this.router.navigate(['/install']);         
+            } else {
+               console.log('Already installed');
+            } 
+        });    
   }
+}
+  
+  
   

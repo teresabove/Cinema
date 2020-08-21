@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_DIR.'\app\entity\EUtente.php';
+require_once 'app\entity\EUtente.php';
 
 class EGuest {
       // public $username;

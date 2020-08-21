@@ -17,7 +17,8 @@ class fdb {
 
     public function __construct() {
         global $config;
-        $this->_connection = new mysqli($config['mysql']['host'], $config['mysql']['user'], $config['mysql']['password'], $config['mysql']['db']);
+        //$this->_connection= new mysqli($host, $username, $passwd, $dbname);
+        $this->_connection = new mysqli('localhost', 'root', '','cinemadb');
         if ($this->_connection->connect_errno) {
             die('Impossibile connettersi al database: ' . $this->_connection->error);
         }

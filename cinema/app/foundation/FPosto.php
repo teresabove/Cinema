@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-require_once ROOT_DIR . '\app\utility\USingleton.php';
-require_once ROOT_DIR . '\app\foundation\Fdb.php';
-require_once ROOT_DIR . '\app\entity\EPosto.php';
+require_once 'app\utility\USingleton.php';
+require_once 'app\foundation\Fdb.php';
+require_once 'app\entity\EPosto.php';
 
 class FPosto extends fdb {
 

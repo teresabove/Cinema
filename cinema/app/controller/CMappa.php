@@ -8,9 +8,9 @@
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
-require_once ROOT_DIR.'\app\foundation\FMappa.php';
-require_once ROOT_DIR.'\app\entity\EMappa.php';
+//require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
+require_once 'app\foundation\FMappa.php';
+require_once 'app\entity\EMappa.php';
 
 $app->get('/api/mappa/{nomeschema}', function(ServerRequestInterface $request, ResponseInterface $response, $args){
     $nomeschema=$args['nomeschema'];

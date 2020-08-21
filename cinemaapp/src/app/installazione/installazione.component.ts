@@ -21,6 +21,9 @@ export class InstallazioneComponent implements OnInit {
       console.log(admin, pwd, database);
       this.sApi.postInstall(admin,pwd,database).subscribe(res=> {
           console.log(res);
+          if (res="Installazione avvenuta con successo"){
+              this.router.navigate(['/home']);
+          }
       });
       
   }

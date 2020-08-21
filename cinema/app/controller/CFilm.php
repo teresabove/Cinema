@@ -8,11 +8,11 @@
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use \Firebase\JWT\JWT;
-require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
-require_once ROOT_DIR.'\app\foundation\FFilm.php';
-require_once ROOT_DIR.'\app\entity\EFilm.php';
+//require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
+require_once 'app\foundation\FFilm.php';
+require_once 'app\entity\EFilm.php';
 
-//prima i metodi statici e poi quelli con paramslog di apache, vale solo per i get
+//prima i metodi statici e poi quelli con params (error log di apache), vale solo per i get
 
 $app->get('/api/film/all',function(ServerRequestInterface $request, ResponseInterface $response){
     $f=new FFilm();

@@ -82,11 +82,12 @@ export class ProfiloComponent implements OnInit {
   
  Salva(prof: profilo){
      this.newprof=prof;
-     this.newprof.idutente = this.prof.idutente;
+     this.newprof.idutente = localStorage.getItem('idutente')
      console.log(this.newprof);
      this.sApi.postProfilo(this.newprof).subscribe(res =>{
          console.log(res);
      });
+     this.router.navigate(['/profilo']);
  }
   
   private getDismissReason(reason: any): string {

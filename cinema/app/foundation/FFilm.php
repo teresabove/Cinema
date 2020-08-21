@@ -1,8 +1,8 @@
 <?php
 
-require_once ROOT_DIR . '\app\utility\USingleton.php';
-require_once ROOT_DIR . '\app\foundation\fdb.php';
-require_once ROOT_DIR . '\app\entity\EFilm.php';
+require_once 'app\utility\USingleton.php';
+require_once 'app\foundation\fdb.php';
+require_once 'app\entity\EFilm.php';
 
 class FFilm extends fdb {
 

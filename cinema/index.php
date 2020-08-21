@@ -10,8 +10,8 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Firebase\JWT\JWT;
 
-require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
-require ROOT_DIR . '\vendor\autoload.php';
+require_once 'config.php';
+require 'vendor\autoload.php';
 
 $app = new \Slim\App([
     'setting' => [
@@ -21,28 +21,23 @@ $app = new \Slim\App([
     ]
         ]);
 
-require_once ROOT_DIR . '\app\controller\CUser.php';
-require_once ROOT_DIR . '\app\controller\CFilm.php';
-require_once ROOT_DIR . '\app\controller\CMappa.php';
-require_once ROOT_DIR . '\app\controller\CProiezioni.php';
-require_once ROOT_DIR . '\app\controller\CSala.php';
-require_once ROOT_DIR . '\app\controller\CBiglietto.php';
-require_once ROOT_DIR . '\app\controller\CPosto.php';
-require_once ROOT_DIR . '\app\controller\CSconto.php';
 
-/*
-if(file_exists('config.inc.php')){
-    
-}
-*/
+
+require_once 'app\controller\CUser.php';
+require_once 'app\controller\CFilm.php';
+require_once 'app\controller\CMappa.php';
+require_once 'app\controller\CProiezioni.php';
+require_once 'app\controller\CSala.php';
+require_once 'app\controller\CBiglietto.php';
+require_once 'app\controller\CPosto.php';
+require_once 'app\controller\CSconto.php';
+require_once 'app\controller\CInstall.php';
+
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
     $response->getBody()->write("Hello, $name");
     return $response;
 });
-
-
-
 
 $app->run();
 

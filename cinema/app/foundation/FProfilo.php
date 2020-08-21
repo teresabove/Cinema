@@ -1,9 +1,9 @@
 <?php
 
-require_once ROOT_DIR . '\app\utility\USingleton.php';
-require_once ROOT_DIR . '\app\foundation\Fdb.php';
-require_once ROOT_DIR . '\app\entity\EProfilo.php';
-require_once ROOT_DIR . '\app\foundation\FRegistrazione.php';
+require_once 'app\utility\USingleton.php';
+require_once 'app\foundation\Fdb.php';
+require_once 'app\entity\EProfilo.php';
+require_once 'app\foundation\FRegistrazione.php';
 
 class FProfilo extends Fdb {
 
@@ -30,7 +30,7 @@ class FProfilo extends Fdb {
     }
 
     public function store($object) {
-        debug($res = Fdb::store($object));
+        $res = Fdb::store($object);
         return $res;
     }
     
@@ -47,8 +47,8 @@ class FProfilo extends Fdb {
 
     public function load($key) {
         $res = Fdb::load($key);
-        $res->set_listasconti($this->convert_to_array($res->a_listasconti));
-        unset($res->a_listasconti);
+        //$res->set_listasconti($this->convert_to_array($res->a_listasconti));
+        //unset($res->a_listasconti);
         return $res;
     }
 

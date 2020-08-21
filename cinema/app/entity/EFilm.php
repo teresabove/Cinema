@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_DIR.'\app\foundation\FFilm.php';
+require_once 'app\foundation\FFilm.php';
 
 class EFilm {
       public $titolo;

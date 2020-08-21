@@ -8,9 +8,9 @@
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use \Firebase\JWT\JWT;
-require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
-require_once ROOT_DIR.'\app\foundation\FSconto.php';
-require_once ROOT_DIR.'\app\entity\ESconto.php';
+//require_once 'C:\xampp\htdocs\progetto\cinema\app\config\config.php';
+require_once 'app\foundation\FSconto.php';
+require_once 'app\entity\ESconto.php';
 
 $app->get('/api/sconto/all',function(ServerRequestInterface $request, ResponseInterface $response){
     $f=new FSconto();

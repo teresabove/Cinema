@@ -1,7 +1,7 @@
 <?php
-require_once ROOT_DIR.'\app\utility\USingleton.php';
-require_once ROOT_DIR.'\app\foundation\Fdb.php';
-require_once ROOT_DIR.'\app\entity\EStruttura.php';
+require_once 'app\utility\USingleton.php';
+require_once 'app\foundation\Fdb.php';
+require_once 'app\entity\EStruttura.php';
 
 class FStruttura extends  Fdb{
 

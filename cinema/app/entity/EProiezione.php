@@ -1,8 +1,8 @@
 <?php
-require_once ROOT_DIR.'\app\foundation\FProiezione.php';
-require_once ROOT_DIR.'\app\entity\EFilm.php';
-require_once ROOT_DIR.'\app\entity\ESala.php';
-require_once ROOT_DIR.'\app\entity\EMappa.php';
+require_once 'app\foundation\FProiezione.php';
+require_once 'app\entity\EFilm.php';
+require_once 'app\entity\ESala.php';
+require_once 'app\entity\EMappa.php';
 
 class EProiezione{
       public $film;

@@ -1,6 +1,6 @@
 <?php
-require_once ROOT_DIR.'\app\foundation\FMappa.php';
-require_once ROOT_DIR.'\app\entity\EPosto.php';
+require_once 'app\foundation\FMappa.php';
+require_once 'app\entity\EPosto.php';
 
 class EMappa{
       public $numero_file;

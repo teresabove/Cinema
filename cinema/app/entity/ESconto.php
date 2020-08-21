@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_DIR.'\app\foundation\FSconto.php';
+require_once 'app\foundation\FSconto.php';
 
 class ESconto{
   public $idsconto;
