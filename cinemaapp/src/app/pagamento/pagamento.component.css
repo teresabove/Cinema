@@ -6,5 +6,11 @@
 #ticket{
     float: left;
     margin-right: 20px;
-    margin-bottom: 30px;
+    height: 250px;
+}
+
+#paga{
+    float: right;
+    margin-right: 100px;
+    margin-top: 15px;
 }

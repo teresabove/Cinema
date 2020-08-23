@@ -6,6 +6,10 @@
  * and open the template in the editor.
  */
 
+if (file_exists('../config.php')) {
+    include '../config.php';
+}
+
 class fdb {
 
     public $_connection;
@@ -18,7 +22,7 @@ class fdb {
     public function __construct() {
         global $config;
         //$this->_connection= new mysqli($host, $username, $passwd, $dbname);
-        $this->_connection = new mysqli('localhost', 'root', '','cinemadb');
+        $this->_connection = new mysqli('localhost', 'root', '', 'cinemadb');
         if ($this->_connection->connect_errno) {
             die('Impossibile connettersi al database: ' . $this->_connection->error);
         }
@@ -114,7 +118,7 @@ class fdb {
         $this->query($query);
         return $this->getObject();
     }
-    
+
     public function loadarray($key) {
         $query = 'SELECT * FROM ' . $this->_table . ' WHERE ' . $this->_key . '=\'' . $key . '\'';
         $this->query($query);
@@ -174,7 +178,7 @@ class fdb {
             return $this->getObjectArray();
         }
     }
-    
+
     public function convert_to_string(array $a) {
         $ret = '';
         for ($i = 0; $i < count($a); $i++) {
@@ -185,7 +189,5 @@ class fdb {
         }
         return $ret;
     }
-
-   
 
 }

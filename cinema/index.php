@@ -10,7 +10,10 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Firebase\JWT\JWT;
 
-require_once 'config.php';
+if(file_exists('config.php')){
+  include 'config.php';
+}
+//require_once 'config.php';
 require 'vendor\autoload.php';
 
 $app = new \Slim\App([

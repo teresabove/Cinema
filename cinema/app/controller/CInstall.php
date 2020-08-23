@@ -10,7 +10,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 $app->get('/api/install/verify', function(ServerRequestInterface $request, ResponseInterface $response) {
-     //$install = false;
     if (file_exists('config.php')) {
         $response = json_encode('exists');
     } else {

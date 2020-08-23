@@ -70,7 +70,8 @@ export class PagamentoComponent implements OnInit {
   
   Avviso(){
       this.modalService.open('Per acquistare il biglietto è necessario aver effettutato il login. Sarai reindirizzato alla pagina USER per \n\
-                              poter effettuare il LOGIN o per poter effettuare una REGISTRAZIONE, nel caso non hai un account registrato.');
+                              poter effettuare il LOGIN, nel caso già hai un account registrato \n\
+                              o per poter effettuare una REGISTRAZIONE, nel caso non hai un account registrato.');
                               this.router.navigate(['/user'])
   }
 }

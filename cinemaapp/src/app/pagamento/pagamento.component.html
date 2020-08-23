@@ -7,37 +7,41 @@
     </div>
 
     <div>
-        <h5>Biglietto</h5>
-        <img  src="assets/biglietti.jpg" id="ticket" alt="Card image cap">
-        <p>Puoi presentare questo biglietto all'addetto in ingresso ed entrare in sala senza passare per il botteghino</p>
-        <p> FILM :{{spettacolo.film}}</p>
-        <p> ALLE ORE :{{spettacolo.orario}}</p>
-        <p> IN SALA :{{spettacolo.sala}}</p>
+        <div class="border border-danger">
+            <div class="card-body">
+                <img  src="assets/biglietti.jpg" id="ticket" alt="Card image cap">
+                <p>Puoi presentare questo biglietto all'addetto in ingresso ed entrare in sala <b>senza passare per il botteghino</b></p>
+                <p> <b>FILM</b> :{{spettacolo.film}}</p>
+                <p> <b>ALLE ORE</b> :{{spettacolo.orario}}</p>
+                <p> <b>IN SALA</b> :{{spettacolo.sala}}</p>
 
-        <ul class="list-unstyled">
-            <li class="media" *ngFor="let posto of posti">
-                <div class="media-body"> I tuoi posti sono alla:
-                    <p> fila: {{posto.fila}}</p>
-                    <p> numero: {{posto.numero}}</p>
-                    <p></p>
-                </div>
-            </li>
-        </ul>
+                <ul class="list-unstyled">
+                    <li class="media" *ngFor="let posto of posti">
+                        <div class="media-body"> <b>I tuoi posti sono alla:</b>
+                            <br>
+                            <p> <b>fila:</b> {{posto.fila}}</p>
+                            <p> <b>numero:</b> {{posto.numero}}</p>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <button type="button" class="btn btn-outline-primary" (click)="Pagamento(ticket)">Paga</button> &nbsp; &nbsp;
-    
+    <button type="button" id="paga" class="btn btn-outline-primary" (click)="Pagamento(ticket)">Paga</button> &nbsp; &nbsp;
+
     <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Avviso</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-      <p>Per poter aquistare il biglietto è necessario aver fatto il login. Effettua il <b>login</b> o effettua una <b>registrazione</b> per poter acquistare il biglietto</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
-  </div>
-</ng-template>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Avviso</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Per poter aquistare il biglietto è necessario aver fatto il login. Effettua il <b>login</b> o effettua una <b>registrazione</b> per poter acquistare il biglietto</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+        </div>
+    </ng-template>
 </html>

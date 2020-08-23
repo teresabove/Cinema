@@ -60,8 +60,8 @@ export class AcquistoComponent implements OnInit {
     }
   }
    
- Paga(){
-     //this.modalService.close();
+ Paga(content){
+     this.modalService.dismissAll();
      this.router.navigate(['/pagamento']);
      
  }
