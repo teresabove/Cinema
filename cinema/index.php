@@ -10,21 +10,14 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Firebase\JWT\JWT;
 
+
 if(file_exists('config.php')){
   include 'config.php';
 }
 //require_once 'config.php';
 require 'vendor\autoload.php';
 
-$app = new \Slim\App([
-    'setting' => [
-        'addContentLengthHeader' => false,
-        'displayErrorDetails' => true,
-        'debug' => true,
-    ]
-        ]);
-
-
+$app = new \Slim\App;
 
 require_once 'app\controller\CUser.php';
 require_once 'app\controller\CFilm.php';
@@ -36,11 +29,15 @@ require_once 'app\controller\CPosto.php';
 require_once 'app\controller\CSconto.php';
 require_once 'app\controller\CInstall.php';
 
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
+$container = $app->getContainer();
+$container['view'] = new \Slim\Views\PhpRenderer('view/');
+
+$app->get('/', function (Request $request, Response $response) {
+    $response = $this->view->render($response, "index.html");
     return $response;
 });
+
+
 
 $app->run();
 
