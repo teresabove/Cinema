@@ -4,25 +4,29 @@
             <h2 class="text-center" style="color:cornflowerblue;">{{sala.nomesala.replace('_',' ')}}</h2>
             <div class="card">
                 <div class="card-body">
-                            <p id="legenda"><b>Legenda:</b><br>
-                            <p id="legenda" style="color:lightskyblue;"><b>Posto libero:</b> blu chiaro;<br></p>
-                            <p id="legenda" style="color:red;"><b>Posto occupato:</b> rosso;</p>
+                    <div style="float:left; display:block; margin-top: 30px; margin-left: 100px; padding: 10px; background-color: lightgoldenrodyellow">
+                        <p id="legenda"><b>Legenda:</b><br>
+                        <p id="legenda" style="color:lightseagreen;"><b>Posto libero:</b> blu chiaro<br></p>
+                        <p id="legenda" style="color:red;"><b>Posto occupato:</b> rosso</p> <br> <br>
+                        <p>I posti sono disposti per<br> <b>file</b> e per <b>numeri</b>. Inoltre è <br>indicata la posizione di <br>ognuno
+                            rispetto allo schermo <br>e all'ingresso della sala <br>. Appena selezionato il <br> posto sulla mappa <br> apparirà la scelta dei <br>
+                            posti sulla sinistra.</p>
+                       
+                        <ul *ngFor="let posto of count;">
+                            <b>fila:</b> {{posto.fila}}
+                            <b>numero:</b> {{posto.numero}}
+                        </ul>
+                    </div>
 
-                            <li *ngFor="let posto of count">
-                                <p>Hai selezionato i posti:</p>
-                                fila: {{posto.fila}}
-                                numero: {{posto.numero}}
-                            </li>
-
-
-                    <div id="container">
+                    <div id="container" style="float:left; display:block;">
+                        <p><b>FILA</b></p>
                         <table class="my-table">
-                            <tr class="row" *ngFor="let p of mappa.matrice; index as i">       
+                            <tr class="row" *ngFor="let p of mappa.matrice; index as i">      
                         <table class="my-table">
                             <tr class="row">
                                 <td *ngFor="let p of mappa.matrice[i]; index as j">
                                     <div *ngIf="p.occupato == false; else elseBlock">
-                                        <img src="assets/poltroncina.png" id = "postol" class="card-img-top" alt="..." (click)="Seleziona(p)"></div>
+                                      <img src="assets/poltroncina.png" id = "postol" class="card-img-top" alt="..." (click)="Seleziona(p)"></div>
                             <ng-template #elseBlock>
                                 <img src="assets/poltroncina.png" id = "postoo" class="card-img-top" alt="...">
                             </ng-template>
@@ -30,13 +34,15 @@
                         </table>            
                         </tr>
                     </table>
+                        <img src="assets/rettangolo.png" id ="schermo" class="card-img-top" alt="..."> <br>   
+                        <p><b>SCHERMO</b></p>
                 </div>
-                <img src="assets/rettangolo.png" id ="schermo" class="card-img-top" alt="...">    
+                    
+                
 
             </div>
         </div>
         <button type="button" class="btn btn-outline-primary" (click)="gotoBiglietto()">Conferma</button>
-
     </div>
 </div>
 </html>

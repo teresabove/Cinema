@@ -24,6 +24,11 @@ export class BigliettoComponent implements OnInit {
           localStorage.setItem('posti',JSON.stringify(this.posti));
           this.router.navigate(['/acquisto']);
       }
+      
+      Rimuovi(index: any){
+          this.posti.splice(index,1);
+          console.log(this.posti);
+      }
   
   
 

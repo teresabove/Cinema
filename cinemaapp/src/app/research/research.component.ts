@@ -35,7 +35,7 @@ export class ResearchComponent implements OnInit {
   
    getDetails(titolo: string){
       localStorage.setItem('titolo',titolo);
-      this.router.navigate(['/film']/*{state: {data: {titolo: this.film.titolo}}}*/);
+      this.router.navigate(['/film']);
   }
   
   //cercabyGenere(parametro)

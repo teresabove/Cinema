@@ -20,9 +20,9 @@
             <li class="media" *ngFor="let proiezione of proiezioni">
                 <img class="mr-3" id="img" src="{{proiezione.imgspettacolo}}" alt="Film Image">
                 <div class="media-body">
-                    <p> giorno: {{proiezione.giorno}}</p>
-                    <p> ora: {{proiezione.orario}}</p>
-                    <p> sala: {{proiezione.sala}}</p>
+                    <p> <b>giorno:</b> {{proiezione.giorno}}</p>
+                    <p> <b>ora:</b> {{proiezione.orario}}</p>
+                    <p> <b>sala:</b> {{proiezione.sala.replace('_',' ')}}</p>
                     <button type="button" class="btn btn-lg btn-outline-primary" (click)="Verifica(proiezione)">Verifica posto</button>
                 </div>
             </li>

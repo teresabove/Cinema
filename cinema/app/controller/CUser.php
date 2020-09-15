@@ -19,6 +19,7 @@ require_once 'app\foundation\fdb.php';
 
 //global $config;
 
+/*
 $app->get('/api/jwt', function(ServerRequestInterface $request, ResponseInterface $response, array $args) {
     global $config;
     $authHeader = $request->getHeader('Authorization');
@@ -38,6 +39,8 @@ $app->get('/api/jwt', function(ServerRequestInterface $request, ResponseInterfac
     }
     return $response;
 });
+ * */
+ 
 
 $app->get('/api/profilo/credenziale/{idutente}', function(ServerRequestInterface $request, ResponseInterface $response, array $args) {
     global $config;
@@ -121,7 +124,7 @@ $app->post('/api/user/login', function(ServerRequestInterface $request, Response
     $password_n = json_decode($password);
     $freg = new FRegistrazione();
     $res = $freg->login($email_n, $password_n);
-    if ($res !== false) {
+    if ($res != null) {
         //$secretKey = "Ma69r3Ga8A";
         //$issuerClaim = "APACHESERVER";
         //$audienceClaim = "CINEMA";

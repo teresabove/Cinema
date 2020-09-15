@@ -3,6 +3,8 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import {ApiService} from '../api.service';
 import {guest} from '../Models/guest.model';
 import { Router } from '@angular/router';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-user',
@@ -10,13 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-      constructor(public ApiS: ApiService, private formBuilder: FormBuilder, public router: Router) {}     
-          title = 'Area utente: login e registrazione';
+      constructor(public ApiS: ApiService, private formBuilder: FormBuilder, public router: Router, config: NgbModalConfig, private modalService: NgbModal) {}     
           guest = new guest();
           authForm: FormGroup;
           isSubmitted  =  false;
           control = false;
           control1= false;
+          control2 = false;
           value= "";
              
   ngOnInit() {
@@ -27,7 +29,7 @@ export class UserComponent implements OnInit {
 get formControls() { 
 return this.authForm.controls; }
 
-signIn(){
+signIn(content: any){
     this.isSubmitted = true;
     if(this.authForm.invalid){
       return;
@@ -39,12 +41,15 @@ signIn(){
        this.value=res;
        console.log(this.value);
     });
+    this.control1 = false;
     if (this.value = 'email exists'){
     this.control1= true;
-    } else {
-     // this.sApi.postLogin()
     }
-  }
+    this.open(content);
+    }
+  
+    
+  
   
   signUp(){
       this.isSubmitted = true;
@@ -59,7 +64,7 @@ signIn(){
         this.control = false;
         this.ApiS.setUser(res);
     } else
-    if (res.res== 'ko'){
+    if (res.res = 'ko'){
        this.control = true;
     }
     });
@@ -69,7 +74,13 @@ signIn(){
         localStorage.clear();
         this.router.navigate(['/home']);
     }
+   
+  open(content) {
+    this.modalService.open(content);
+  }
     
+     
+        
  }
   
 /*ngModel, ngForm e ngSubmit sono direttive per creare template-based from for

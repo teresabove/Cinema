@@ -13,10 +13,11 @@ max-width: 500px;
 padding: 20px;
 text-align: center;
 margin-left: 500px;
+
 }
 
 #postol{
-    background: lightblue;
+    background: lightseagreen;
 }
 
 #postoo{
@@ -37,13 +38,14 @@ margin-left: 500px;
 #schermo{
     width: 200px;
     height: 10px;
-    position: relative;
-    left: 550px;
+    position: absolute;
+    margin-top: 9px;
+    left: 910px;
 }
 
 .btn-outline-primary{
     float: right;
-    margin-right: 80px;
+    margin-right: 60px;
     margin-top: 5px;
 }
 
@@ -51,6 +53,15 @@ margin-left: 500px;
     text-align: left;
     top: 500px;
 }
+
+.vertical {
+    display: block;
+    width: 1.1em;
+    margin: 10px;
+    letter-spacing: 1.1em;
+    word-break: break-all;
+}
+
    
 
 

@@ -6,11 +6,16 @@
 #ticket{
     float: left;
     margin-right: 20px;
-    height: 250px;
+    height: 150px;
 }
 
 #paga{
     float: right;
     margin-right: 100px;
     margin-top: 15px;
+    margin-right: 40px;
+}
+
+.card{
+    background-color: lightgoldenrodyellow;
 }

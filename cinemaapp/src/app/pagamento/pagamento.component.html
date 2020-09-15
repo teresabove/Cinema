@@ -1,47 +1,50 @@
 <html>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Pagamento</h1>
-            <p class="lead">Puoi effettuare il pagamento online tramite carta di credito</p>
+            <h1 class="display-4">Prenotazione</h1>
+            <p class="lead">Puoi presentare questo biglietto all'addetto in ingresso ed entrare in sala <b>senza passare per il botteghino</b></p>
         </div>
     </div>
 
     <div>
-        <div class="border border-danger">
+        <div class="card"> <br>
+            <p style="text-align: center"><b>AppCinema.it:</b> il sito web che ti permette di <b>saltare la fila al botteghino</b> prenotando il posto!</p>
+            <p style="text-align: center"><b>AppCinema.it:</b> Sede di Avezzano (AQ),<b> Cinema Astra</b>, zona Nucleo Industraile</p>
             <div class="card-body">
                 <img  src="assets/biglietti.jpg" id="ticket" alt="Card image cap">
-                <p>Puoi presentare questo biglietto all'addetto in ingresso ed entrare in sala <b>senza passare per il botteghino</b></p>
-                <p> <b>FILM</b> :{{spettacolo.film}}</p>
-                <p> <b>ALLE ORE</b> :{{spettacolo.orario}}</p>
-                <p> <b>IN SALA</b> :{{spettacolo.sala}}</p>
+                <p> <b>FILM:</b>  {{spettacolo.film}}</p>
+                <p> <b>ALLE ORE:</b>  {{spettacolo.orario}}</p>
+                <p> <b>IN SALA:</b>  {{spettacolo.sala.replace('_',' ')}}</p>
 
                 <ul class="list-unstyled">
-                    <li class="media" *ngFor="let posto of posti">
-                        <div class="media-body"> <b>I tuoi posti sono alla:</b>
-                            <br>
-                            <p> <b>fila:</b> {{posto.fila}}</p>
-                            <p> <b>numero:</b> {{posto.numero}}</p>
-
+                    <li class="media" *ngFor="let posto of posti;let i as index">
+                        <div class="media-body"> <b>I tuoi posti sono alla:</b> <br>
+                            <b>Posto n° {{i}}</b> &nbsp; &nbsp;
+                            <p> <b>Fila:</b> {{posto.fila}}</p>
+                            <b>Numero:</b> {{posto.numero}}
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <button type="button" id="paga" class="btn btn-outline-primary" (click)="Pagamento(ticket)">Paga</button> &nbsp; &nbsp;
+    <button type="button" id="paga" class="btn btn-outline-primary" (click)="Pagamento(ticket,content1)"> Prenota </button> &nbsp; &nbsp;
 
-    <ng-template #content let-c="close" let-d="dismiss">
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Avviso</h4>
-            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                    <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p>Per poter aquistare il biglietto è necessario aver fatto il login. Effettua il <b>login</b> o effettua una <b>registrazione</b> per poter acquistare il biglietto</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
-        </div>
-    </ng-template>
+ 
+    <ng-template #content1 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">AppCinema.it</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <p><b>Prenotazione avvenuta con successo!</b> I tuoi posti sono prenotati! <br> Presentati in fila con il biglietto in formato cartaceo o tramite smartphone,<br> accompagnato da un documento di riconoscimento.</p>
+      Trovi tutti i biglietti prenotati sul tuo <b>profilo!</b>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Chiudi</button>
+    <button type="button" class="btn btn-outline-dark" (click)="gotoProfilo()">Vai al profilo</button>
+  </div>
+</ng-template>
 </html>

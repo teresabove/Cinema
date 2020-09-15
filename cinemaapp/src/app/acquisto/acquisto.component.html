@@ -3,29 +3,32 @@
         <div>
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">Acquisto biglietti</h1>
+                    <h1 class="display-4">Prenotazione biglietti: scelta tipologia</h1>
                     <p class="lead">
                     <p>Scegli il tipo di biglietto:</p>
 
 
-                    <p>-<b>Full:</b> Riservato allo spettatore con età compresa tra i 15 e 60 anni; <b>COSTO 6.00 €</b></p>
+                    <p>-<b>Full:</b> Riservato allo spettatore con età compresa tra i 15 e 60 anni; <b>COSTO 7.00 €</b></p>
                     <p>-<b>Young:</b> Riservato allo spettatore con età compresa tra i 0 e 15 anni; <b>COSTO 5.00 €</b></p>
                     <p>-<b>Senior:</b> Riservato allo spettatore con età maggiore di 60 anni; <b>COSTO 5.00 €</b></p>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <li class="list-unstyled" id="scegli" *ngFor="let posto of posti; let i = index">
+                        <b>Posto n° {{i+1}}</b> &nbsp; &nbsp;
+                        <b>Fila:</b> {{posto.fila}}  &nbsp; &nbsp;
+                        <b>Numero:</b> {{posto.numero}} &nbsp; &nbsp; &nbsp;
 
-            <li class="list-unstyled" id="scegli" *ngFor="let posto of posti">
-                <b>Posto</b> &nbsp; &nbsp; &nbsp;
-                Fila: {{posto.fila}}  &nbsp; &nbsp;
-                Numero: {{posto.numero}}
-                
-                <select style="width:200px" class="custom-select"  (change)="Scegli($event)">
-                    <option selected>Tipologia</option>
-                    <option value="full">Full</option>
-                    <option value="young">Young</option>
-                    <option value="senior">Senior</option>
-                </select>           
-            </li>
+                        <select style="width:200px" class="custom-select"  (change)="Scegli($event)">
+                            <option selected>Tipologia</option>
+                            <option value="full">Full</option>
+                            <option value="young">Young</option>
+                            <option value="senior">Senior</option>
+                        </select>           
+                    </li>
+                </div>
+            </div>  
         </div>
     </div>
 
@@ -34,23 +37,27 @@
 
     <ng-template #mymodal let-modal>
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Acquista</h4>
+            <h4 class="modal-title" id="modal-basic-title">Prenotazione</h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true">×</span>
             </button>
         </div>
         <div class="modal-body">
-            Cosa hai acquistato:
-
-            <li class="media" *ngFor="let posto of posti">              
-                <p> Numero fila: {{posto.fila}} </p>  &nbsp;              
-                <p> Numero posto: {{posto.numero}}</p> &nbsp;
-                <p> Tipologia <p>          
+            <b>Cosa hai acquistato:</b>
+            <li class="media" *ngFor="let posto of posti; let i = index">
+                <b>Posto n° {{i+1}}</b> &nbsp; &nbsp;
+                <p> <b>Numero fila:</b> {{posto.fila}} </p>  &nbsp; <br>             
+                <p> <b>Numero posto:</b> {{posto.numero}}</p> &nbsp; <br>  
             </li>
-            TOTALE: {{importi}} € 
+            <li class="media" *ngFor="let string of tipi; let i = index">
+                <b>Posto n° {{i+1}}</b> &nbsp; &nbsp;
+                <p> <b>Tipologia:</b> {{tipi}} </p>  &nbsp; <br>               
+            </li>
+            
+            <h3><b>TOTALE:</b> {{importi}} € </h3>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-lg btn-outline-primary" (click)="Paga(mymodal)">Paga</button>
+            <button class="btn btn-lg btn-outline-primary" (click)="Paga(mymodal)">Prenota</button>
 
         </div>
     </ng-template>

@@ -3,10 +3,10 @@
         <div class="container">
             <h1 class="display-4">Area utente</h1>
             <p class="lead">Questo spazio è riservato all'utente per il login e la registrazione. 
-            Se sei un nuovo utente, inserisci email e password ed effettua la registrazione in pochi secondi.
-            Se sei già nostro utente e desideri fare il login, inserisci le credenziali ed effettua il login.
-            Ricorda che, nel tuo profilo, trovi i biglietti che hai acquistato, puoi modificare i dati personali e 
-            aggiungere carte di credito per il pagamento on-line.
+                Se sei un nuovo utente, inserisci email e password ed effettua la registrazione in pochi secondi.
+                Se sei già nostro utente e desideri fare il login, inserisci le credenziali ed effettua il login.
+                Ricorda che, nel tuo profilo, trovi i biglietti che hai acquistato, puoi modificare i dati personali e 
+                aggiungere carte di credito per il pagamento on-line.
             </p>
         </div>
     </div>
@@ -14,7 +14,7 @@
     <div>
         <div class="card">
             <div class="card-body">
-                <form [formGroup]="authForm" (ngSubmit)= "signIn()">
+                <form [formGroup]="authForm" (ngSubmit)= "signIn(content)">
                     <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
                         <input type="email" placeholder="Email" formControlName="email">
                     </p>
@@ -28,24 +28,34 @@
                         <div *ngIf="formControls.password.errors.required">Password is required</div>
                     </div>
                     <p>
-                        <button type="button" class="btn btn-outline-primary" (click)="signIn()">REGISTRAZIONE</button> &nbsp; &nbsp; 
+                        <button type="button" class="btn btn-outline-primary" (click)="signIn(content)">REGISTRAZIONE</button> &nbsp; &nbsp; 
                         <button type="button" class="btn btn-outline-primary" (click)="signUp()">LOGIN</button>      
                     </p>
-                </form>                 
+                </form>
 
-                <div *ngIf="control === false; else elseBlock"></div>
-                <ng-template #elseBlock>
-                    <ngb-alert [dismissible]="false">
-                        <strong>Attenzione!</strong> Le credenziali sono errate, il login non è valido!
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">AppCinema.it</h4>
+                        <span aria-hidden="true">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngIf="control1 === false; else elseBlock"> Registrazione avvenuta con successo! <br> Puoi eseguire il primo login per configurare il profilo!</div>
+                        <ng-template #elseBlock>
+                            <strong>Attenzione!</strong> L'email esiste già! Scegli un altro indirizzo per il tuo account!
+                        </ng-template>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Ok</button>
+                    </div>
+                </ng-template>
+
+                <div *ngIf="control === false; else elseBlock1"></div>
+                <ng-template #elseBlock1>
+                    <ngb-alert>
+                        <strong>Attenzione!</strong> Le credenziali non sono valide! Il login non è stato effettuato!
                     </ngb-alert>
                 </ng-template>
 
-                <div *ngIf="control1 === false; else elseBlock"></div>
-                <ng-template #elseBlock>
-                    <ngb-alert [dismissible]="false">
-                        <strong>Attenzione!</strong> L'email esiste gia!
-                    </ngb-alert>
-                </ng-template>
 
             </div>
         </div>

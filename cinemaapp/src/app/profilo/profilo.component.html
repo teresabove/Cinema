@@ -1,32 +1,33 @@
 <html>
-    <br>
-    <br>
-    <br>
+
     <div class="card" >
-        <img class="avatar" src="{{prof.imagepath}}" alt="immagine del profilo non trovata">
+
+        <img class="avatar" src="assets/user.png" alt="immagine del profilo non trovata" >
         <!----img src="{{profilo.imagepath}}" class="card-img-top" alt="..."-->
+
+
         <div class="card-body">
-            <h5 class="card-title">IL MIO PROFILO</h5>
-            <p class="card-text">Nome: {{prof.nome}} </p>
-            <p class="card-text">Cognome: {{prof.cognome}} </p>
-            <p class="card-text">Indirizzo: {{prof.indirizzo}} </p>
-            <p class="card-text">Città: {{prof.citta}}</p>
-            <p class="card-text">Data di nascita: {{prof.datadinascita}} </p>
-            <p class="card-text">Telefono: {{prof.telefono}} </p>
-            <p class="card-text">Lista sconti: {{prof.a_listasconti}}  </p>
+            <h5 class="card-title" style="color: lightseagreen">IL MIO PROFILO</h5>
+            <p class="card-text"><b>Nome:</b> {{prof.nome}} </p>
+            <p class="card-text"><b>Cognome:</b> {{prof.cognome}} </p>
+            <p class="card-text"><b>Indirizzo:</b> {{prof.indirizzo}} </p>
+            <p class="card-text"><b>Città: </b>{{prof.citta}}</p>
+            <p class="card-text"><b>Data di nascita:</b> {{prof.datadinascita}} </p>
+            <p class="card-text"><b>Telefono:</b> {{prof.telefono}} </p>
+
 
             <div *ngIf="prof.configurato == true; else elseBlock"></div>
             <ng-template #elseBlock><ngb-alert [dismissible]="false">
                     <strong>Attenzione!</strong> Il tuo profilo è vuoto, clicca su configura per aggiungere informazioni!
-                </ngb-alert></ng-template> 
+                </ngb-alert>
+            </ng-template> 
 
-
-
-
-            <button class="btn btn-lg btn-outline-primary" (click)="modifica(content2)">Configura </button>   <br><br>
-            <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>  <br><br>
-            <button class="btn btn-lg btn-outline-primary" (click)="getCarte(content1)">Le mie carte</button>  <br><br>
-            <button class="btn btn-lg btn-outline-primary" (click)="logOut()">Log out</button>  <br><br>
+            
+                <button class="btn btn-lg btn-outline-primary" (click)="modifica(content2)">Configura </button>   <br><br>
+                <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>  <br><br>
+                <button class="btn btn-lg btn-outline-primary" (click)="getCarte(content1)">Le mie carte</button>  <br><br>
+                <button class="btn btn-lg btn-outline-primary" (click)="logOut()">Log out</button>  <br><br>
+           
         </div>
     </div>
 

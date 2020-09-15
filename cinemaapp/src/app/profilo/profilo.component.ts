@@ -99,6 +99,7 @@ export class ProfiloComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+  
 }
   
     

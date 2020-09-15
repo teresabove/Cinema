@@ -46,7 +46,7 @@ class FRegistrazione extends fdb {
         return $res=$this->getObject();
     }
     
-    //PRIMA DELL'ISCIRIZIONE, VERIFICO SE L'EMAIL è GIA PRESENTE NELLA TABELLA DEL DB
+    //PRIMA DELL'ISCRIZIONE, VERIFICO SE L'EMAIL è GIA PRESENTE NELLA TABELLA DEL DB
     public function ifexistemail($email){
        $query= 'SELECT * FROM registrazione WHERE email = '. '\''.$email.'\'';
        $res=$this->_connection->query($query);

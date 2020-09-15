@@ -31,8 +31,8 @@
                         <li class="media" *ngFor="let film of films">
                             <img class="mr-3" src="{{film.imagepath}}" id="img" alt="Film Image">
                             <div class="media-body">
-                                <h5 class="mt-0 mb-1">TITOLO: {{film.titolo}}</h5>
-                                <p> GENERI: {{film.a_generi}}</p>
+                                <h5 class="mt-0 mb-1"><b>TITOLO: {{film.titolo}}</b></h5>
+                                <p> <b>GENERI:</b> {{film.a_generi}}</p>
                                 <button type="button" class="btn btn-outline-primary" (click)="getDetails(film.titolo)">Dettagli</button>
                             </div>
                         </li>

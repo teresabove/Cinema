@@ -17,12 +17,14 @@ export class AcquistoComponent implements OnInit {
   public importo: number = 0;
   closeResult: string;
   public tipo: string = "";
+  public tipi: Array<string>;
   
   ngOnInit(): void {
       var posti = JSON.parse(localStorage.getItem('posti'));
       this.posti=posti;
       let length = this.posti.length;
       this.importi = new Array(length);
+      this.tipi = new Array(length);
       console.log(this.importi);          
   }
   
@@ -31,14 +33,18 @@ export class AcquistoComponent implements OnInit {
       console.log(this.tipo);
       for (let i=0; i< this.importi.length; i++){
       if (this.tipo == 'young'){
-          this.importi[i]=5
+          this.importi[i]=6
+          this.tipi[i]= "Young";
       } else if (this.tipo == 'full'){
-          this.importi[i]=6;
+          this.importi[i]=7;
+          this.tipi[i]= "Full";
       }else if (this.tipo == 'senior'){
           this.importi[i]=5;
+          this.tipi[i]= "Senior";
       }
      }
       console.log(this.importi);
+      console.log(this.tipi);
       localStorage.setItem('importo',JSON.stringify(this.importi));
     }
     

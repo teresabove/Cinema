@@ -50,10 +50,11 @@ export class PagamentoComponent implements OnInit {
      this.sApi.getCredenziale(idutente);
   }
   
-  Pagamento(ticket: biglietto){
+  Pagamento(ticket: biglietto, content1: any){
       this.sApi.postBiglietto(ticket).subscribe(res=>{
         console.log('response',res)}); 
-       this.OccupaPosto(this.posti); 
+       this.OccupaPosto(this.posti);
+       this.open(content1); 
             
   }
   
@@ -63,7 +64,7 @@ export class PagamentoComponent implements OnInit {
       posto.proiezione = this.spettacolo.idproiezione;
       console.log(posto);
       this.sApi.postPosto(posto).subscribe(res=>{
-          console.log('response',res)
+          console.log('response',res);
       });
    }  
   }
@@ -71,7 +72,16 @@ export class PagamentoComponent implements OnInit {
   Avviso(){
       this.modalService.open('Per acquistare il biglietto è necessario aver effettutato il login. Sarai reindirizzato alla pagina USER per \n\
                               poter effettuare il LOGIN, nel caso già hai un account registrato \n\
-                              o per poter effettuare una REGISTRAZIONE, nel caso non hai un account registrato.');
-                              this.router.navigate(['/user'])
+                              o per poter effettuare una REGISTRAZIONE, nel caso non hai un account.');
+                              this.router.navigate(['/user']);
   }
+  
+    open(content1: any) {
+    this.modalService.open(content1);
+  }
+  
+ gotoProfilo(){
+     this.modalService.dismissAll();
+     this.router.navigate(['/profilo']);
+ }
 }

@@ -178,6 +178,13 @@ export class ApiService {
         const headers = {'content-type': 'application/json'};
         return this.httpClient.get<any>(this.path+'index.php/api/install/verify', {'headers': headers});
     }
+    
+    /*
+    uploadImage(){
+        const headers = {'content-type': 'application/json'};
+        return this.httpClient.post<any>(this.path+'index.php/api/profilo/uploadimage', {'headers': headers});      
+    }
+    */
 
     
         

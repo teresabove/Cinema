@@ -31,12 +31,12 @@ public res: string= "";
    gotoRicerca(){
       this.router.navigate(['/search']);
   }
-  
+  /*
   prova(){
       this.sApi.getprova().subscribe(res=>{
           console.log('riposta api prova',res);
       });
-  }
+  }*/
   
     verificaInstall(){
         this.sApi.getInstall().subscribe(res=>{

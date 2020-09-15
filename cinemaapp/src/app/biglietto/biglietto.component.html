@@ -8,15 +8,16 @@
         </div>
         <img src="assets/biglietti.jpg" id="ticket" alt="Card image cap">
         <div>
-            <p><h5>Riepilogo biglietto</h5>
+            <p><h5><b>Riepilogo biglietto</b></h5>
             <p>Qui sono descritti i biglietti acquistati dall'utente:</p>
             <div *ngFor="let posto of posti; let i = index">  
                 <br>
-                <p><b>Posto {{i+1}} </b></p>
-                <p> Fila: {{posto.fila}} </p> &nbsp; &nbsp;
-                <p> Numero  : {{posto.numero}}</p>
+                <p><b>Posto n° {{i+1}} </b></p>
+                <p><b> Fila:</b> {{posto.fila}}</p>
+                <b> Numero:</b> {{posto.numero}} &nbsp; &nbsp; 
+                <button type="button" class="btn btn-outline-primary" (click)="Rimuovi(i)">Rimuovi posto</button>
             </div>
         </div>
-    </div>
+    </div> <br> <br>
     <button type="button" class="btn btn-outline-primary" (click)="gotoAcquisto()">Procedi all'acquisto</button>
 </html>

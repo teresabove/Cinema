@@ -1,15 +1,24 @@
 <html>
     <body>
-    <div>
-        <img class="mr-3" id="img" src="{{film.imagepath}}" alt="Film Image">
-        <p> TITOLO: {{film.titolo}}</p>
-        <p> REGISTA: {{film.regista}}</p>
-        <p> ANNO DI PRODUZIONE: {{film.anno}}</p>
-        <p> CAST: {{film.a_cast}}</p>
-        <p> GENERI: {{film.a_generi}}</p>
-        <p> CASA DI PRODUZIONE: {{film.casaproduzione}}</p>
-        <p> TRAMA: {{film.trama}}</p>
-    </div>
-    <button type="button" class="btn btn-outline-primary" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
-</body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">I dettagli del film</h1>
+                <p class="lead">Tutto quello che c'è da sapere! </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <img class="mr-3" id="img" src="{{film.imagepath}}" alt="Film Image">
+                <p> <b>TITOLO: </b>{{film.titolo}}</p>
+                <p> <b>REGISTA:</b> {{film.regista}}</p>
+                <p> <b>ANNO DI PRODUZIONE:</b> {{film.anno}}</p>
+                <p> <b>CAST:</b> {{film.a_cast}}</p>
+                <p> <b>GENERI:</b> {{film.a_generi}}</p>
+                <p> <b>CASA DI PRODUZIONE:</b> {{film.casaproduzione}}</p>
+                <p> <b>TRAMA:</b> {{film.trama}}</p>
+            </div>
+            <button type="button" class="btn btn-outline-primary" style="width:200px; margin-left: 900px;" [routerLink]="['/spettacoli/', film.titolo]">Verifica spettacoli</button>
+        </div>
+        
+    </body>
 </html>
