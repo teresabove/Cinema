@@ -7,6 +7,7 @@ import {credenziale} from '../Models/credenziale.model';
 import {biglietto} from '../Models/biglietto.model';
 import { NgbModalConfig, NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+
   
         
  @Component({
@@ -38,7 +39,7 @@ export class ProfiloComponent implements OnInit {
     getCartebyId(){
         let idutente= localStorage.getItem('idutente');
        this.sApi.getCredenziale(idutente).subscribe(res =>{
-         this.carte=res;
+         this.carte=res;;
          console.log('carte caricate',this.carte);
     });
     }
@@ -47,6 +48,8 @@ export class ProfiloComponent implements OnInit {
         let idutente= localStorage.getItem('idutente');
        this.sApi.getBigbyId(idutente).subscribe(res =>{
          this.biglietti=res;
+         let data = JSON.stringify(this.biglietti);
+         console.log(data);
          console.log('bigl acquistati',this.biglietti);
     });
     }

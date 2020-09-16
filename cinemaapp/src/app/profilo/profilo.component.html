@@ -24,7 +24,7 @@
 
             
                 <button class="btn btn-lg btn-outline-primary" (click)="modifica(content2)">Configura </button>   <br><br>
-                <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">I miei acquisti</button>  <br><br>
+                <button class="btn btn-lg btn-outline-primary" (click)="getAcquisti(content)">Le mie prenotazioni</button>  <br><br>
                 <button class="btn btn-lg btn-outline-primary" (click)="getCarte(content1)">Le mie carte</button>  <br><br>
                 <button class="btn btn-lg btn-outline-primary" (click)="logOut()">Log out</button>  <br><br>
            
@@ -35,7 +35,7 @@
     <!-->  MODAL BIGLIETTI ACQUISTATI</!--->
     <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Biglietti acquistati</h4>
+            <h4 class="modal-title" id="modal-basic-title">Biglietti prenotati</h4>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                     <span aria-hidden="true">&times;</span>
             </button>

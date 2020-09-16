@@ -5,7 +5,7 @@
             <p class="lead">Questo spazio è riservato all'utente per il login e la registrazione. 
                 Se sei un nuovo utente, inserisci email e password ed effettua la registrazione in pochi secondi.
                 Se sei già nostro utente e desideri fare il login, inserisci le credenziali ed effettua il login.
-                Ricorda che, nel tuo profilo, trovi i biglietti che hai acquistato, puoi modificare i dati personali e 
+                Ricorda che, nel tuo profilo, trovi i biglietti che hai prenotato, puoi modificare i dati personali e 
                 aggiungere carte di credito per il pagamento on-line.
             </p>
         </div>
@@ -39,7 +39,7 @@
                         <span aria-hidden="true">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <div *ngIf="control1 === false; else elseBlock"> Registrazione avvenuta con successo! <br> Puoi eseguire il primo login per configurare il profilo!</div>
+                        <div *ngIf="control1 == false; else elseBlock"> Registrazione avvenuta con successo! <br> Puoi eseguire il primo login per configurare il profilo!</div>
                         <ng-template #elseBlock>
                             <strong>Attenzione!</strong> L'email esiste già! Scegli un altro indirizzo per il tuo account!
                         </ng-template>

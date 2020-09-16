@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ago 20, 2020 alle 23:05
+-- Creato il: Set 16, 2020 alle 01:25
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.2.30
 
@@ -38,14 +38,8 @@ CREATE TABLE `biglietto` (
 --
 
 INSERT INTO `biglietto` (`riepilogo`, `idutente`, `idbiglietto`) VALUES
-('[{\"occupato\":false,\"fila\":8,\"numero\":13}] {\"film\":\"Madagascar\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-08-31\",\"orario\":\"00:00:00\",\"tipo\":\"2\",\"idproiezione\":\"1\"}', '4', 1),
-('[{\"occupato\":false,\"fila\":8,\"numero\":9},{\"occupato\":false,\"fila\":9,\"numero\":9}] {\"film\":\"Madagascar\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-08-31\",\"orario\":\"00:00:00\",\"tipo\":\"2\",\"idproiezione\":\"1\"}', '4', 2),
-('[{\"occupato\":false,\"fila\":1,\"numero\":3}] {\"film\":\"Madagascar\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-08-31\",\"orario\":\"00:00:00\",\"tipo\":\"2\",\"idproiezione\":\"1\"}', '4', 3),
-('[{\"occupato\":false,\"fila\":5,\"numero\":8},{\"occupato\":false,\"fila\":6,\"numero\":8}] {\"film\":\"titanic\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-09-26\",\"orario\":\"20:00:00\",\"tipo\":\"3\",\"idproiezione\":\"3\",\"imgspettacolo\":\"assets/3d.jpg\"}', '4', 4),
-('[{\"occupato\":false,\"fila\":3,\"numero\":5}] {\"film\":\"Madagascar\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-08-31\",\"orario\":\"00:00:00\",\"tipo\":\"2\",\"idproiezione\":\"1\",\"imgspettacolo\":\"assets/2d.png\"}', '12', 5),
-('[{\"occupato\":false,\"fila\":9,\"numero\":14}] {\"film\":\"titanic\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-09-26\",\"orario\":\"20:00:00\",\"tipo\":\"3\",\"idproiezione\":\"3\",\"imgspettacolo\":\"assets/3d.jpg\"}', '12', 6),
-('[{\"occupato\":false,\"fila\":1,\"numero\":1}] {\"film\":\"titanic\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-09-26\",\"orario\":\"20:00:00\",\"tipo\":\"3\",\"idproiezione\":\"3\",\"imgspettacolo\":\"assets/3d.jpg\"}', '4', 7),
-('[{\"occupato\":false,\"fila\":8,\"numero\":2}] {\"film\":\"Madagascar\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-08-31\",\"orario\":\"00:00:00\",\"tipo\":\"2\",\"idproiezione\":\"1\",\"imgspettacolo\":\"assets/2d.png\"}', '4', 8);
+('[{\"occupato\":false,\"fila\":5,\"numero\":5}] {\"film\":\"Madagascar\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-08-31\",\"orario\":\"18:00:00\",\"tipo\":\"2\",\"idproiezione\":\"1\",\"imgspettacolo\":\"assets/2d.png\"}', '4', 16),
+('[{\"occupato\":false,\"fila\":7,\"numero\":10}] {\"film\":\"titanic\",\"sala\":\"sala_rossa\",\"giorno\":\"2020-09-26\",\"orario\":\"20:00:00\",\"tipo\":\"3\",\"idproiezione\":\"3\",\"imgspettacolo\":\"assets/3d.jpg\"}', '4', 17);
 
 -- --------------------------------------------------------
 
@@ -104,9 +98,9 @@ CREATE TABLE `film` (
 
 INSERT INTO `film` (`titolo`, `regista`, `anno`, `durata`, `a_generi`, `a_cast`, `casaproduzione`, `trama`, `imagepath`) VALUES
 ('Flashdance', 'Adrian Line', 1983, 135, 'romantico,ballo', 'Jennifer Beals,Micheal Nouri', 'PolyGram Pictures', 'La stupenda diciottenne Alex lavora come saldatrice in una grande officina di Pittsburgh, in Pennsylvania, e arrotonda il salario ballando la sera in un locale notturno. Il suo sogno Ã¨ diventare danzatrice professionista', 'assets/flashdance.jpg'),
-('le pagine della nostra vita', 'Nicholas Spaks', 2006, 120, 'Romantico, Drammatico', 'Ryan Gosgling', 'Universal', 'In una casa di riposo un uomo racconta ad una donna la storia di un grande amore tra due giovani nella North Carolina degli anni quaranta.', 'assets/thenotebook.jpg'),
-('Madagascar', 'Mario Rossi', 2008, 120, 'Commedia, Animazione', 'I pinguini ', 'DreamWorks', 'Una zebra in uno zoo, stanca della vita in cattività, decide di scappare, sfruttando un\'ingegnosa idea di un gruppo di pinguini. Quando i suoi amici si accorgono della sua scomparsa, decidono di andarlo a cercare per riportarlo indietro.', 'assets/Madagascar.jpg'),
-('titanic', 'qualcuno', 1998, 200, 'drammatico, romantico', 'leonardo di caprio', 'dreamworks', 'Il transatlantico Titanic, considerato un gioiello tecnologico ed il più lussuoso piroscafo da crociera mai realizzato, salpa dall\'Inghilterra il dieci aprile del 1912 con oltre 1500 passeggeri a bordo per il suo viaggio inaugurale. I viaggiatori sono collocati in tre classi, riflesso delle differenze sociali.', 'assets/titanic.jpg'),
+('Le pagine della nostra vita', 'Nicholas Spaks', 2006, 120, 'Romantico, Drammatico', 'Ryan Gosgling', 'Universal', 'In una casa di riposo un uomo racconta ad una donna la storia di un grande amore tra due giovani nella North Carolina degli anni quaranta.', 'assets/thenotebook.jpg'),
+('Madagascar', 'Erik Darnell, Tom McGrath', 2005, 120, 'Commedia, Animazione', 'I pinguini e gli animali dello zoo di Manatthan', 'DreamWorks', 'Una zebra in uno zoo, stanca della vita in cattività, decide di scappare, sfruttando un\'ingegnosa idea di un gruppo di pinguini. Quando i suoi amici si accorgono della sua scomparsa, decidono di andarlo a cercare per riportarlo indietro.', 'assets/Madagascar.jpg'),
+('Titanic', 'James Cameron', 1998, 200, 'drammatico, romantico', 'Leonardo Di Caprio, Kate Winslet', 'Paramounth Pictures, 20Th Century Fox', 'Il transatlantico Titanic, considerato un gioiello tecnologico ed il più lussuoso piroscafo da crociera mai realizzato, salpa dall\'Inghilterra il dieci aprile del 1912 con oltre 1500 passeggeri a bordo per il suo viaggio inaugurale. I viaggiatori sono collocati in tre classi, riflesso delle differenze sociali.', 'assets/titanic.jpg'),
 ('Wolf of Wall Street', 'Martin Scorsese', 2013, 180, 'commedia,biografico', 'Leonardo Di caprio,Margot Robbie', 'Appian Way Productions', 'New York, anni 80. Eccessi e corruzione segnano la curva discendente della brillante carriera di Jordan Belfort, un ambizioso broker in grado di guadagnare migliaia di dollari al minuto e di spenderne altrettanti in droga e futilitÃ .', 'assets/thewolfof.jpg');
 
 -- --------------------------------------------------------
@@ -150,16 +144,8 @@ CREATE TABLE `posto` (
 --
 
 INSERT INTO `posto` (`fila`, `numero`, `occupato`, `proiezione`) VALUES
-('8', 13, 1, '1'),
-('9', 9, 1, '1'),
-('8', 9, 1, '1'),
-('1', 3, 1, '1'),
-('6', 8, 1, '3'),
-('5', 8, 1, '3'),
-('3', 5, 1, '1'),
-('9', 14, 1, '3'),
-('1', 1, 1, '3'),
-('8', 2, 1, '1');
+('5', 5, 1, '1'),
+('7', 10, 1, '3');
 
 -- --------------------------------------------------------
 
@@ -185,9 +171,8 @@ CREATE TABLE `profilo` (
 --
 
 INSERT INTO `profilo` (`idutente`, `nome`, `cognome`, `indirizzo`, `datadinascita`, `citta`, `telefono`, `a_listasconti`, `imagepath`, `configurato`) VALUES
-(4, 'Teresa', 'Bove', 'Via Bologna 3', '26-08-1995', 'Luco dei Marsi', '3278385503', '', 'assets/me.jpg', 1),
-(12, 'Adriano', 'Curti', 'Via Ugo Foscolo 13', '20-10-1996', 'Celano (AQ)', '3289654123', '', '', 1),
-(13, 'Mario', 'Rossi', 'Via Roma, 1', '01-01-1990', 'Milano', '021010101010', '', '', 1);
+(4, 'Teresa', 'Bove', 'Via Bologna', '26-08-1995', 'Luco dei Marsi (AQ)', '3278385503', '', 'assets/user.png', 1),
+(12, 'Adriano', 'Curti', 'Via Ugo Foscolo 13', '20-10-1996', 'Celano (AQ)', '3289654123', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -210,8 +195,9 @@ CREATE TABLE `proiezione` (
 --
 
 INSERT INTO `proiezione` (`film`, `sala`, `giorno`, `orario`, `tipo`, `idproiezione`, `imgspettacolo`) VALUES
-('Madagascar', 'sala_rossa', '2020-08-31', '00:00:00', '2', 1, 'assets/2d.png'),
-('titanic', 'sala_rossa', '2020-09-26', '20:00:00', '3', 3, 'assets/3d.jpg');
+('Madagascar', 'sala_rossa', '2020-08-31', '18:00:00', '2', 1, 'assets/2d.png'),
+('titanic', 'sala_rossa', '2020-09-26', '20:00:00', '3', 3, 'assets/3d.jpg'),
+('The Wolf of Wall Street', 'sala_blu', '2020-10-01', '21:00:00', '2', 4, 'assets/2d.png');
 
 -- --------------------------------------------------------
 
@@ -232,7 +218,7 @@ CREATE TABLE `registrazione` (
 INSERT INTO `registrazione` (`password`, `email`, `idutente`) VALUES
 ('26081995', 'teresa.4us@gmail.com', 4),
 ('20101996', 'adrianoc@gmail.com', 12),
-('provaprova', 'prova@gmail.com', 13);
+('pwprova', 'prova@gmail.com', 25);
 
 -- --------------------------------------------------------
 
@@ -292,6 +278,12 @@ ALTER TABLE `film`
   ADD PRIMARY KEY (`titolo`);
 
 --
+-- Indici per le tabelle `posto`
+--
+ALTER TABLE `posto`
+  ADD PRIMARY KEY (`proiezione`);
+
+--
 -- Indici per le tabelle `profilo`
 --
 ALTER TABLE `profilo`
@@ -323,25 +315,25 @@ ALTER TABLE `sala`
 -- AUTO_INCREMENT per la tabella `biglietto`
 --
 ALTER TABLE `biglietto`
-  MODIFY `idbiglietto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idbiglietto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT per la tabella `profilo`
 --
 ALTER TABLE `profilo`
-  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT per la tabella `proiezione`
 --
 ALTER TABLE `proiezione`
-  MODIFY `idproiezione` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idproiezione` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `registrazione`
 --
 ALTER TABLE `registrazione`
-  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

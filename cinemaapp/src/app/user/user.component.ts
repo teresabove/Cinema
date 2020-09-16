@@ -18,7 +18,6 @@ export class UserComponent implements OnInit {
           isSubmitted  =  false;
           control = false;
           control1= false;
-          control2 = false;
           value= "";
              
   ngOnInit() {
@@ -40,10 +39,11 @@ signIn(content: any){
     this.ApiS.postGuest(this.guest).subscribe(res=>{
        this.value=res;
        console.log(this.value);
-    });
+    });;
+    if (this.value == 'email exists'){
     this.control1 = false;
-    if (this.value = 'email exists'){
-    this.control1= true;
+    } else {
+        this.control1 = true;
     }
     this.open(content);
     }
